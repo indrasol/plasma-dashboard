@@ -1,0 +1,41 @@
+.login-container {
+  text-align: center;
+  padding-top: 80px;
+  background-color: #F4F9FD;
+  height: 100vh;
+}
+
+.logo {
+  height: 60px;
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.login-form input {
+  display: block;
+  margin: auto;
+  padding: 12px;
+  width: 260px;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  background-color: #005DAA; /* Primary blue */
+  color: white;
+  border: none;
+  padding:12px;
+  width:260px;
+}
+
+.highlight {
+   color:#005DAA; 
+   font-weight:bold;
+}
+
+.error {
+   color:red; 
+   margin-top:.5rem; 
+   font-size:.9rem;
+}
