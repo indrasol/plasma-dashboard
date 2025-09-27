@@ -12,7 +12,7 @@ import {
 
 import ClusterSummaryPanel from './ClusterSummaryPanel'; // ⬅️ Import your fixed component
 
-const LOOKALIKE_API_URL = '/lookalike';
+const LOOKALIKE_API_URL = 'https://donor-lookalike-api.onrender.com';
 
 export default function LookalikeDashboard() {
   const [donors, setDonors] = useState([]);
