@@ -18,7 +18,7 @@ import CampaignDashboard from '/src/components/CampaignConversionDashboard';
 // ✅ Use full influencer dashboard instead of table-only view
 import TopInfluencers from '/src/components/TopInfluencers'; 
 import DonorPanel from './components/DonorPanel';
-import SettingsDashboard from '/src/pages/SettingsDashboard';
+import SettingsDashboard from '/src/pages/settingsDashboard';
 
 function App() {
   const [user, setUser] = useState(null);
