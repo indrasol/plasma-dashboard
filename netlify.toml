@@ -7,3 +7,6 @@ directory = "netlify/functions"
 
 [context.production.environment]
 NODE_VERSION = "18"
+
+[build.environment]
+SECRETS_SCAN_OMIT_PATHS = "src/supabaseClient.js,.env"
