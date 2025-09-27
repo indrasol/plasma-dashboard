@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../supabaseClient';
 import { utils, writeFileXLSX } from 'xlsx'; // ✅ make sure writeFileXLSX is used here!
-
-const supabaseUrl = 'https://hacnyrphweteuobxpzaw.supabase.co'; // Replace this!
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhY255cnBod2V0ZXVvYnhwemF3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NjE3MzUyNywiZXhwIjoyMDcxNzQ5NTI3fQ.6qz9pOVyxNtM5qNuVN8JauhnFijTn-wZYNTDfegilu4';       // Replace with env variable in prod
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function TopLookalikesTable() {
   const [matches, setMatches] = useState([]);
