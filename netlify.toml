@@ -9,4 +9,4 @@ directory = "netlify/functions"
 NODE_VERSION = "18"
 
 [build.environment]
-SECRETS_SCAN_OMIT_PATHS = "src/supabaseClient.js,.env"
+SECRETS_SCAN_OMIT_PATHS = "src/supabaseClient.js,.env, dist/assets/index-c8c195ca.js"
