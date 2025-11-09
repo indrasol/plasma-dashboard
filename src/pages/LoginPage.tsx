@@ -79,37 +79,99 @@ export default function LoginPage({ setUser }: LoginPageProps) {
 
   return (
     <div className="login-container">
-      <img src="/Logo-with-tagline.png" alt="Plasmalytics Logo" className="logo" />
+      {/* Home Button - Top Right */}
+      <button 
+        className="home-icon-btn-page" 
+        onClick={() => window.location.href = '/'}
+        title="Go to Homepage"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" className="home-icon">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </button>
 
-      <h1>
-        Welcome to <span className="highlight">Plasmalytics</span>
-      </h1>
+      {/* Left Side - Decorative */}
+      <div className="login-left-side">
+        <div className="decorative-background">
+          <div className="decorative-lines">
+            <div className="line line-1"></div>
+            <div className="line line-2"></div>
+            <div className="line line-3"></div>
+          </div>
+          <div className="dot-groups">
+            <div className="dot dot-1"></div>
+            <div className="dot dot-2"></div>
+            <div className="dot dot-3"></div>
+            <div className="dot dot-4"></div>
+            <div className="dot dot-5"></div>
+          </div>
+        </div>
+        <div className="left-content">
+          <h1 className="brand-title">Welcome to CentroidAI</h1>
+          <p className="brand-subtitle">Advanced Donor Analytics Platform</p>
+          <div className="feature-icons-row">
+            <div className="feature-icon-item">
+              <div className="feature-icon plasma-icon">🩸</div>
+            </div>
+            <div className="connection-line"></div>
+            <div className="feature-icon-item">
+              <div className="feature-icon network-icon">🔗</div>
+            </div>
+            <div className="connection-line"></div>
+            <div className="feature-icon-item">
+              <div className="feature-icon donor-icon">👥</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>Your AI-powered donor intelligence platform</p>
+      {/* Right Side - Login Form */}
+      <div className="login-right-side">
+        <div className="login-form-container">
+          <div className="form-header">
+            <div className="form-logo-container">
+              <img src="/cen_icon-removebg.png" alt="CentroidAI Icon" className="form-logo-icon" />
+              <span className="form-logo-text">CentroidAI</span>
+            </div>
+            <p className="form-subtitle">Sign in to your account</p>
+          </div>
 
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input 
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        
-        <input 
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        
-        <button type="submit">Log In</button>
+          <form className="login-form" onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label className="input-label">Email Address</label>
+              <input 
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="login-input"
+              />
+            </div>
+            
+            <div className="input-group">
+              <label className="input-label">Password</label>
+              <input 
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="login-input"
+              />
+            </div>
+            
+            <button type="submit" className="login-button">
+              Sign In
+            </button>
 
-        {errorMsg && (
-          <div className="error">{errorMsg}</div>
-        )}
-      </form>
+            {errorMsg && (
+              <div className="error-message">{errorMsg}</div>
+            )}
+            
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

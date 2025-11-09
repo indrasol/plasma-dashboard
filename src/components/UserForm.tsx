@@ -111,35 +111,119 @@ export default function UserForm({ onSuccess }: UserFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="modern-form" onSubmit={handleSubmit}>
       
-      <label>Full Name</label>
-      <input name="full_name" value={formData.full_name} onChange={handleChange} required />
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </span>
+          Full Name
+        </label>
+        <input 
+          className="modern-input"
+          name="full_name" 
+          value={formData.full_name} 
+          onChange={handleChange} 
+          placeholder="Enter full name"
+          required 
+        />
+      </div>
 
-      <label>Email</label>
-      <input name="email" type="email" value={formData.email} onChange={handleChange} required />
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </span>
+          Email Address
+        </label>
+        <input 
+          className="modern-input"
+          name="email" 
+          type="email" 
+          value={formData.email} 
+          onChange={handleChange} 
+          placeholder="user@example.com"
+          required 
+        />
+      </div>
 
-      <label>Password</label>
-      <input name="password" type="password" value={formData.password} onChange={handleChange} required />
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <circle cx="12" cy="16" r="1"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          Password
+        </label>
+        <input 
+          className="modern-input"
+          name="password" 
+          type="password" 
+          value={formData.password} 
+          onChange={handleChange} 
+          placeholder="Enter secure password"
+          required 
+        />
+      </div>
 
-      
-      <label>Role</label>
-      <select name="role_id" value={formData.role_id} onChange={handleChange}>
-        {roles.map((r) => (
-          <option key={r.id} value={r.id}>{r.name}</option>
-        ))}
-      </select>
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </span>
+          Role
+        </label>
+        <select className="modern-select" name="role_id" value={formData.role_id} onChange={handleChange}>
+          <option value="">Select a role</option>
+          {roles.map((r) => (
+            <option key={r.id} value={r.id}>{r.name}</option>
+          ))}
+        </select>
+      </div>
 
-      
-      <label>Center</label>
-      <select name="center_id" value={formData.center_id} onChange={handleChange}>
-        {centers.map((c) => (
-          <option key={c.id} value={c.id}>{c.name}</option>
-        ))}
-      </select>
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M3 21h18"/>
+              <path d="M5 21V7l8-4v18"/>
+              <path d="M19 21V11l-6-4"/>
+              <circle cx="9" cy="9" r="2"/>
+              <path d="M9 21V11"/>
+            </svg>
+          </span>
+          Center
+        </label>
+        <select className="modern-select" name="center_id" value={formData.center_id} onChange={handleChange}>
+          <option value="">Select a center</option>
+          {centers.map((c) => (
+            <option key={c.id} value={c.id}>{c.name}</option>
+          ))}
+        </select>
+      </div>
 
-      
-      <button type="submit">➕ Create User</button>
+      <div className="form-actions">
+        <button type="submit" className="modern-submit-btn">
+          <span className="btn-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+          </span>
+          Create User
+        </button>
+      </div>
     </form>
   );
 }
