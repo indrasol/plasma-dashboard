@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import CampaignFunnelWidget from './CampaignFunnelWidget';
 
 interface SummaryStats {
   donorCount: number | string;
@@ -8,12 +9,6 @@ interface SummaryStats {
   influencerCount: number | string;
 }
 
-interface CampaignMetrics {
-  campaignCount: number | string;
-  totalEngaged: number | string;
-  totalConverted: number | string;
-  avgConversionRate: string;
-}
 
 interface MetricTileProps {
   title: string;
@@ -25,10 +20,6 @@ interface DonationHistory {
   date_of_donation: string;
 }
 
-interface CampaignSummaryRow {
-  total_engaged: number | null;
-  total_converted: number | null;
-}
 
 export default function DashboardTiles() {
   const [summaryStats, setSummaryStats] = useState<SummaryStats>({
@@ -38,12 +29,6 @@ export default function DashboardTiles() {
     influencerCount: '-'
   });
 
-  const [campaignMetrics, setCampaignMetrics] = useState<CampaignMetrics>({
-    campaignCount: '-',
-    totalEngaged: '-',
-    totalConverted: '-',
-    avgConversionRate: '-'
-  });
 
   useEffect(() => {
     async function fetchAll() {
@@ -81,78 +66,89 @@ export default function DashboardTiles() {
       } catch (err) {
         console.error("❌ Error loading summary stats:", err);
       }
-
-      try {
-        // 🎯 Latest campaign metrics for top-level tiles
-        const { data, error } = await supabase.rpc('get_campaign_conversion_summary');
-
-        if (error) throw error;
-
-        const campaignData = data as CampaignSummaryRow[] | null;
-        const recentTen = (campaignData || []).slice(0,10);
-        
-        const campaignCount = recentTen.length;
-        const totalEngaged = recentTen.reduce((sum, row) => sum + (row.total_engaged || 0), 0);
-        const totalConverted = recentTen.reduce((sum, row) => sum + (row.total_converted || 0), 0);
-        
-        const avgConvRate =
-            totalEngaged > 0 ? ((totalConverted / totalEngaged) * 100).toFixed(1) + '%' : '-';
-
-        setCampaignMetrics({
-          campaignCount,
-          totalEngaged,
-          totalConverted,
-          avgConversionRate: avgConvRate
-        });
-      } catch (err) {
-        console.error("❌ Error loading campaign metrics:", err);
-      }
     }
 
     fetchAll();
   }, []);
 
   
-function MetricTile({ title, value }: MetricTileProps) {
+function MetricTile({ title, value, icon }: MetricTileProps & { icon: JSX.Element }) {
     return (
-      <div className="tile light-accent">
-         <h3>{title}</h3>
-         <p style={{ fontSize:'1.5rem', marginTop:'10px' }}>{value}</p>
+      <div className="modern-metric-tile">
+         <div className="metric-icon">{icon}</div>
+         <div className="metric-content">
+           <h3>{title}</h3>
+           <p className="metric-value">{value}</p>
+         </div>
       </div>
     );
 }
 
-function DarkTile({ title, value }: MetricTileProps) {
-    return (
-      <div className="tile" style={{
-         backgroundColor:'#1c5470',
-         color:'#ffffff'
-       }}>
-         <h3>{title}</h3>
-         <p style={{ fontSize:'1.5rem', marginTop:'10px' }}>{value}</p>
-      </div>
-    );
-}
 
 return (
 <div className="section">
+   {/* Dashboard Header */}
+   <div style={{ marginBottom: '24px', marginTop: '0' }}>
+     <h1 className="dashboard-title" style={{ margin: 0, marginBottom: '8px', fontSize: '32px', fontWeight: '700', color: '#1e293b' }}>
+       Dashboard
+     </h1>
+     <p style={{ margin: 0, fontSize: '16px', color: '#64748b', fontWeight: '400' }}>
+       Here's what's happening today
+     </p>
+   </div>
 
    {/* 🔹 Top Stats Tiles */}
-   <div className="metric-grid">
-     <MetricTile title="Total Donors" value={summaryStats.donorCount} />
-     <MetricTile title="Donations YTD" value={`${summaryStats.totalVolumeMl} mL`} />
-     <MetricTile title="Avg Donation Size" value={`${summaryStats.avgDonationSize} mL`} />
-     <MetricTile title="Influencers" value={summaryStats.influencerCount} />
+   <div className="metric-grid" style={{ marginBottom: '40px' }}>
+     <MetricTile 
+       title="Total Donors" 
+       value={summaryStats.donorCount}
+       icon={
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+         </svg>
+       }
+     />
+     <MetricTile 
+       title="Donations YTD" 
+       value={`${summaryStats.totalVolumeMl} mL`}
+       icon={
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" strokeWidth="2">
+           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+           <line x1="3" y1="6" x2="21" y2="6"/>
+           <path d="M16 10a4 4 0 0 1-8 0"/>
+         </svg>
+       }
+     />
+     <MetricTile 
+       title="Avg Donation Size" 
+       value={`${summaryStats.avgDonationSize} mL`}
+       icon={
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+           <path d="M3 12h18"/>
+           <path d="M8 8v8"/>
+           <path d="M12 4v16"/>
+           <path d="M16 6v12"/>
+           <path d="M20 10v4"/>
+           <circle cx="12" cy="12" r="2" fill="#314ca0"/>
+         </svg>
+       }
+     />
+     <MetricTile 
+       title="Influencers" 
+       value={summaryStats.influencerCount}
+       icon={
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+           <circle cx="9" cy="7" r="4"/>
+           <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+           <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+         </svg>
+       }
+     />
    </div>
 
-   {/* 🔹 Campaign Summary Tiles */}
-   <div className="metric-grid" style={{ marginTop:'2rem' }}>
-     <DarkTile title="Campaigns (Last 10)" value={campaignMetrics.campaignCount} />
-     <DarkTile title="Total Engaged" value={campaignMetrics.totalEngaged} />
-     <DarkTile title="# Conversions" value={campaignMetrics.totalConverted} />
-     <DarkTile title="Avg Conv. Rate" value={campaignMetrics.avgConversionRate} />
-   </div>
-
+   {/* 🎯 Campaign Funnel Widget */}
+   <CampaignFunnelWidget />
 </div>);
 }
 

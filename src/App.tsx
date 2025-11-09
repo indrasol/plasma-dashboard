@@ -8,6 +8,7 @@ import {
 import './App.css';
 import MainLayout from './components/MainLayout';
 import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 
 // App pages/components by route:
 import DashboardTiles from './components/DashboardTiles';
@@ -15,6 +16,8 @@ import CampaignDashboard from './components/CampaignConversionDashboard';
 import TopInfluencers from './components/TopInfluencers'; 
 import DonorPanel from './components/DonorPanel';
 import SettingsDashboard from './pages/settingsDashboard';
+import ManageUsers from './pages/ManageUsers';
+import CenterManagement from './pages/CenterManagement';
 
 import type { User } from './types/user.types';
 
@@ -37,9 +40,11 @@ function App() {
     <Router>
       {!user ? (
         <Routes>
+          {/* Public homepage route */}
+          <Route path="/" element={<HomePage />} />
           {/* Public login route */}
-          <Route path="/" element={<LoginPage setUser={setUser} />} />
-          {/* Catch-all redirects to login */}
+          <Route path="/login" element={<LoginPage setUser={setUser} />} />
+          {/* Catch-all redirects to homepage */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       ) : (
@@ -76,6 +81,20 @@ function App() {
                 path="/settings"
                 element={<SettingsDashboard user={user} />}
               />
+            )}
+
+            {/* Super Admin Only Pages */}
+            {user?.role === "super_admin" && (
+              <>
+                <Route 
+                  path="/manage-users"
+                  element={<ManageUsers user={user} />}
+                />
+                <Route 
+                  path="/center-management"
+                  element={<CenterManagement user={user} />}
+                />
+              </>
             )}
 
             {/* Default redirect on login based on role */}

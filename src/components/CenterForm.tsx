@@ -75,32 +75,76 @@ export default function CenterForm({ centerToEdit = null, onSuccess }: CenterFor
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="modern-form" onSubmit={handleSubmit}>
       
-      {/* Name */}
-      <label>Center Name</label><br />
-      <input 
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="ABO Plasma – Cherry Hill"
-      /><br />
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M3 21h18"/>
+              <path d="M5 21V7l8-4v18"/>
+              <path d="M19 21V11l-6-4"/>
+              <circle cx="9" cy="9" r="2"/>
+              <path d="M9 21V11"/>
+            </svg>
+          </span>
+          Center Name
+        </label>
+        <input 
+          className="modern-input"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="ABO Plasma – Cherry Hill"
+          required
+        />
+      </div>
 
-      {/* Location */}
-      <label>Location / Address</label><br />
-      <textarea 
-        rows={3}
-        name="location"
-        value={formData.location}
-        onChange={handleChange}
-        placeholder="500 NJ-38 W, Cherry Hill, NJ 08002"
-      ></textarea><br />
+      <div className="form-group">
+        <label className="form-label">
+          <span className="label-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          Location / Address
+        </label>
+        <textarea 
+          className="modern-textarea"
+          rows={3}
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+          placeholder="500 NJ-38 W, Cherry Hill, NJ 08002"
+          required
+        />
+      </div>
 
-      {/* Submit Button */}
-      <button type="submit" style={{ marginTop:'1rem' }}>
-        {centerToEdit ? "💾 Update Center" : "➕ Add Center"}
-      </button>
+      <div className="form-actions">
+        <button type="submit" className="modern-submit-btn">
+          <span className="btn-icon">
+            {centerToEdit ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 21h18"/>
+                <path d="M5 21V7l8-4v18"/>
+                <path d="M19 21V11l-6-4"/>
+                <circle cx="9" cy="9" r="2" fill="white"/>
+                <path d="M9 21V11"/>
+                <line x1="15" y1="8" x2="15" y2="14" stroke="white" strokeWidth="2"/>
+                <line x1="18" y1="11" x2="12" y2="11" stroke="white" strokeWidth="2"/>
+              </svg>
+            )}
+          </span>
+          {centerToEdit ? "Update Center" : "Add Center"}
+        </button>
+      </div>
 
     </form>
   );

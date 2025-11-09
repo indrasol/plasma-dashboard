@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TopInfluencersTable from './TopInfluencersTable';
 import InteractiveGraphViewer from './InteractiveGraphViewer';
+import ModernDropdown from './ModernDropdown';
 import { supabase } from '../supabaseClient';
 
 interface DonorInterest {
@@ -52,40 +53,56 @@ export default function TopInfluencers() {
   }, []);
 
   return (
-    <div style={{ paddingBottom: '2rem' }}>
-      {/* Dropdown Filters */}
+    <div className="section">
+      {/* Influencers Header */}
+      <h1 className="dashboard-title">
+        Influencers Overview
+      </h1>
+      
+      {/* Modern Dropdown Filters */}
       {!loadingInterests && (
-        <div className="tile-controls" style={{ marginBottom: '1rem' }}>
-          
-          {/* Category Dropdown */}
-          <label>
-            Filter by Interest Category:&nbsp;
-            <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-              <option value="">All</option>
-              {availableCategories.map((i) => (
-                <option key={i} value={i}>{i}</option>
-              ))}
-            </select>
-          </label>
+        <div className="modern-filters-container">
+          <div className="modern-filters-grid">
+            {/* Category Dropdown */}
+            <ModernDropdown
+              label="Interest Category"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+              }
+              value={selectedCategory}
+              options={availableCategories}
+              placeholder="All Categories"
+              onChange={setSelectedCategory}
+            />
 
-          {/* Name Dropdown */}
-          <label style={{ marginLeft: "2rem" }}>
-            Filter by Interest Name:&nbsp;
-            <select value={selectedInterestName} onChange={(e) => setSelectedInterestName(e.target.value)}>
-              <option value="">All</option>
-              {availableNames.map((n) => (
-                <option key={n} value={n}>{n}</option>
-              ))}
-            </select>
-          </label>
+            {/* Name Dropdown */}
+            <ModernDropdown
+              label="Interest Name"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                  <line x1="7" y1="7" x2="7.01" y2="7"/>
+                </svg>
+              }
+              value={selectedInterestName}
+              options={availableNames}
+              placeholder="All Names"
+              onChange={setSelectedInterestName}
+            />
+          </div>
 
           {(!!selectedCategory || !!selectedInterestName) && (
-            <span style={{ marginLeft: "12px", fontStyle: "italic" }}>
-              Showing results for{" "}
-              {selectedCategory && <>category "<strong>{selectedCategory}</strong>"</>}
-              {selectedCategory && selectedInterestName && <> and </>}
-              {selectedInterestName && <>name "<strong>{selectedInterestName}</strong>"</>}
-            </span>
+            <div className="filter-status">
+              <span className="status-icon">🔍</span>
+              <span className="status-text">
+                Showing results for{" "}
+                {selectedCategory && <><span className="filter-tag">category: {selectedCategory}</span></>}
+                {selectedCategory && selectedInterestName && <> and </>}
+                {selectedInterestName && <><span className="filter-tag">name: {selectedInterestName}</span></>}
+              </span>
+            </div>
           )}
           
         </div>
