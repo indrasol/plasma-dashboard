@@ -7,6 +7,7 @@
     "start": "npm install && npm install vite --save-dev && npm run dev",
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dist": "vite build --outDir=dist",
     "preview": "vite preview",
     "type-check": "tsc --noEmit"
   },
