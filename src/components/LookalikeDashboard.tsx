@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend
 } from 'recharts';
+import ModernDropdown from './ModernDropdown';
 import ClusterSummaryPanel from './ClusterSummaryPanel';
 import type { DonorVector } from '../types/database.types';
 import type { 
@@ -142,174 +143,472 @@ export default function LookalikeDashboard() {
     return passTotal && passAvg && passCluster;
   });
 
-  const clusterColors = ['#8884d8','#82ca9d','#ffc658','#ff8042','#ff6f91'];
+  const clusterColors = [
+    '#314ca0',  // Cluster 0 - Primary Blue
+    '#E53E3E',  // Cluster 1 - Primary Red
+    '#10b981',  // Cluster 2 - Green
+    '#f59e0b',  // Cluster 3 - Amber/Orange
+    '#8b5cf6'   // Cluster 4+ - Purple
+  ];
+
+  // Filter selection styles
+  const filterLabelStyle: React.CSSProperties = {
+    display: 'block',
+    marginBottom: '8px',
+    fontWeight: 600,
+    color: '#314ca0',
+    fontSize: '14px'
+  };
+
+  const checkboxLabelStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    fontWeight: 600,
+    color: '#1e293b',
+    fontSize: '14px',
+    cursor: 'pointer'
+  };
 
   return (
-    <div className="section">
-      <h2>🔍 Lookalike Donor Analytics</h2>
+    <div className="section" style={{ marginTop: '48px' }}>
+      <h1 className="dashboard-title">
+        👤 Lookalike Donor Analytics
+      </h1>
 
-      {/* Top-Level Filter Bar */}
-      <div style={{ marginBottom:'20px', display:'flex', flexWrap:'wrap', gap:'25px', alignItems:'center' }}>
-        
-        <label>Select Donor:&nbsp;
-          <select 
-            value={selectedDonorId || ''} 
-            onChange={(e) => setSelectedDonorId(e.target.value)}
-          >
-            {donors.map(d => (
-              <option key={d.donor_id} value={d.donor_id}>
-                {d.name ?? `${d.first_name} ${d.last_name}`}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>Similarity Metric:&nbsp;
-          <select 
-            value={similarityMetric} 
-            onChange={(e) => setSimilarityMetric(e.target.value as SimilarityMetric)}
-          >
-            <option value="cosine">Cosine Similarity</option>
-            <option value="euclidean">Euclidean Distance</option>
-          </select>
-        </label>
-
-        <label>Show Top:&nbsp;
-          <select value={topN} onChange={(e) => setTopN(Number(e.target.value))}>
-            {[5,10,20].map(n => <option key={n} value={n}>{n}</option>)}
-          </select>
-        </label>
-
-        <label title="Restrict to same cluster only">
-          <input 
-            type="checkbox"
-            checked={filterByClusterOnly}
-            onChange={(e) => setFilterByClusterOnly(e.target.checked)}
-          />&nbsp;Same cluster only?
-        </label>
-      </div>
-
-      {/* Secondary Filters */}
-      <div style={{ marginBottom:'15px', display:'flex', flexWrap:'wrap', gap:'25px' }}>
-        
-        <label>Total Donations:&nbsp;
-          <select 
-            value={totalDonationRange}
-            onChange={(e) => setTotalDonationRange(e.target.value as DonationRange)}
-          >
-            <option value="">All</option>
-            <option value="lt_1000">Less than $1K</option>
-            <option value="btw_1001_5000">$1K–$5K</option>
-            <option value="btw_5001_10000">$5K–$10K</option>
-            <option value="gt_10000">Over $10K</option>
-          </select>
-        </label>
-
-        <label>Avg Donation Size:&nbsp;
-          {[200,300,400].map(size => (
-            <span key={`avg-${size}`}>
-              &nbsp;<input 
-                type="radio" 
-                name="avgSize" 
-                checked={avgDonationSize === size}
-                onChange={() => setAvgDonationSize(size)} 
-              /> ${size}
+      {/* Modern Filter Widget */}
+      <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+        <div className="widget-header">
+          <h3 className="widget-title">
+            <span className="title-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+              </svg>
             </span>
-          ))}
-        </label>
+            Search Filters
+          </h3>
+        </div>
 
-        <label>Cluster:{' '}
-          {availableClusters.map(clusterID => (
-            <span key={`c-${clusterID}`}>
-              &nbsp;<input 
-                type="radio" 
-                name="clusterID"
-                value={clusterID}
-                checked={String(selectedCluster) === String(clusterID)}
-                onChange={() => setSelectedCluster(clusterID)} 
-              />
-              #{clusterID}
-            </span>
-          ))}
-        </label>
+        {/* Filters Section */}
+        <div className="modern-filters-container">
+          {/* Row 1: Main Selection Dropdowns */}
+          <div className="modern-filters-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginBottom: '24px' }}>
+            <ModernDropdown
+              label="Select Donor"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              }
+              value={selectedDonorId || ''}
+              options={donors.map(d => d.donor_id)}
+              placeholder="Select a donor"
+              onChange={setSelectedDonorId}
+              formatOption={(donorId) => {
+                const donor = donors.find(d => d.donor_id === donorId);
+                return donor ? (donor.name ?? `${donor.first_name} ${donor.last_name}`) : donorId;
+              }}
+            />
+
+            <ModernDropdown
+              label="Similarity Metric"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+              }
+              value={similarityMetric}
+              options={['cosine', 'euclidean']}
+              placeholder="Select metric"
+              onChange={(val) => setSimilarityMetric(val as SimilarityMetric)}
+              formatOption={(val) => val === 'cosine' ? 'Cosine Similarity' : 'Euclidean Distance'}
+            />
+
+            <ModernDropdown
+              label="Show Top"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <path d="M3 3h18v18H3z"/>
+                  <path d="M9 9h6v6H9z"/>
+                </svg>
+              }
+              value={String(topN)}
+              options={['5', '10', '20']}
+              placeholder="Select count"
+              onChange={(val) => setTopN(Number(val))}
+            />
+
+            <ModernDropdown
+              label="Total Donations"
+              icon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              }
+              value={totalDonationRange}
+              options={['lt_1000', 'btw_1001_5000', 'btw_5001_10000', 'gt_10000']}
+              placeholder="All Ranges"
+              onChange={(val) => setTotalDonationRange(val as DonationRange)}
+              formatOption={(val) => {
+                const formats: Record<string, string> = {
+                  'lt_1000': 'Less than $1K',
+                  'btw_1001_5000': '$1K–$5K',
+                  'btw_5001_10000': '$5K–$10K',
+                  'gt_10000': 'Over $10K'
+                };
+                return formats[val] || val;
+              }}
+            />
+          </div>
+
+          {/* Row 2: Additional Filters */}
+          <div className="modern-filters-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+
+            <div className="filter-group">
+              <label style={filterLabelStyle}>
+                Avg Donation Size
+              </label>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
+                {[200,300,400].map(size => (
+                  <label key={`avg-${size}`} style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '6px',
+                    cursor: 'pointer',
+                    fontWeight: 600,
+                    color: '#1e293b',
+                    fontSize: '14px'
+                  }}>
+                    <input 
+                      type="radio" 
+                      name="avgSize" 
+                      checked={avgDonationSize === size}
+                      onChange={() => setAvgDonationSize(size)}
+                      style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
+                    />
+                    ${size}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="filter-group">
+              <label style={filterLabelStyle}>
+                Cluster Selection
+              </label>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
+                {availableClusters.map(clusterID => (
+                  <label key={`c-${clusterID}`} style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '6px',
+                    cursor: 'pointer',
+                    fontWeight: 600,
+                    color: '#1e293b',
+                    fontSize: '14px'
+                  }}>
+                    <input 
+                      type="radio" 
+                      name="clusterID"
+                      value={clusterID}
+                      checked={String(selectedCluster) === String(clusterID)}
+                      onChange={() => setSelectedCluster(clusterID)}
+                      style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
+                    />
+                    #{clusterID}
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="filter-group">
+              <label style={filterLabelStyle}>
+                Cluster Filter
+              </label>
+              <label style={checkboxLabelStyle}>
+                <input 
+                  type="checkbox"
+                  checked={filterByClusterOnly}
+                  onChange={(e) => setFilterByClusterOnly(e.target.checked)}
+                  style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#314ca0' }}
+                />
+                Same cluster only
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Results Table */}
-      <h3>Top Lookalike Donors</h3>
+      <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+        <div className="widget-header">
+          <h3 className="widget-title">
+            <span className="title-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            Top Lookalike Donors
+          </h3>
+        </div>
 
-      {loadingLookalikes ? (
-        <p>⏳ Loading...</p>
-      ) : filteredResults.length === 0 ? (
-        <p>No Lookalike results found.</p>
-      ) : (
-        <table className='segment-table'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Total Donated ($)</th>
-              <th># Donations</th>
-              <th>Campaigns</th>
-              <th>Screens</th>
-              <th>{similarityMetric === "cosine" ? "Similarity" : "Neg. Distance"}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredResults.map(l => (
-              <tr key={l.donor_id}>
-                <td>{l.name}</td>
-                <td>{l.total_donated?.toLocaleString()}</td>
-                <td>{l.donation_count ?? '-'}</td>
-                <td>{l.campaign_count ?? '-'}</td>
-                <td>{l.health_screening_count ?? '-'}</td>
-                <td>
-                  {typeof l.similarity === 'number'
-                    ? similarityMetric === 'cosine'
-                      ? l.similarity.toFixed(4)
-                      : (-l.similarity).toFixed(4)
-                    : '-'}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+        {loadingLookalikes ? (
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '64px 32px',
+            gap: '16px'
+          }}>
+            <div style={{
+              width: '48px',
+              height: '48px',
+              border: '4px solid rgba(49, 76, 160, 0.1)',
+              borderTop: '4px solid #314ca0',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }} />
+            <p style={{
+              color: '#64748b',
+              fontSize: '16px',
+              fontWeight: 500,
+              margin: 0
+            }}>
+              Finding similar donors...
+            </p>
+            <style>
+              {`
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+              `}
+            </style>
+          </div>
+        ) : filteredResults.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">🔍</div>
+            <p>No lookalike results found with current filters.</p>
+          </div>
+        ) : (
+          <div className="modern-table-container">
+            <table className='modern-influencer-table'>
+              <thead>
+                <tr>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </span>
+                    Name
+                  </th>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                      </svg>
+                    </span>
+                    Total Donated
+                  </th>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                      </svg>
+                    </span>
+                    # Donations
+                  </th>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                      </svg>
+                    </span>
+                    Campaigns
+                  </th>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                      </svg>
+                    </span>
+                    Screens
+                  </th>
+                  <th>
+                    <span className="th-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                      </svg>
+                    </span>
+                    {similarityMetric === "cosine" ? "Similarity" : "Neg. Distance"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredResults.map((l, index) => (
+                  <tr key={l.donor_id} className={index % 2 === 0 ? 'row-even' : 'row-odd'}>
+                    <td>
+                      <div className="name-cell">
+                        <div className="influencer-avatar">
+                          {(l.name || 'U').charAt(0).toUpperCase()}
+                        </div>
+                        <span className="influencer-name" style={{ fontSize: '14px' }}>
+                          {l.name || 'Unknown'}
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <span className="score-badge" style={{ 
+                        background: 'linear-gradient(135deg, #10b981, #059669)',
+                        fontSize: '13px'
+                      }}>
+                        ${l.total_donated?.toLocaleString() || '0'}
+                      </span>
+                    </td>
+                    <td>
+                      <span style={{ color: '#1e293b', fontWeight: 600, fontSize: '14px' }}>
+                        {l.donation_count ?? '-'}
+                      </span>
+                    </td>
+                    <td>
+                      <span style={{ color: '#1e293b', fontWeight: 600, fontSize: '14px' }}>
+                        {l.campaign_count ?? '-'}
+                      </span>
+                    </td>
+                    <td>
+                      <span style={{ color: '#1e293b', fontWeight: 600, fontSize: '14px' }}>
+                        {l.health_screening_count ?? '-'}
+                      </span>
+                    </td>
+                    <td>
+                      <span className="donors-count" style={{ fontSize: '13px' }}>
+                        {typeof l.similarity === 'number'
+                          ? similarityMetric === 'cosine'
+                            ? l.similarity.toFixed(4)
+                            : (-l.similarity).toFixed(4)
+                          : '-'}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
 
       {/* PCA Chart */}
       {clusteredData.length > 0 && (
-        <div style={{marginTop:"40px"}}>
-          <h3>📉 Cluster Visualization (PCA)</h3>
+        <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+          <div className="widget-header">
+            <h3 className="widget-title">
+              <span className="title-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                  <circle cx="12" cy="12" r="2"/>
+                  <circle cx="19" cy="5" r="2"/>
+                  <circle cx="5" cy="19" r="2"/>
+                  <circle cx="19" cy="19" r="2"/>
+                  <circle cx="5" cy="5" r="2"/>
+                  <line x1="12" y1="12" x2="19" y2="5"/>
+                  <line x1="12" y1="12" x2="5" y2="19"/>
+                  <line x1="12" y1="12" x2="19" y2="19"/>
+                  <line x1="12" y1="12" x2="5" y2="5"/>
+                </svg>
+              </span>
+              Cluster Visualization (PCA)
+            </h3>
+          </div>
 
-          <ScatterChart width={600} height={400}>
-            <CartesianGrid/>
-            <XAxis dataKey="x" type="number" />
-            <YAxis dataKey="y" type="number" />
-            <Tooltip/>
-            <Legend/>
-
-            {availableClusters.map(c => (
-              <Scatter 
-                key={`scatter-${c}`}
-                data={clusteredData.filter(d => d.cluster === c)}
-                name={`Cluster ${c}`}
-                fill={clusterColors[c % clusterColors.length]}
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            padding: '20px'
+          }}>
+            <ScatterChart width={700} height={450}>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(49, 76, 160, 0.1)" />
+              <XAxis 
+                dataKey="x" 
+                type="number"
+                tick={{ fill: '#1e293b', fontWeight: 600 }}
+                axisLine={{ stroke: '#314ca0' }}
+                label={{ value: 'PC1', position: 'insideBottom', offset: -5, fill: '#314ca0', fontWeight: 700 }}
               />
-            ))}
-          </ScatterChart>
+              <YAxis 
+                dataKey="y" 
+                type="number"
+                tick={{ fill: '#1e293b', fontWeight: 600 }}
+                axisLine={{ stroke: '#314ca0' }}
+                label={{ value: 'PC2', angle: -90, position: 'insideLeft', fill: '#314ca0', fontWeight: 700 }}
+              />
+              <Tooltip
+                contentStyle={{
+                  background: 'white',
+                  border: '2px solid #314ca0',
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 12px rgba(49, 76, 160, 0.2)'
+                }}
+              />
+              <Legend 
+                wrapperStyle={{
+                  paddingTop: '20px',
+                  fontWeight: 600,
+                  color: '#1e293b'
+                }}
+              />
+
+              {availableClusters.map(c => (
+                <Scatter 
+                  key={`scatter-${c}`}
+                  data={clusteredData.filter(d => d.cluster === c)}
+                  name={`Cluster ${c}`}
+                  fill={clusterColors[c % clusterColors.length]}
+                />
+              ))}
+            </ScatterChart>
+          </div>
         </div>
       )}
 
-      <br/><br/>
-
       {/* Smart Summary Component */}
-      <hr/>
       <ClusterSummaryPanel selectedCluster={parseInt(String(selectedCluster))} />
 
-      <p style={{ fontStyle:"italic", color:"#777"}}>
-        Note: Backend must populate cluster_label field in Supabase for full functionality.
-      </p>
-
-      <br/>
-      <hr/>
+      <div style={{ 
+        marginTop: '24px',
+        padding: '16px 20px',
+        background: 'linear-gradient(135deg, #E6E6FF 0%, #f0f0ff 100%)',
+        borderRadius: '12px',
+        border: '1px solid rgba(49, 76, 160, 0.2)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px'
+      }}>
+        <span style={{ fontSize: '20px' }}>ℹ️</span>
+        <p style={{ 
+          fontStyle: 'italic', 
+          color: '#314ca0',
+          margin: 0,
+          fontWeight: 500,
+          fontSize: '14px'
+        }}>
+          Note: Backend must populate cluster_label field in Supabase for full functionality.
+        </p>
+      </div>
 
     </div>
   );
