@@ -2,11 +2,12 @@ import { useState, useRef, useEffect } from 'react';
 
 interface ModernDropdownProps {
   label: string;
-  icon: string;
+  icon: string | React.ReactNode;
   value: string;
   options: string[];
   placeholder: string;
   onChange: (value: string) => void;
+  formatOption?: (option: string) => string;
 }
 
 export default function ModernDropdown({ 
@@ -15,7 +16,8 @@ export default function ModernDropdown({
   value, 
   options, 
   placeholder, 
-  onChange 
+  onChange,
+  formatOption
 }: ModernDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -43,7 +45,7 @@ export default function ModernDropdown({
     setSearchTerm('');
   };
 
-  const displayValue = value || placeholder;
+  const displayValue = value ? (formatOption ? formatOption(value) : value) : placeholder;
 
   return (
     <div className="modern-filter-group" ref={dropdownRef}>
@@ -101,7 +103,7 @@ export default function ModernDropdown({
                   className={`dropdown-option ${value === option ? 'selected' : ''}`}
                   onClick={() => handleSelect(option)}
                 >
-                  <span className="option-text">{option}</span>
+                  <span className="option-text">{formatOption ? formatOption(option) : option}</span>
                   {value === option && <span className="check-icon">✓</span>}
                 </div>
               ))}
