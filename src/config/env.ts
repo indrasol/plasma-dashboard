@@ -11,8 +11,10 @@ interface EnvConfig {
 
 export const env: EnvConfig = {
   
-  SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL || '',
-  SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
+  // SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL || '',
+  // SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY || '',
+  SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL_1 || '',
+  SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY_1 || '',
   DEV_BASE_API_URL: import.meta.env.VITE_DEV_BASE_API_URL || '',
   PROD_BASE_API_URL: import.meta.env.VITE_PROD_BASE_API_URL || '',
   LOOKALIKE_API_URL: import.meta.env.VITE_LOOKALIKE_API_URL || 'http://localhost:8000/lookalike',
