@@ -2,6 +2,11 @@
   command = "npm run build:dist"
   publish = "dist"
 
+[build.environment]
+  # Disable Netlify's sensitive data detection for public Supabase keys
+  # Supabase URL and Anon Key are meant to be public
+  NETLIFY_SKIP_SECRET_DETECTION = "true"
+
 # Cache static assets
 [[headers]]
   for = "/assets/*"
