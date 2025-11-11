@@ -10,7 +10,7 @@ interface EnvConfig {
 }
 
 export const env: EnvConfig = {
-  SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL_1 || import.meta.env.VITE_SUPABASE_URL || '',
+  SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL_1 || import.meta.env.VITE_SUPABASEURL_1 || import.meta.env.VITE_SUPABASE_URL || '',
   SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY_1 || import.meta.env.VITE_SUPABASE_ANON_KEY || '',
   DEV_BASE_API_URL: import.meta.env.VITE_DEV_BASE_API_URL || '',
   PROD_BASE_API_URL: import.meta.env.VITE_PROD_BASE_API_URL || '',
