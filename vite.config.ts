@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  publicDir: 'public',
   server: {
+    host: "::",
     port: 8080,
     proxy: {
       '/lookalike': 'http://localhost:8000',
