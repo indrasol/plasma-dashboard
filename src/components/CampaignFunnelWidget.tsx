@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
 
 interface FunnelData {
@@ -13,7 +13,7 @@ interface FunnelStageProps {
   value: number;
   percentage: number;
   color: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
 }
 
 export default function CampaignFunnelWidget() {
@@ -49,7 +49,7 @@ export default function CampaignFunnelWidget() {
           conversionRate
         });
       } catch (err) {
-        console.error("❌ Error loading funnel data:", err);
+        console.error("Error loading funnel data:", err);
       }
       setLoading(false);
     }
