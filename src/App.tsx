@@ -18,6 +18,7 @@ import DonorPanel from './components/DonorPanel';
 import SettingsDashboard from './pages/settingsDashboard';
 import ManageUsers from './pages/ManageUsers';
 import CenterManagement from './pages/CenterManagement';
+import AIAssistant from './components/AIAssistant';
 
 import type { User } from './types/user.types';
 
@@ -82,6 +83,12 @@ function App() {
                 element={<SettingsDashboard user={user} />}
               />
             )}
+
+            {/* AI Assistant - Available to all roles */}
+            <Route 
+              path="/ask-ai"
+              element={<AIAssistant />}
+            />
 
             {/* Super Admin Only Pages */}
             {user?.role === "super_admin" && (
