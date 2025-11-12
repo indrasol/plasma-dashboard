@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { env } from '../config/env';
+import { supabase } from '../supabaseClient';
 
 interface UserFormProps {
   onSuccess: () => void;
@@ -25,10 +26,10 @@ interface Center {
 }
 
 // Initialize Supabase client (public keys only)
-const supabase = createClient(
-  env.SUPABASE_URL as string,
-  env.SUPABASE_ANON_KEY as string
-);
+// const supabase = createClient(
+//   env.SUPABASE_URL as string,
+//   env.SUPABASE_ANON_KEY as string
+// );
 
 export default function UserForm({ onSuccess }: UserFormProps) {
   const [formData, setFormData] = useState<FormData>({
