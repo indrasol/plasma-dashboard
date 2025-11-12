@@ -89,10 +89,10 @@ return (
 <div className="section">
    {/* Dashboard Header */}
    <div style={{ marginBottom: '24px', marginTop: '0' }}>
-     <h1 className="dashboard-title" style={{ margin: 0, marginBottom: '8px', fontSize: '32px', fontWeight: '700', color: '#1e293b' }}>
+     <h1 className="dashboard-title" style={{ margin: 0, marginBottom: '8px', fontSize: '32px', fontWeight: '700' }}>
        Dashboard
      </h1>
-     <p style={{ margin: 0, fontSize: '16px', color: '#64748b', fontWeight: '400' }}>
+     <p className="dashboard-subtitle" style={{ margin: 0, fontSize: '16px', fontWeight: '400' }}>
        Here's what's happening today
      </p>
    </div>

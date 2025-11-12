@@ -1,8 +1,281 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
+/* Theme Variables */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --sidebar-bg: #f8fafc;
+  --sidebar-active: #15405a;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --accent-primary: #314ca0;
+  --accent-secondary: #E53E3E;
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --sidebar-bg: #1e293b;
+  --sidebar-active: #475569;
+  --header-bg: #1e293b;
+  --card-bg: #1e293b;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #f87171;
+}
+
+/* Comprehensive Dark Mode Styles */
+:root[data-theme="dark"] .tile,
+:root[data-theme="dark"] .dashboard-tile,
+:root[data-theme="dark"] .stat-card,
+:root[data-theme="dark"] .chart-container,
+:root[data-theme="dark"] .data-table,
+:root[data-theme="dark"] .panel,
+:root[data-theme="dark"] .widget,
+:root[data-theme="dark"] .content-card {
+  background: var(--card-bg) !important;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6 {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] div {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] table {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] th {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] td {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+:root[data-theme="dark"] button:not(.header-theme-toggle):not(.header-logout-btn):not(.header-toggle-btn) {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+:root[data-theme="dark"] .modal,
+:root[data-theme="dark"] .popup,
+:root[data-theme="dark"] .dropdown {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Dark Mode for Charts */
+:root[data-theme="dark"] .recharts-wrapper,
+:root[data-theme="dark"] .recharts-surface {
+  background: transparent;
+}
+
+:root[data-theme="dark"] .recharts-text {
+  fill: var(--text-primary);
+}
+
+:root[data-theme="dark"] .recharts-cartesian-axis-tick-value {
+  fill: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .recharts-legend-item-text {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .recharts-tooltip-wrapper {
+  outline: none;
+}
+
+:root[data-theme="dark"] .recharts-default-tooltip {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Dark Mode for Dashboard Specific Elements */
+:root[data-theme="dark"] .dashboard-title,
+:root[data-theme="dark"] .section-title,
+:root[data-theme="dark"] .page-title {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .stat-value,
+:root[data-theme="dark"] .metric-value {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .stat-label,
+:root[data-theme="dark"] .metric-label {
+  color: var(--text-secondary);
+}
+
+/* Dark Mode for Badges and Tags */
+:root[data-theme="dark"] .badge,
+:root[data-theme="dark"] .tag,
+:root[data-theme="dark"] .chip {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Dark Mode for Lists */
+:root[data-theme="dark"] ul,
+:root[data-theme="dark"] ol,
+:root[data-theme="dark"] li {
+  color: var(--text-primary);
+}
+
+/* Dark Mode for Links */
+:root[data-theme="dark"] a:not(.nav-link):not(.sidebar-nav a) {
+  color: var(--accent-primary);
+}
+
+:root[data-theme="dark"] a:not(.nav-link):not(.sidebar-nav a):hover {
+  color: var(--accent-primary);
+  opacity: 0.8;
+}
+
+/* Dark Mode - Force all hardcoded whites and dark text to theme colors */
+:root[data-theme="dark"] [style*="background: white"],
+:root[data-theme="dark"] [style*="background:white"],
+:root[data-theme="dark"] [style*="background-color: white"],
+:root[data-theme="dark"] [style*="background-color:white"],
+:root[data-theme="dark"] [style*="background: #fff"],
+:root[data-theme="dark"] [style*="background:#fff"],
+:root[data-theme="dark"] [style*="background-color: #fff"],
+:root[data-theme="dark"] [style*="background-color:#fff"] {
+  background: var(--card-bg) !important;
+}
+
+:root[data-theme="dark"] [style*="color: #1"],
+:root[data-theme="dark"] [style*="color:#1"],
+:root[data-theme="dark"] [style*="color: #2"],
+:root[data-theme="dark"] [style*="color:#2"],
+:root[data-theme="dark"] [style*="color: black"],
+:root[data-theme="dark"] [style*="color:black"] {
+  color: var(--text-primary) !important;
+}
+
+/* Dark Mode for specific dashboard elements with hardcoded styles */
+:root[data-theme="dark"] .dashboard-overview,
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .stats-card,
+:root[data-theme="dark"] .metrics-card,
+:root[data-theme="dark"] .info-card,
+:root[data-theme="dark"] .data-card,
+:root[data-theme="dark"] .summary-section,
+:root[data-theme="dark"] .details-panel,
+:root[data-theme="dark"] .content-section {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Dark Mode for all text elements */
+:root[data-theme="dark"] label,
+:root[data-theme="dark"] .label,
+:root[data-theme="dark"] .text,
+:root[data-theme="dark"] .description,
+:root[data-theme="dark"] .caption,
+:root[data-theme="dark"] .subtitle {
+  color: var(--text-primary);
+}
+
+/* Dark Mode for headers and titles */
+:root[data-theme="dark"] .header,
+:root[data-theme="dark"] .title,
+:root[data-theme="dark"] .heading {
+  color: var(--text-primary);
+}
+
+/* Dark Mode for SVG elements */
+:root[data-theme="dark"] svg:not(.ai-btn-icon svg):not(.nav-icon svg) {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] svg text {
+  fill: var(--text-primary);
+}
+
+/* Dark Mode for Dashboard Main and Header */
+:root[data-theme="dark"] .dashboard-main {
+  background: linear-gradient(135deg, 
+    #0f172a 0%, 
+    #1e293b 25%, 
+    #1e293b 50%, 
+    #0f172a 75%, 
+    #0f172a 100%) !important;
+}
+
+:root[data-theme="dark"] .dashboard-header {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+  border-bottom-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+/* Dark Mode for Dashboard Text Elements */
+:root[data-theme="dark"] .dashboard-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="dark"] .filter-radio-label {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .empty-state-title {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="dark"] .empty-state-text {
+  color: var(--text-secondary) !important;
+}
+
 * {
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 html, body {
@@ -11,6 +284,8 @@ html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 body {
@@ -36,9 +311,9 @@ body {
   width: 280px;
   min-width: 280px;
   max-width: 280px;
-  background: #f8fafc;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  color: #1e293b;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  color: var(--text-primary);
   height: 100vh;
   max-height: 100vh;
   display: flex;
@@ -65,6 +340,13 @@ body {
   justify-content: center;
   padding: 16px;
   position: relative;
+  border-bottom: 1px solid rgba(49, 76, 160, 0.1);
+  margin-bottom: 8px;
+}
+
+/* Make header border visible in dark mode */
+:root[data-theme="dark"] .sidebar-header {
+  border-bottom-color: rgba(148, 163, 184, 0.2);
 }
 
 .sidebar-toggle {
@@ -142,6 +424,11 @@ body {
   position: relative;
 }
 
+/* Dark mode logo text */
+:root[data-theme="dark"] .sidebar-logo-text {
+  color: #60a5fa;
+}
+
 .sidebar-logo-text::after {
   content: '';
   position: absolute;
@@ -191,6 +478,23 @@ body {
   overflow-x: hidden;
 }
 
+/* Section dividers */
+.nav-section:first-child {
+  padding-top: 8px;
+  border-top: none;
+}
+
+.nav-section {
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid rgba(49, 76, 160, 0.1);
+}
+
+/* Make section borders visible in dark mode */
+:root[data-theme="dark"] .nav-section {
+  border-top-color: rgba(148, 163, 184, 0.2);
+}
+
 .sidebar-nav::-webkit-scrollbar {
   width: 6px;
 }
@@ -208,8 +512,126 @@ body {
   background: rgba(49, 76, 160, 0.5);
 }
 
+/* AI Assistant Button - Glassmorphism */
+.sidebar-ai-section {
+  margin-top: auto;
+  padding: 12px;
+  border-top: 1px solid rgba(49, 76, 160, 0.1);
+}
+
+/* Make AI section border visible in dark mode */
+:root[data-theme="dark"] .sidebar-ai-section {
+  border-top-color: rgba(148, 163, 184, 0.2);
+}
+
+.ai-assistant-btn {
+  display: block;
+  position: relative;
+  padding: 0;
+  background: rgba(49, 76, 160, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(49, 76, 160, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(49, 76, 160, 0.12);
+}
+
+.ai-assistant-btn:hover {
+  background: rgba(49, 76, 160, 0.15);
+  border-color: rgba(49, 76, 160, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(49, 76, 160, 0.2);
+}
+
+.ai-assistant-btn.active {
+  background: rgba(49, 76, 160, 0.15);
+  border-color: rgba(49, 76, 160, 0.4);
+  box-shadow: 0 4px 12px rgba(49, 76, 160, 0.25);
+}
+
+.ai-btn-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(49, 76, 160, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ai-btn-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  z-index: 1;
+}
+
+.sidebar.collapsed .ai-btn-content {
+  justify-content: center;
+  padding: 10px;
+}
+
+.ai-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #314ca0 0%, #2a4085 100%);
+  border-radius: 8px;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(49, 76, 160, 0.3);
+  transition: all 0.3s ease;
+}
+
+.ai-btn-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ai-assistant-btn:hover .ai-btn-icon {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(49, 76, 160, 0.4);
+}
+
+.ai-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+
+.ai-btn-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #314ca0;
+  letter-spacing: 0.2px;
+}
+
+.ai-btn-sublabel {
+  font-size: 10px;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.1px;
+}
+
+.ai-btn-sparkle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.sidebar.collapsed .ai-btn-text,
+.sidebar.collapsed .ai-btn-sparkle {
+  display: none;
+}
+
 .sidebar-nav a {
-  color: rgba(30, 41, 59, 0.7);
+  color: var(--text-secondary);
   text-decoration: none;
   padding: 6px 16px;
   font-size: 0.95rem;
@@ -230,7 +652,7 @@ body {
 
 .sidebar-nav a:hover {
   background-color: rgba(49, 76, 160, 0.1);
-  color: #314ca0;
+  color: var(--accent-primary);
   transform: translateX(2px);
 }
 
@@ -286,6 +708,11 @@ body {
   letter-spacing: 0.5px;
   margin-bottom: 8px;
   padding: 0 16px;
+}
+
+/* Make section titles visible in dark mode */
+:root[data-theme="dark"] .nav-section-title {
+  color: rgba(241, 245, 249, 0.7);
 }
 
 .nav-section-items {
@@ -362,7 +789,7 @@ body {
   background: transparent;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #314ca0;
+  color: var(--accent-primary);
   flex-shrink: 0;
   padding: 8px;
   margin: 0 16px 0 -32px;
@@ -384,7 +811,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  color: #314ca0;
+  color: var(--text-primary);
   font-weight: 400;
   line-height: 1.2;
   margin: 0;
@@ -394,11 +821,17 @@ body {
 
 .welcome-text {
   font-weight: 400;
-  color: #314ca0;
+  color: var(--accent-primary);
   white-space: nowrap;
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+
+/* Make welcome text more visible in dark mode */
+:root[data-theme="dark"] .welcome-text {
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .date-separator {
@@ -408,13 +841,24 @@ body {
   line-height: 1.2;
 }
 
+/* Make separator more visible in dark mode */
+:root[data-theme="dark"] .date-separator {
+  color: var(--text-tertiary);
+}
+
 .current-date {
-  color: #314ca0;
+  color: var(--text-secondary);
   font-weight: 400;
   white-space: nowrap;
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+
+/* Make date more visible in dark mode */
+:root[data-theme="dark"] .current-date {
+  color: var(--text-primary);
+  opacity: 0.9;
 }
 
 .header-right {
@@ -431,7 +875,7 @@ body {
   background: rgba(49, 76, 160, 0.08);
   border: none;
   border-radius: 8px;
-  color: #314ca0;
+  color: var(--accent-primary);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
@@ -459,7 +903,7 @@ body {
   background: transparent;
   border: none;
   border-radius: 8px;
-  color: #314ca0;
+  color: var(--accent-primary);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -475,6 +919,42 @@ body {
 }
 
 .header-logout-btn svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+/* Theme Toggle Button */
+.header-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: rgba(49, 76, 160, 0.1);
+  border: 1px solid rgba(49, 76, 160, 0.2);
+  border-radius: 8px;
+  color: #314ca0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 12px;
+}
+
+:root[data-theme="dark"] .header-theme-toggle {
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+}
+
+.header-theme-toggle:hover {
+  background: rgba(49, 76, 160, 0.2);
+  transform: scale(1.1);
+}
+
+:root[data-theme="dark"] .header-theme-toggle:hover {
+  background: rgba(96, 165, 250, 0.2);
+}
+
+.header-theme-toggle svg {
   flex-shrink: 0;
   width: 18px;
   height: 18px;
