@@ -40,8 +40,8 @@ function App() {
     <Router>
       {!user ? (
         <Routes>
-          {/* Public homepage route */}
-          <Route path="/" element={<HomePage />} />
+          {/* Redirect homepage to login */}
+          <Route path="/" element={<Navigate to="/login" />} />
           {/* Public login route */}
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           {/* Catch-all redirects to homepage */}
