@@ -41,11 +41,13 @@ function App() {
       {!user ? (
         <Routes>
           {/* Redirect homepage to login */}
+          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/" element={<Navigate to="/login" />} />
           {/* Public login route */}
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           {/* Catch-all redirects to homepage */}
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       ) : (
         // Authenticated routes wrapped in layout with sidebar/nav logic
