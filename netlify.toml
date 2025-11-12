@@ -4,8 +4,8 @@
 
 [build.environment]
   # Disable Netlify's sensitive data detection for public Supabase keys
-  # Supabase URL and Anon Key are meant to be public
-  NETLIFY_SKIP_SECRET_DETECTION = "true"
+  # Supabase URL and Anon Key are meant to be public and are safe to expose in client-side code
+  SECRETS_SCAN_ENABLED = "false"
 
 # Cache static assets
 [[headers]]
