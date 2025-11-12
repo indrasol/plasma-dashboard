@@ -2234,7 +2234,8 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    opacity: 0.8;
+    color: #64748b;
+    opacity: 1;
 }
 
 .metric-value {
@@ -2242,6 +2243,7 @@ body {
     font-weight: 700;
     margin: 0 !important;
     line-height: 1.2;
+    color: #1e293b;
 }
 
 .metric-trend {

@@ -12,13 +12,18 @@ export default function LoginPage({ setUser }: LoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+  const [isAdminMode, setIsAdminMode] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
 
-    if (!email || !password) {
+    // Use admin credentials if admin mode is enabled
+    const loginEmail = isAdminMode ? 'raj@plasmalytics.com' : email;
+    const loginPassword = isAdminMode ? 'welcome1' : password;
+
+    if (!loginEmail || !loginPassword) {
       return setErrorMsg("Please enter both email and password.");
     }
 
@@ -26,8 +31,8 @@ export default function LoginPage({ setUser }: LoginPageProps) {
       // Step 1 - Authenticate with Supabase Auth (email + password)
       const { data: authData, error: authError } =
         await supabase.auth.signInWithPassword({
-          email,
-          password,
+          email: loginEmail,
+          password: loginPassword,
         });
 
       console.log("🔐 AUTH:", authData);
@@ -144,8 +149,9 @@ export default function LoginPage({ setUser }: LoginPageProps) {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                required={!isAdminMode}
                 className="login-input"
+                disabled={isAdminMode}
               />
             </div>
             
@@ -156,13 +162,35 @@ export default function LoginPage({ setUser }: LoginPageProps) {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+                required={!isAdminMode}
                 className="login-input"
+                disabled={isAdminMode}
               />
             </div>
             
+            <div className="admin-toggle-container">
+              <label className="admin-toggle-label">
+                <input 
+                  type="checkbox" 
+                  checked={isAdminMode}
+                  onChange={(e) => setIsAdminMode(e.target.checked)}
+                  className="admin-toggle-input"
+                />
+                <span className="admin-toggle-slider"></span>
+                <span className="admin-toggle-text">
+                  🔐 Admin Quick Login
+                  {isAdminMode && <span className="admin-badge">DEV MODE</span>}
+                </span>
+              </label>
+              {isAdminMode && (
+                <div className="admin-hint">
+                  Auto-filling: raj@plasmalytics.com
+                </div>
+              )}
+            </div>
+            
             <button type="submit" className="login-button">
-              Sign In
+              {isAdminMode ? '🚀 Sign In as Admin' : 'Sign In'}
             </button>
 
             {errorMsg && (
