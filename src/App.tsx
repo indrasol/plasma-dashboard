@@ -40,7 +40,7 @@ function App() {
     <Router>
       {!user ? (
         <Routes>
-          {/* Public homepage route */}
+          {/* Redirect homepage to login */}
           {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/" element={<Navigate to="/login" />} />
           {/* Public login route */}
