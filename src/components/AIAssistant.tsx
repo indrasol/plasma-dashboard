@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './AIAssistant.css';
 
 interface Message {
@@ -18,6 +18,14 @@ export default function AIAssistant() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [messages, isTyping]);
 
   const suggestedQuestions: SuggestedQuestion[] = [
     {
@@ -333,7 +341,7 @@ Try asking me a specific question, or click one of the suggested questions below
       <div className="ai-container">
         <div className="ai-main-content">
           {/* Chat Messages Area */}
-          <div className="ai-chat-container">
+          <div className="ai-chat-container" ref={chatContainerRef}>
             {messages.length === 0 ? (
               <div className="ai-welcome">
                 <div className="ai-welcome-icon">
