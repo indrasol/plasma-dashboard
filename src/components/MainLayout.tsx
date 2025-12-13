@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 import type { User, UserRole } from '../types/user.types';
 import Header from './Header';
 
@@ -7,7 +7,7 @@ interface NavLinkItem {
   label: string;
   link: string;
   roles: UserRole[];
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface NavSection {
@@ -167,6 +167,33 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
               </div>
             )
           )}
+        </div>
+
+        {/* AI Assistant Button - Glassmorphism */}
+        <div className="sidebar-ai-section">
+          <NavLink 
+            to="/ask-ai"
+            className={({isActive}) => `ai-assistant-btn ${isActive ? 'active' : ''}`}
+            title={isCollapsed ? "Ask CAI" : ""}
+          >
+            <div className="ai-btn-glow"></div>
+            <div className="ai-btn-content">
+              <span className="ai-btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                  <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                  <path d="M9 14h6" strokeLinecap="round"/>
+                </svg>
+              </span>
+              {!isCollapsed && (
+                <span className="ai-btn-text">
+                  <span className="ai-btn-label">Ask CAI</span>
+                  <span className="ai-btn-sublabel">Your AI Assistant</span>
+                </span>
+              )}
+            </div>
+          </NavLink>
         </div>
       </nav>
 

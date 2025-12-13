@@ -14,7 +14,6 @@ import { utils, writeFileXLSX } from 'xlsx';
 import ModernDropdown from './ModernDropdown';
 import LookalikeDashboard from './LookalikeDashboard';
 import DonorElasticityDashboard from './DonorElasticityDashboard';
-import ClusterSummaryPanel from './ClusterSummaryPanel';
 import type { Donor } from '../types/database.types';
 
 interface LoyaltyCount {
@@ -439,7 +438,6 @@ export default function DonorPanel() {
 
           {/* Embedded Dashboards */}
             {!loading && (<LookalikeDashboard />)}
-            {!loading && (<ClusterSummaryPanel selectedCluster={0} />)}
             {!loading && (<DonorElasticityDashboard />)}
         </>
       )}

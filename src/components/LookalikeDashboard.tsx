@@ -19,7 +19,8 @@ import type {
   DonationRange 
 } from '../types/lookalike.types';
 
-const LOOKALIKE_API_URL = 'https://donor-lookalike-api.onrender.com';
+// Use local proxy to avoid CORS issues
+const LOOKALIKE_API_URL = 'http://localhost:5001/api/lookalike';
 
 export default function LookalikeDashboard() {
   const [donors, setDonors] = useState<DonorVector[]>([]);
@@ -33,7 +34,7 @@ export default function LookalikeDashboard() {
   // Filters
   const [totalDonationRange, setTotalDonationRange] = useState<DonationRange>('');
   const [avgDonationSize, setAvgDonationSize] = useState<number | ''>('');
-  const [selectedCluster, setSelectedCluster] = useState(0);
+  const [selectedCluster, setSelectedCluster] = useState<number | null>(null);
 
   // PCA Plot Data
   const [clusteredData, setClusteredData] = useState<ClusterData[]>([]);
@@ -93,11 +94,17 @@ export default function LookalikeDashboard() {
 
   // Fetch lookalikes when filters change
   useEffect(() => {
-    if (!selectedDonorId) return;
+    if (!selectedDonorId) {
+      console.log("⚠️ No donor selected, skipping fetch");
+      return;
+    }
+
+    console.log("🚀 Starting fetch for donor:", selectedDonorId);
 
     async function fetchLookalikes() {
       try {
         setLoadingLookalikes(true);
+        setLookalikes([]); // Clear previous results
 
         const url =
           `${LOOKALIKE_API_URL}?donor_id=${selectedDonorId}` +
@@ -106,16 +113,26 @@ export default function LookalikeDashboard() {
 
         console.log("🔍 Fetching lookalikes →", url);
 
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // Add timeout to prevent infinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
+        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
 
         let jsonResp = await res.json();
         if (!Array.isArray(jsonResp)) jsonResp = [];
 
         console.log("🎯 Raw response:", jsonResp);
+        console.log("📊 Response length:", jsonResp.length);
+        console.log("📋 First item:", jsonResp[0]);
         setLookalikes(jsonResp as LookalikeResult[]);
       } catch (err) {
         console.error("❌ Failed to load lookalikes:", err);
+        // Set empty array on error so UI shows "no results" instead of infinite loading
+        setLookalikes([]);
       } finally {
         setLoadingLookalikes(false);
       }
@@ -137,11 +154,16 @@ export default function LookalikeDashboard() {
       !avgDonationSize || Number(d.avg_donation_size ?? '') >= Number(avgDonationSize);
 
     const passCluster =
-      !selectedCluster || d.cluster_label == null ||
+      selectedCluster === null || d.cluster_label == null ||
       String(d.cluster_label) === String(selectedCluster);
 
     return passTotal && passAvg && passCluster;
   });
+
+  // Debug logging
+  console.log("🔢 Lookalikes count:", lookalikes.length);
+  console.log("✅ Filtered results count:", filteredResults.length);
+  console.log("🎚️ Current filters:", { totalDonationRange, avgDonationSize, selectedCluster });
 
   const clusterColors = [
     '#314ca0',  // Cluster 0 - Primary Blue
@@ -156,7 +178,6 @@ export default function LookalikeDashboard() {
     display: 'block',
     marginBottom: '8px',
     fontWeight: 600,
-    color: '#314ca0',
     fontSize: '14px'
   };
 
@@ -165,7 +186,6 @@ export default function LookalikeDashboard() {
     alignItems: 'center',
     gap: '8px',
     fontWeight: 600,
-    color: '#1e293b',
     fontSize: '14px',
     cursor: 'pointer'
   };
@@ -274,13 +294,12 @@ export default function LookalikeDashboard() {
               </label>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
                 {[200,300,400].map(size => (
-                  <label key={`avg-${size}`} style={{ 
+                  <label key={`avg-${size}`} className="filter-radio-label" style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
                     gap: '6px',
                     cursor: 'pointer',
                     fontWeight: 600,
-                    color: '#1e293b',
                     fontSize: '14px'
                   }}>
                     <input 
@@ -288,7 +307,7 @@ export default function LookalikeDashboard() {
                       name="avgSize" 
                       checked={avgDonationSize === size}
                       onChange={() => setAvgDonationSize(size)}
-                      style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
+                      style={{ width: '16px', height: '16px', cursor: 'pointer' }}
                     />
                     ${size}
                   </label>
@@ -301,21 +320,38 @@ export default function LookalikeDashboard() {
                 Cluster Selection
               </label>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
+                <label className="filter-radio-label" style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '6px',
+                  cursor: 'pointer',
+                  fontWeight: 600,
+                  fontSize: '14px'
+                }}>
+                  <input 
+                    type="radio" 
+                    name="clusterID"
+                    value="all"
+                    checked={selectedCluster === null}
+                    onChange={() => setSelectedCluster(null)}
+                    style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
+                  />
+                  All Clusters
+                </label>
                 {availableClusters.map(clusterID => (
-                  <label key={`c-${clusterID}`} style={{ 
+                  <label key={`c-${clusterID}`} className="filter-radio-label" style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
                     gap: '6px',
                     cursor: 'pointer',
                     fontWeight: 600,
-                    color: '#1e293b',
                     fontSize: '14px'
                   }}>
                     <input 
                       type="radio" 
                       name="clusterID"
                       value={clusterID}
-                      checked={String(selectedCluster) === String(clusterID)}
+                      checked={selectedCluster === clusterID}
                       onChange={() => setSelectedCluster(clusterID)}
                       style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
                     />
@@ -393,10 +429,20 @@ export default function LookalikeDashboard() {
               `}
             </style>
           </div>
+        ) : lookalikes.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">⚠️</div>
+            <p className="empty-state-title" style={{ fontWeight: 600, marginBottom: '8px' }}>
+              No lookalike results available
+            </p>
+            <p className="empty-state-text" style={{ fontSize: '14px', margin: 0 }}>
+              The API service may be unavailable or starting up. Please try again in a moment.
+            </p>
+          </div>
         ) : filteredResults.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">🔍</div>
-            <p>No lookalike results found with current filters.</p>
+            <p className="empty-state-title">No lookalike results match your current filters.</p>
           </div>
         ) : (
           <div className="modern-table-container">

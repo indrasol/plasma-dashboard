@@ -20,3 +20,18 @@
    font-size:16px; 
    font-weight:bold; 
 }
+
+/* Dark Mode Support */
+:root[data-theme="dark"] .summary-panel {
+  color: #f1f5f9;
+}
+
+:root[data-theme="dark"] .summary-card {
+  background-color: #1e293b;
+  border-left-color: #475569;
+}
+
+:root[data-theme="dark"] .sectionHeader,
+:root[data-theme="dark"] .tileTitle {
+  color: #f1f5f9;
+}

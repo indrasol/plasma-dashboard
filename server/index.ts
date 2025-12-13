@@ -14,6 +14,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import createUserRoute from './createUser.js';
+import lookalikeProxyRoute from './lookalikeProxy.js';
 
 const app: Express = express();
 const PORT: number = parseInt(process.env.PORT || '5001', 10);
@@ -27,6 +28,7 @@ console.log("Loaded environment variables:", {
 });
 
 app.use('/api', createUserRoute);
+app.use('/api', lookalikeProxyRoute);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
