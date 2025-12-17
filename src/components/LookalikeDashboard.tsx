@@ -20,7 +20,7 @@ import type {
 } from '../types/lookalike.types';
 
 // Use local proxy to avoid CORS issues
-const LOOKALIKE_API_URL = 'http://localhost:5001/api/lookalike';
+const LOOKALIKE_API_URL = '/api/lookalike';
 
 export default function LookalikeDashboard() {
   const [donors, setDonors] = useState<DonorVector[]>([]);

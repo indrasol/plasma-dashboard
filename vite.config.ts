@@ -8,10 +8,13 @@ export default defineConfig({
     host: "::",
     port: 8080,
     proxy: {
-      '/lookalike': 'http://localhost:8000',
-      '/vector': 'http://localhost:8000',
-      '/top_looklikeable': 'http://localhost:8000'
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
+      // Keep legacy proxy paths if they are still used elsewhere, or remove if /api covers them
+      // Assuming lookalike was moved to /api/lookalike
+      '/lookalike': 'http://localhost:8000', 
     }
   }
 })
-

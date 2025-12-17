@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma Dashboard - Design Palette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Lato', sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #314ca0 0%, #E53E3E 50%, #314ca0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            border-bottom: 3px solid #314ca0;
+            padding-bottom: 0.5rem;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 2rem;
+        }
+
+        .color-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-swatch {
+            height: 140px;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-info {
+            background: white;
+            padding: 16px;
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+
+        .color-value {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .color-usage {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .gradient-card {
+            height: 180px;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .gradient-code {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .font-sample {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            background: white;
+        }
+
+        .font-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #314ca0;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .font-demo-large {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .font-demo-medium {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .font-demo-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .spacing-card {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            background: white;
+        }
+
+        .spacing-visual {
+            width: 100%;
+            height: 60px;
+            background: #314ca0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .spacing-label {
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .spacing-value {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-family: 'Monaco', monospace;
+        }
+
+        .component-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #314ca0 0%, #2a4085 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(49, 76, 160, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(49, 76, 160, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #E53E3E 0%, #c53030 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #314ca0;
+            border: 2px solid #314ca0;
+        }
+
+        .card-demo {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(49, 76, 160, 0.08);
+            border: 1px solid rgba(49, 76, 160, 0.1);
+            position: relative;
+            overflow: hidden;
+            max-width: 400px;
+        }
+
+        .card-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #314ca0, #E53E3E, #314ca0);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e293b;
+            margin-top: 8px;
+        }
+
+        .card-text {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plasma Dashboard Design Palette</h1>
+        <p class="subtitle">Complete visual reference for colors, typography, and design tokens</p>
+
+        <!-- PRIMARY COLORS -->
+        <div class="section">
+            <h2 class="section-title">Primary Brand Colors</h2>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #314ca0; color: white;">
+                        PRIMARY BLUE
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Blue</div>
+                        <div class="color-value">#314ca0</div>
+                        <div class="color-value">RGB(49, 76, 160)</div>
+                        <div class="color-usage">Main buttons, links, navigation</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #E53E3E; color: white;">
+                        PRIMARY RED
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Red</div>
+                        <div class="color-value">#E53E3E</div>
+                        <div class="color-value">RGB(229, 62, 62)</div>
+                        <div class="color-usage">Call-to-actions, accents, alerts</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #2a4085; color: white;">
+                        DARK BLUE
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Blue</div>
+                        <div class="color-value">#2a4085</div>
+                        <div class="color-value">RGB(42, 64, 133)</div>
+                        <div class="color-usage">Hover states, darker accents</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #c53030; color: white;">
+                        DARK RED
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Red</div>
+                        <div class="color-value">#c53030</div>
+                        <div class="color-value">RGB(197, 48, 48)</div>
+                        <div class="color-usage">Red hover states</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEUTRAL COLORS -->
+        <div class="section">
+            <h2 class="section-title">Neutral Colors</h2>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #ffffff; color: #1e293b; border: 1px solid #e2e8f0;">
+                        WHITE
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-value">#ffffff</div>
+                        <div class="color-value">RGB(255, 255, 255)</div>
+                        <div class="color-usage">Backgrounds, cards</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #f8fafc; color: #1e293b;">
+                        LIGHT GRAY
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Light Gray</div>
+                        <div class="color-value">#f8fafc</div>
+                        <div class="color-value">RGB(248, 250, 252)</div>
+                        <div class="color-usage">Secondary backgrounds</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #f1f5f9; color: #1e293b;">
+                        MEDIUM GRAY
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Medium Gray</div>
+                        <div class="color-value">#f1f5f9</div>
+                        <div class="color-value">RGB(241, 245, 249)</div>
+                        <div class="color-usage">Tertiary backgrounds</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #e2e8f0; color: #1e293b;">
+                        COOL GRAY
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Cool Gray</div>
+                        <div class="color-value">#e2e8f0</div>
+                        <div class="color-value">RGB(226, 232, 240)</div>
+                        <div class="color-usage">Borders, dividers</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1e293b; color: white;">
+                        PRIMARY TEXT
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Text</div>
+                        <div class="color-value">#1e293b</div>
+                        <div class="color-value">RGB(30, 41, 59)</div>
+                        <div class="color-usage">Main body text, headings</div>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #64748b; color: white;">
+                        SECONDARY TEXT
+                    </div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary Text</div>
+                        <div class="color-value">#64748b</div>
+                        <div class="color-value">RGB(100, 116, 139)</div>
+                        <div class="color-usage">Secondary information</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRADIENTS -->
+        <div class="section">
+            <h2 class="section-title">Gradient Patterns</h2>
+            
+            <div class="gradient-card" style="background: linear-gradient(135deg, #314ca0 0%, #E53E3E 50%, #314ca0 100%);">
+                <div class="gradient-title">Main Brand Gradient</div>
+                <div class="gradient-code">linear-gradient(135deg, #314ca0 0%, #E53E3E 50%, #314ca0 100%)</div>
+            </div>
+
+            <div class="gradient-card" style="background: linear-gradient(135deg, #314ca0 0%, #2a4085 100%);">
+                <div class="gradient-title">Primary Button Gradient</div>
+                <div class="gradient-code">linear-gradient(135deg, #314ca0 0%, #2a4085 100%)</div>
+            </div>
+
+            <div class="gradient-card" style="background: linear-gradient(135deg, #E53E3E 0%, #c53030 100%);">
+                <div class="gradient-title">Secondary Button Gradient</div>
+                <div class="gradient-code">linear-gradient(135deg, #E53E3E 0%, #c53030 100%)</div>
+            </div>
+
+            <div class="gradient-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #e2e8f0 50%, #f1f5f9 75%, #ffffff 100%);">
+                <div class="gradient-title" style="color: #1e293b;">Background Gradient (Light)</div>
+                <div class="gradient-code" style="color: #64748b;">linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, ...)</div>
+            </div>
+        </div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="section">
+            <h2 class="section-title">Typography</h2>
+            
+            <div class="font-sample">
+                <div class="font-name">Lato - Body Font</div>
+                <div class="font-demo-large" style="font-family: 'Lato', sans-serif;">
+                    The quick brown fox jumps
+                </div>
+                <div class="font-demo-medium" style="font-family: 'Lato', sans-serif;">
+                    Used for body text throughout the application
+                </div>
+                <div class="font-demo-body" style="font-family: 'Lato', sans-serif;">
+                    Lato is a clean, modern sans-serif font that provides excellent readability for body text. Available in Regular (400) and Bold (700) weights. This is the primary font for all UI elements, paragraphs, and general content.
+                </div>
+            </div>
+
+            <div class="font-sample">
+                <div class="font-name">Roboto - Display Font</div>
+                <div class="font-demo-large" style="font-family: 'Roboto', sans-serif; font-weight: 700;">
+                    Analytics Dashboard
+                </div>
+                <div class="font-demo-medium" style="font-family: 'Roboto', sans-serif; font-weight: 700;">
+                    Used for page titles and major headings
+                </div>
+                <div class="font-demo-body" style="font-family: 'Lato', sans-serif;">
+                    Roboto Bold (700) is used exclusively for major headings and page titles, providing a strong visual hierarchy and professional appearance.
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPONENTS -->
+        <div class="section">
+            <h2 class="section-title">Component Examples</h2>
+            
+            <h3 style="margin-bottom: 16px; color: #314ca0;">Buttons</h3>
+            <div class="component-demo">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-outline">Outline Button</button>
+            </div>
+
+            <h3 style="margin: 32px 0 16px; color: #314ca0;">Card Example</h3>
+            <div class="card-demo">
+                <div class="card-title">Widget Title</div>
+                <div class="card-text">
+                    This is an example of a card component with the signature top gradient stripe, soft shadow, and clean typography. Cards are the primary container for content throughout the dashboard.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 2px solid #e2e8f0; text-align: center; color: #94a3b8;">
+            <p style="font-size: 0.9rem;">Plasma Dashboard Design System v1.0 | Last Updated: November 2024</p>
+            <p style="font-size: 0.85rem; margin-top: 8px;">For complete documentation, see DESIGN_SYSTEM.md and DESIGN_TOKENS_SUMMARY.md</p>
+        </div>
+    </div>
+</body>
+</html>
+
