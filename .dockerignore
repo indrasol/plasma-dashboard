@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+venv
+env
+server_fastapi/venv
+
+# Node / Frontend (We don't need frontend code in the backend image)
+node_modules
+dist
+src
+public
+package.json
+package-lock.json
+vite.config.ts
+tsconfig.json
+tailwind.config.ts
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Misc
+.DS_Store
+README.md
+
