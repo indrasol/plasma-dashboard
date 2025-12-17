@@ -22,10 +22,13 @@ import AIAssistant from './components/AIAssistant';
 
 import type { User } from './types/user.types';
 
+import { supabase } from './supabaseClient';
+
 function App() {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    // 1. Check local storage for initial user state
     const storedUser = localStorage.getItem('plasmalytics_user');
     if (storedUser) {
       try {
@@ -35,6 +38,19 @@ function App() {
         localStorage.removeItem('plasmalytics_user');
       }
     }
+
+    // 2. Listen for Supabase auth changes (e.g., token expiration, sign out)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT' || (event === 'TOKEN_REFRESHED' && !session)) {
+        // Clear user state and local storage if signed out or session invalid
+        setUser(null);
+        localStorage.removeItem('plasmalytics_user');
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   return (
