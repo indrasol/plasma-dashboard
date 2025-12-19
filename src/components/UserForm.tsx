@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { env } from '../config/env';
 import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 
 interface UserFormProps {
   onSuccess: () => void;
@@ -90,7 +90,7 @@ export default function UserForm({ onSuccess }: UserFormProps) {
     try {
       console.log("📤 Submitting Form Data:", formData);
       
-      const response = await fetch('/api/create-user', {
+      const response = await fetch(API_ENDPOINTS.createUser, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

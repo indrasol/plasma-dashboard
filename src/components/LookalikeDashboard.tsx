@@ -12,15 +12,13 @@ import {
 import ModernDropdown from './ModernDropdown';
 import ClusterSummaryPanel from './ClusterSummaryPanel';
 import type { DonorVector } from '../types/database.types';
-import type { 
-  LookalikeResult, 
-  ClusterData, 
-  SimilarityMetric, 
-  DonationRange 
+import type {
+  LookalikeResult,
+  ClusterData,
+  SimilarityMetric,
+  DonationRange
 } from '../types/lookalike.types';
-
-// Use local proxy to avoid CORS issues
-const LOOKALIKE_API_URL = '/api/lookalike';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 
 export default function LookalikeDashboard() {
   const [donors, setDonors] = useState<DonorVector[]>([]);
@@ -106,8 +104,9 @@ export default function LookalikeDashboard() {
         setLoadingLookalikes(true);
         setLookalikes([]); // Clear previous results
 
+        const base = API_ENDPOINTS.lookalike;
         const url =
-          `${LOOKALIKE_API_URL}?donor_id=${selectedDonorId}` +
+          `${base}?donor_id=${selectedDonorId}` +
           `&metric=${similarityMetric}&top_n=${topN}` +
           (filterByClusterOnly ? '&cluster_only=true' : '');
 
