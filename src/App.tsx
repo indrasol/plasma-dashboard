@@ -26,7 +26,8 @@ import { supabase } from './supabaseClient';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
-  const defaultAuthedPath = user?.role === 'super_admin' ? '/settings' : '/dashboard';
+  // Default landing page after login
+  const defaultAuthedPath = '/dashboard';
   const [toast, setToast] = useState<{ message: string; type: 'info' | 'error' } | null>(null);
   const toastTimer = useRef<number | null>(null);
 
