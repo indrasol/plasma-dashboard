@@ -2,11 +2,12 @@ from functools import lru_cache
 from supabase import create_client, Client
 from fastapi import HTTPException
 from typing import Callable, List, TypeVar, Dict, Any
+import inspect
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 
 from server_fastapi.app.config.settings import SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_KEY
 from server_fastapi.app.utils.logger import log_debugger, log_error, log_info
-import asyncio
-from concurrent.futures import ThreadPoolExecutor
 
 # Type variable for database records
 RecordType = TypeVar('RecordType', bound=Dict[str, Any])
@@ -23,18 +24,18 @@ def get_supabase_client() -> Client:
     if not SUPABASE_URL or not SUPABASE_URL.strip():
         missing_config.append("SUPABASE_URL_IO")
     
-    has_service_key = SUPABASE_SERVICE_KEY and SUPABASE_SERVICE_KEY.strip()
-    has_api_key = SUPABASE_API_KEY and SUPABASE_API_KEY.strip()
+    has_service_key = bool(SUPABASE_SERVICE_KEY and SUPABASE_SERVICE_KEY.strip())
+    has_api_key = bool(SUPABASE_ANON_KEY and SUPABASE_ANON_KEY.strip())
     
     if not has_service_key and not has_api_key:
-        missing_config.append("SUPABASE_SERVICE_KEY_IO or SUPABASE_API_KEY_IO")
+        missing_config.append("SUPABASE_SERVICE_KEY or SUPABASE_ANON_KEY")
     
     if missing_config:
         error_msg = f"Supabase configuration missing or empty: {', '.join(missing_config)}"
         log_error(error_msg)
         log_error(f"SUPABASE_URL present: {bool(SUPABASE_URL and SUPABASE_URL.strip())}")
         log_error(f"SUPABASE_SERVICE_KEY present: {has_service_key}")
-        log_error(f"SUPABASE_API_KEY present: {has_api_key}")
+        log_error(f"SUPABASE_ANON_KEY present: {has_api_key}")
         raise HTTPException(status_code=500, detail=error_msg)
     
     # Prefer service key over API key
@@ -43,7 +44,7 @@ def get_supabase_client() -> Client:
         which_key = "service"
         log_info(f"Using service key")
     else:
-        key_to_use = SUPABASE_API_KEY.strip()
+        key_to_use = SUPABASE_ANON_KEY.strip()
         which_key = "anon"
         log_info(f"Using anon key")
     
