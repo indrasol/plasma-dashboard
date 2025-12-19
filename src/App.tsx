@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +26,17 @@ import { supabase } from './supabaseClient';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
+  const defaultAuthedPath = user?.role === 'super_admin' ? '/settings' : '/dashboard';
+  const [toast, setToast] = useState<{ message: string; type: 'info' | 'error' } | null>(null);
+  const toastTimer = useRef<number | null>(null);
+
+  const showToast = (message: string, type: 'info' | 'error' = 'info') => {
+    setToast({ message, type });
+    if (toastTimer.current) {
+      window.clearTimeout(toastTimer.current);
+    }
+    toastTimer.current = window.setTimeout(() => setToast(null), 4000);
+  };
 
   useEffect(() => {
     // 1. Check local storage for initial user state
@@ -45,16 +56,62 @@ function App() {
         // Clear user state and local storage if signed out or session invalid
         setUser(null);
         localStorage.removeItem('plasmalytics_user');
+        showToast('Session expired. Please sign in again.', 'error');
       }
     });
 
     return () => {
       subscription.unsubscribe();
+      if (toastTimer.current) {
+        window.clearTimeout(toastTimer.current);
+      }
     };
   }, []);
 
   return (
     <Router>
+      {toast && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '16px',
+            right: '16px',
+            padding: '12px 16px',
+            borderRadius: '10px',
+            boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+            backgroundColor: toast.type === 'error' ? '#fee2e2' : '#e0f2fe',
+            color: '#0f172a',
+            border: `1px solid ${toast.type === 'error' ? '#fecaca' : '#bae6fd'}`,
+            zIndex: 9999,
+            minWidth: '260px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px'
+          }}
+        >
+          <span style={{ fontSize: '18px' }}>
+            {toast.type === 'error' ? '⚠️' : 'ℹ️'}
+          </span>
+          <div style={{ flex: 1, fontWeight: 600, fontSize: '14px' }}>
+            {toast.message}
+          </div>
+          <button
+            onClick={() => setToast(null)}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#0f172a',
+              cursor: 'pointer',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: 1
+            }}
+            aria-label="Close notification"
+          >
+            ×
+          </button>
+        </div>
+      )}
       {!user ? (
         <Routes>
           {/* Redirect homepage to login */}
@@ -126,9 +183,7 @@ function App() {
             <Route 
               path="/" 
               element={
-                user?.role === 'super_admin'
-                  ? <Navigate to="/settings"/>
-                  : <Navigate to="/dashboard"/>
+                <Navigate to={defaultAuthedPath}/>
               }
             />
 
@@ -136,9 +191,7 @@ function App() {
             <Route 
               path="*"
               element={
-                <>
-                  🚫 Page not found or unauthorized.
-                </>
+                <Navigate to={defaultAuthedPath} replace />
               }
             />
 
