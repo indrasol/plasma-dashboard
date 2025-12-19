@@ -7,10 +7,15 @@ let API_BASE_URL = "";
 
 if (appEnv === "stage" && env.STAGE_BASE_API_URL) {
   API_BASE_URL = env.STAGE_BASE_API_URL;
+} else if (appEnv === "dev" && env.DEV_BASE_API_URL) {
+  // Explicitly set to dev in environment variables
+  API_BASE_URL = env.DEV_BASE_API_URL;
 } else if (import.meta.env.PROD) {
-  // Production builds (includes Netlify preview) use the prod base by default.
+  // Production builds (includes Netlify preview) use the prod base by default
+  // ONLY if not explicitly overridden by APP_ENV=dev
   API_BASE_URL = env.PROD_BASE_API_URL || env.STAGE_BASE_API_URL || "";
 } else {
+  // Local development
   API_BASE_URL = env.DEV_BASE_API_URL || "";
 }
 

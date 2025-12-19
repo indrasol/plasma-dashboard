@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from server_fastapi.routers import users, proxy, ai_signals
+from server_fastapi.routers import users, lookalike, ai_signals
 from server_fastapi.app.config.settings import settings
 
 app = FastAPI(title="Plasma Dashboard API")
@@ -19,7 +19,8 @@ app.add_middleware(
 
 # Include Routers
 app.include_router(users.router, prefix="/api", tags=["Users"])
-app.include_router(proxy.router, prefix="/api", tags=["Lookalike Proxy"])
+# app.include_router(proxy.router, prefix="/api", tags=["Lookalike Proxy"]) # Replaced by lookalike
+app.include_router(lookalike.router, prefix="/api", tags=["Lookalike"])
 app.include_router(ai_signals.router, prefix="/api", tags=["AI Signals"])
 
 @app.get("/")
