@@ -10,12 +10,9 @@ on:
       - '.github/workflows/deploy-cloudrun.yml'
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}   # should be plasma-backend
   REGION: us-east1
   REPO_NAME: plasma-repo
-
-  # DEPLOY_ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'stage' && 'stage' || 'dev' }}
-  # SERVICE_NAME: plasma-backend-${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'stage' && 'stage' || 'dev' }}
 
 jobs:
   deploy:
@@ -36,7 +33,7 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v2
 
       - name: Configure Docker for Artifact Registry
-        run: gcloud auth configure-docker "${{ env.REGION }}-docker.pkg.dev"
+        run: gcloud auth configure-docker "${{ env.REGION }}-docker.pkg.dev" --quiet
 
       - name: Set deployment vars
         run: |
@@ -48,18 +45,16 @@ jobs:
           else
             DEPLOY_ENV="dev"
           fi
-
           SERVICE_NAME="plasma-backend-${DEPLOY_ENV}"
-
-          echo "DEPLOY_ENV=$DEPLOY_ENV" >> $GITHUB_ENV
-          echo "SERVICE_NAME=$SERVICE_NAME" >> $GITHUB_ENV
-
+          echo "DEPLOY_ENV=$DEPLOY_ENV" >> "$GITHUB_ENV"
+          echo "SERVICE_NAME=$SERVICE_NAME" >> "$GITHUB_ENV"
 
       - name: Build Docker Image
         run: |
-          IMAGE_TAG=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          set -euo pipefail
+          IMAGE_TAG="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${SERVICE_NAME}:${GITHUB_SHA}"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
           docker build -t "$IMAGE_TAG" .
-          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
       - name: Push Docker Image
         run: docker push "$IMAGE_TAG"
@@ -80,4 +75,3 @@ jobs:
           flags: >
             --service-account=runtime-sa@plasma-backend.iam.gserviceaccount.com
             --allow-unauthenticated
-
