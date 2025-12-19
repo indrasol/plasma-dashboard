@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field, AliasChoices
 from typing import Optional
 
 class Settings(BaseSettings):
@@ -8,11 +9,10 @@ class Settings(BaseSettings):
     PORT: int = 8000
     ENV: str = "development"
 
-    # Supabase Settings
-    SUPABASE_URL: str
-    SUPABASE_SERVICE_ROLE_KEY: str
-    # Or explicitly look for SUPABASE_ANON_KEY
-    SUPABASE_ANON_KEY: Optional[str] = None
+    # Supabase Settings (tries _P suffix first, then falls back to original)
+    SUPABASE_URL: str = Field(validation_alias=AliasChoices('SUPABASE_URL_P', 'SUPABASE_URL'))
+    SUPABASE_SERVICE_ROLE_KEY: str = Field(validation_alias=AliasChoices('SUPABASE_SERVICE_ROLE_KEY_P', 'SUPABASE_SERVICE_ROLE_KEY'))
+    SUPABASE_ANON_KEY: Optional[str] = Field(default=None, validation_alias=AliasChoices('SUPABASE_ANON_KEY_P', 'SUPABASE_ANON_KEY'))
 
     # External Services
     EXTERNAL_API_URL: str = 'https://donor-lookalike-api.onrender.com'
@@ -33,5 +33,4 @@ settings = Settings()
 # Export specific variables
 SUPABASE_URL = settings.SUPABASE_URL
 SUPABASE_SERVICE_KEY = settings.SUPABASE_SERVICE_ROLE_KEY
-# Use SUPABASE_ANON_KEY if SUPABASE_API_KEY is not set (based on your .env)
 SUPABASE_ANON_KEY = settings.SUPABASE_ANON_KEY
