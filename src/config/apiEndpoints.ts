@@ -20,4 +20,5 @@ export const API_ENDPOINTS = {
   base: API_BASE_URL,
   lookalike: `${API_BASE_URL || ""}/api/lookalike`,
   createUser: `${API_BASE_URL || ""}/api/create-user`,
+  aiSignals: `${API_BASE_URL || ""}/api/ai-signals`,
 };
