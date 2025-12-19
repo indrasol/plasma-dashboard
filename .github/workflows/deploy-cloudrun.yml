@@ -1,70 +1,66 @@
-# name: Deploy to Cloud Run
+name: Deploy to Cloud Run
 
-# on:
-#   push:
-#     branches:
-#       - main
-#       - stage
-#       - dev
-#     paths:
-#       - 'server_fastapi/**'
-#       - 'Dockerfile'
-#       - 'requirements.txt'
-#       - '.github/workflows/deploy-cloudrun.yml'
+on:
+  push:
+    branches: [ main, stage, dev ]
+    paths:
+      - 'server_fastapi/**'
+      - 'Dockerfile'
+      - 'requirements.txt'
+      - '.github/workflows/deploy-cloudrun.yml'
 
-# env:
-#   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-#   REGION: us-central1
-#   REPO_NAME: plasma-repo
-#   # Dynamic Service Name based on branch (default to dev)
-#   SERVICE_NAME: plasma-backend-${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'stage' && 'stage' || 'dev' }}
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  REGION: us-east1
+  REPO_NAME: plasma-repo
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     environment: ${{ github.ref_name }} # Use GitHub Environments (dev, stage, prod)
+  DEPLOY_ENV: ${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'stage' && 'stage' || 'dev' }}
+  SERVICE_NAME: plasma-backend-${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'stage' && 'stage' || 'dev' }}
 
-#     permissions:
-#       contents: 'read'
-#       id-token: 'write'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-#       - name: Google Auth
-#         id: auth
-#         uses: 'google-github-actions/auth@v2'
-#         with:
-#           credentials_json: '${{ secrets.GCP_SA_KEY }}'
+      - name: Google Auth (WIF)
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOYER_SA }}
 
-#       - name: Set up Cloud SDK
-#         uses: 'google-github-actions/setup-gcloud@v2'
+      - uses: google-github-actions/setup-gcloud@v2
 
-#       - name: Configure Docker
-#         run: |
-#           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker "${{ env.REGION }}-docker.pkg.dev"
 
-#       - name: Build Docker Image
-#         run: |
-#           # Tag with branch name and commit sha
-#           IMAGE_TAG=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
-#           docker build -t $IMAGE_TAG .
-#           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+      - name: Build Docker Image
+        run: |
+          IMAGE_TAG=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          docker build -t "$IMAGE_TAG" .
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
 
-#       - name: Push Docker Image
-#         run: |
-#           docker push ${{ env.IMAGE_TAG }}
+      - name: Push Docker Image
+        run: docker push "${{ env.IMAGE_TAG }}"
 
-#       - name: Deploy to Cloud Run
-#         uses: 'google-github-actions/deploy-cloudrun@v2'
-#         with:
-#           service: ${{ env.SERVICE_NAME }}
-#           region: ${{ env.REGION }}
-#           image: ${{ env.IMAGE_TAG }}
-#           # Environment variables injected from GitHub Secrets based on the environment context
-#           env_vars: |
-#             SUPABASE_URL=${{ secrets.SUPABASE_URL }}
-#             SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-#             SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
-#             ENV=${{ github.ref_name }}
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v3
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE_TAG }}
+
+          env_vars: |
+            ENV=${{ env.DEPLOY_ENV }}
+
+          secrets: |
+            SUPABASE_URL=supabase-url-${{ env.DEPLOY_ENV }}:latest
+            SUPABASE_SERVICE_ROLE_KEY=supabase-service-role-key-${{ env.DEPLOY_ENV }}:latest
+            SUPABASE_ANON_KEY=supabase-anon-key-${{ env.DEPLOY_ENV }}:latest
+
+          flags: >
+            --service-account=runtime-sa@plasma-backend.iam.gserviceaccount.com
