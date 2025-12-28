@@ -1,40 +1,59 @@
 import React from 'react';
+import './CSVIntegration.css';
 
 export default function CRMIntegration() {
   return (
-    <div style={{ padding: '40px', maxWidth: '800px' }}>
-      <h1 style={{ fontSize: '28px', fontWeight: 800, color: '#1e293b', marginBottom: '16px' }}>
-        CRM & Marketing Sync
-      </h1>
-      <p style={{ color: '#64748b', marginBottom: '32px', fontSize: '16px' }}>
-        Two-way synchronization with your existing CRM platforms to enrich your donor data automatically.
-      </p>
+    <div className="csv-integration-container fade-in" style={{ padding: '40px', maxWidth: '1000px', minHeight: 'auto' }}>
+      <div className="integration-header">
+        <div className="title-area">
+          <h1 className="integration-title">CRM & Marketing Sync</h1>
+          <p className="integration-subtitle">Two-way synchronization with your existing CRM platforms to enrich donor data.</p>
+        </div>
+      </div>
 
-      <div style={{ display: 'grid', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px', marginTop: '32px' }}>
         {['Salesforce', 'HubSpot', 'Blackbaud Raiser\'s Edge', 'Microsoft Dynamics'].map(crm => (
-          <div key={crm} style={{ 
-            background: 'white', 
-            padding: '24px', 
-            borderRadius: '16px', 
-            border: '1px solid #e2e8f0',
+          <div key={crm} className="blueprint-card" style={{ 
             display: 'flex',
+            flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            padding: '24px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div style={{ width: '40px', height: '40px', background: '#f5f3ff', borderRadius: '10px' }}></div>
-              <span style={{ fontWeight: 700, color: '#1e293b' }}>{crm}</span>
+              <div style={{ 
+                width: '48px', 
+                height: '48px', 
+                background: 'var(--bg-tertiary)', 
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '0 10px'
+              }}>
+                <div style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  fontSize: '20px'
+                }}>
+                  {crm === 'Salesforce' ? '☁️' : crm === 'HubSpot' ? '🟠' : crm === 'Blackbaud Raiser\'s Edge' ? '🦅' : '🏢'}
+                </div>
+              </div>
+              <div>
+                <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '16px' }}>{crm}</h4>
+                <span style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>Cloud CRM</span>
+              </div>
             </div>
-            <button style={{ 
-              padding: '8px 16px', 
-              borderRadius: '8px', 
-              background: '#314ca0',
-              color: 'white',
-              border: 'none',
-              fontWeight: 600,
-              cursor: 'pointer'
+            <button className="primary-sync-btn" style={{ 
+              padding: '10px 20px', 
+              fontSize: '12px',
+              minWidth: 'auto',
+              border: 'none'
             }}>
-              Connect API
+              Connect
             </button>
           </div>
         ))}
