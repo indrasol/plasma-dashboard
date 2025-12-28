@@ -19,6 +19,9 @@ import SettingsDashboard from './pages/settingsDashboard';
 import ManageUsers from './pages/ManageUsers';
 import CenterManagement from './pages/CenterManagement';
 import AIAssistant from './components/AIAssistant';
+import CSVIntegration from './pages/integrations/CSVIntegration';
+import DBIntegration from './pages/integrations/DBIntegration';
+import CRMIntegration from './pages/integrations/CRMIntegration';
 
 import type { User } from './types/user.types';
 
@@ -26,8 +29,8 @@ import { supabase } from './supabaseClient';
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
-  // Default landing page after login
-  const defaultAuthedPath = '/dashboard';
+  // Default landing page after login - redirects to CSV Integration
+  const defaultAuthedPath = '/integrations/csv';
   const [toast, setToast] = useState<{ message: string; type: 'info' | 'error' } | null>(null);
   const toastTimer = useRef<number | null>(null);
 
@@ -131,6 +134,9 @@ function App() {
 
             {["admin", "marketing", "super_admin"].includes(user?.role) && (
               <>
+                <Route path="/integrations/csv" element={<CSVIntegration />} />
+                <Route path="/integrations/db" element={<DBIntegration />} />
+                <Route path="/integrations/crm" element={<CRMIntegration />} />
                 <Route path="/dashboard" element={<DashboardTiles />} />
                 <Route path="/campaigns" element={<CampaignDashboard />} />
               </>

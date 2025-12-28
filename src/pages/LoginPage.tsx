@@ -74,7 +74,7 @@ export default function LoginPage({ setUser }: LoginPageProps) {
       localStorage.setItem('plasmalytics_user', JSON.stringify(finalUser));
       setUser(finalUser);
       
-      navigate('/dashboard');
+      navigate('/integrations/csv');
 
     } catch (err) {
       console.error("⚠️ Unexpected login error:", err);
