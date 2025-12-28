@@ -1,0 +1,77 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [ main, stage, dev ]
+    paths:
+      - 'server_fastapi/**'
+      - 'Dockerfile'
+      - 'requirements.txt'
+      - '.github/workflows/deploy-cloudrun.yml'
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}   # should be plasma-backend
+  REGION: us-east1
+  REPO_NAME: plasma-repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Google Auth (WIF)
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOYER_SA }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker "${{ env.REGION }}-docker.pkg.dev" --quiet
+
+      - name: Set deployment vars
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+          if [ "$BRANCH" = "main" ]; then
+            DEPLOY_ENV="prod"
+          elif [ "$BRANCH" = "stage" ]; then
+            DEPLOY_ENV="stage"
+          else
+            DEPLOY_ENV="dev"
+          fi
+          SERVICE_NAME="plasma-backend-${DEPLOY_ENV}"
+          echo "DEPLOY_ENV=$DEPLOY_ENV" >> "$GITHUB_ENV"
+          echo "SERVICE_NAME=$SERVICE_NAME" >> "$GITHUB_ENV"
+
+      - name: Build Docker Image
+        run: |
+          set -euo pipefail
+          IMAGE_TAG="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${SERVICE_NAME}:${GITHUB_SHA}"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
+          docker build -t "$IMAGE_TAG" .
+
+      - name: Push Docker Image
+        run: docker push "$IMAGE_TAG"
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v3
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE_TAG }}
+          env_vars: |
+            ENV=${{ env.DEPLOY_ENV }}
+          secrets: |
+            SUPABASE_URL=SUPABASE_URL:latest
+            SUPABASE_SERVICE_ROLE_KEY=SUPABASE_SERVICE_ROLE_KEY:latest
+            SUPABASE_ANON_KEY=SUPABASE_ANON_KEY:latest
+            EXTERNAL_API_URL=EXTERNAL_API_URL:latest
+          flags: >
+            --service-account=runtime-sa@plasma-backend.iam.gserviceaccount.com
+            --allow-unauthenticated
