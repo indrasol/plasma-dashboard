@@ -388,7 +388,7 @@ export default function CSVIntegration() {
                           <td>
                             <div className="target-select-wrapper">
                               <div 
-                                className={`custom-table-dropdown ${openDropdownIdx === idx ? 'is-open' : ''}`}
+                                className={`custom-table-dropdown ${openDropdownIdx === idx ? 'is-open' : ''} ${idx >= currentSchema.length - 2 ? 'opens-up' : ''}`}
                                 onClick={() => setOpenDropdownIdx(openDropdownIdx === idx ? null : idx)}
                               >
                                 <div className="dropdown-trigger">
