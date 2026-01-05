@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { useLocation } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 import * as XLSX from 'xlsx';
 import {
   ResponsiveContainer,
@@ -41,9 +42,20 @@ interface CumulativePoint {
   [campaign: string]: string | number;
 }
 
+interface ReferralImpact {
+  campaign_name: string;
+  total_conversions: number;
+  referral_conversions: number;
+  referral_impact_pct: number;
+}
+
 export default function CampaignConversionDashboard() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const [data, setData] = useState<CampaignConversionDetail[]>([]);
   const [filteredData, setFilteredData] = useState<CampaignConversionDetail[]>([]);
+  const [referralImpact, setReferralImpact] = useState<ReferralImpact[]>([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -67,12 +79,19 @@ export default function CampaignConversionDashboard() {
     async function fetchData() {
       setLoading(true);
       try {
-        const { data: rows, error } =
-          await supabase.from('campaign_conversion_details').select('*');
-
-        if (error) throw error;
-
+        const response = await fetch(API_ENDPOINTS.campaignDetails);
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+        const rows = await response.json();
         setData((rows as CampaignConversionDetail[]) || []);
+
+        // Fetch referral impact
+        const refResponse = await fetch(API_ENDPOINTS.referralImpact);
+        if (refResponse.ok) {
+          const refData = await refResponse.json();
+          setReferralImpact(refData);
+        }
       } catch (err) {
         console.error("❌ Error loading data:", err);
         setErrorMsg(err instanceof Error ? err.message : "Unknown error");
@@ -198,10 +217,15 @@ export default function CampaignConversionDashboard() {
   const uniqueChannels = [...new Set(data.map(d => d.channel || ''))].filter(Boolean);
   const uniqueDonationTypes = [...new Set(data.map(d => d.donation_type || ''))].filter(Boolean);
 
+  const showStats = currentPath === '/campaigns/dashboard' || currentPath === '/campaigns' || currentPath === '/campaigns/conversion';
+  const showDetails = currentPath === '/campaigns/conversion' || currentPath === '/campaigns';
+
   return (
     <div className="section" style={{ marginTop: '48px' }}>
       <h1 className="dashboard-title">
-        Campaign Conversion Dashboard
+        {showStats && !showDetails ? "Campaign Performance" :
+         showDetails && !showStats ? "Conversion Analysis" :
+         "Campaign Dashboard"}
       </h1>
 
       {/* Modern Filter Widget */}
@@ -283,318 +307,371 @@ export default function CampaignConversionDashboard() {
         </div>
       </div>
 
-      {/* Conversions by Channel Widget */}
-      <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
-        <div className="widget-header">
-          <h3 className="widget-title">
-            <span className="title-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="16"/>
-                <line x1="8" y1="12" x2="16" y2="12"/>
-              </svg>
-            </span>
-            Conversions by Channel
-          </h3>
-        </div>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              dataKey="count"
-              nameKey="name"
-              data={pieChartDataGroupedByChannel}
-              cx="50%" cy="50%"
-              label={({ name }) => name}
-              isAnimationActive
-              startAngle={90}
-              endAngle={450}
-              outerRadius={100}
-              innerRadius={60}
-              fill="#8884d8">
-              {pieChartDataGroupedByChannel.map((_entry, index) => (
-                <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-              ))}
-            </Pie>
-            <Tooltip 
-              contentStyle={{
-                background: 'white',
-                border: '2px solid #314ca0',
-                borderRadius: '12px',
-                boxShadow: '0 4px 12px rgba(49, 76, 160, 0.2)',
-                color: '#1e293b',
-                fontWeight: 600
-              }}
-            />
-            <Legend 
-              wrapperStyle={{
-                paddingTop: '20px',
-                fontWeight: 600,
-                color: '#1e293b'
-              }}
-            />
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* Cumulative Conversions Widget */}
-      <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
-        <div className="widget-header">
-          <h3 className="widget-title">
-            <span className="title-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                <polyline points="17 6 23 6 23 12"/>
-              </svg>
-            </span>
-            Cumulative Conversions Over Time
-          </h3>
-        </div>
-        <LineChartProgressive data={finalCumulativeArray} />
-      </div>
-
-      {/* Conversion Details Table Widget */}
-      <div className="modern-influencer-widget">
-        <div className="widget-header">
-          <h3 className="widget-title">
-            <span className="title-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-            </span>
-            Conversion Details
-          </h3>
-          <button 
-            onClick={() => exportToExcel()} 
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: 'linear-gradient(135deg, #10b981, #059669)',
-        color: '#fff',
-              padding: '12px 24px',
-              borderRadius: '10px',
-              border: 'none',
-              fontSize: '14px',
-              fontWeight: 600,
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 16px rgba(16, 185, 129, 0.4)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            Export to Excel
-      </button>
-        </div>
-
-        {loading ? (
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '64px 32px',
-            gap: '16px'
-          }}>
-            <div style={{
-              width: '48px',
-              height: '48px',
-              border: '4px solid rgba(49, 76, 160, 0.1)',
-              borderTop: '4px solid #314ca0',
-              borderRadius: '50%',
-              animation: 'spin 1s linear infinite'
-            }} />
-            <p style={{
-              color: '#64748b',
-              fontSize: '16px',
-              fontWeight: 500,
-              margin: 0
-            }}>
-              Loading conversion data...
-            </p>
-            <style>
-              {`
-                @keyframes spin {
-                  0% { transform: rotate(0deg); }
-                  100% { transform: rotate(360deg); }
-                }
-              `}
-            </style>
+      {showStats && (
+        <>
+          {/* Conversions by Channel Widget */}
+          <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+            <div className="widget-header">
+              <h3 className="widget-title">
+                <span className="title-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="16"/>
+                    <line x1="8" y1="12" x2="16" y2="12"/>
+                  </svg>
+                </span>
+                Conversions by Channel
+              </h3>
+            </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  dataKey="count"
+                  nameKey="name"
+                  data={pieChartDataGroupedByChannel}
+                  cx="50%" cy="50%"
+                  label={({ name }) => name}
+                  isAnimationActive
+                  startAngle={90}
+                  endAngle={450}
+                  outerRadius={100}
+                  innerRadius={60}
+                  fill="#8884d8">
+                  {pieChartDataGroupedByChannel.map((_entry, index) => (
+                    <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{
+                    background: 'white',
+                    border: '2px solid #314ca0',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(49, 76, 160, 0.2)',
+                    color: '#1e293b',
+                    fontWeight: 600
+                  }}
+                />
+                <Legend 
+                  wrapperStyle={{
+                    paddingTop: '20px',
+                    fontWeight: 600,
+                    color: '#1e293b'
+                  }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
-        ) : errorMsg ? (
-          <div className="empty-state">
-            <div className="empty-icon">⚠️</div>
-            <p style={{ color: '#E53E3E' }}>{errorMsg}</p>
+
+          {/* Cumulative Conversions Widget */}
+          <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+            <div className="widget-header">
+              <h3 className="widget-title">
+                <span className="title-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                    <polyline points="17 6 23 6 23 12"/>
+                  </svg>
+                </span>
+                Cumulative Conversions Over Time
+              </h3>
+            </div>
+            <LineChartProgressive data={finalCumulativeArray} />
           </div>
-        ) : filteredData.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-icon">🔍</div>
-            <p>No conversion records found with current filters.</p>
-          </div>
-        ) : (
-          <>
+
+          {/* Referral Impact Widget */}
+          <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
+            <div className="widget-header">
+              <h3 className="widget-title">
+                <span className="title-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </span>
+                Referral Impact on Campaigns
+              </h3>
+            </div>
             <div className="modern-table-container">
               <table className='modern-influencer-table'>
-        <thead>
-          <tr>
-                    <th>
-                      <span className="th-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                          <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                      </span>
-                      Name
-                    </th>
-                    <th>
-                      <span className="th-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                          <rect x="2" y="4" width="20" height="16" rx="2"/>
-                          <path d="M6 8l6 4 6-4"/>
-                        </svg>
-                      </span>
-                      Email
-                    </th>
-                    <th>
-                      <span className="th-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"/>
-                          <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                      </span>
-                      Engaged At
-                    </th>
-                    <th>
-                      <span className="th-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                          <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                      </span>
-                      Converted?
-                    </th>
-          </tr>
-        </thead>
-        <tbody>
-          {paginatedData.map((r, i) => (
-                    <tr key={`${r.engagement_id}-${i}`} className={i % 2 === 0 ? 'row-even' : 'row-odd'}>
+                <thead>
+                  <tr>
+                    <th>Campaign Name</th>
+                    <th>Total Conversions</th>
+                    <th>Referred Conversions</th>
+                    <th>Impact %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {referralImpact.map((ri, i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'row-even' : 'row-odd'}>
+                      <td style={{ fontWeight: 600 }}>{ri.campaign_name}</td>
+                      <td>{ri.total_conversions}</td>
+                      <td>{ri.referral_conversions}</td>
                       <td>
-                        <div className="name-cell">
-                          <div className="influencer-avatar">
-                            {(r.full_name || 'U').charAt(0).toUpperCase()}
-                          </div>
-                          <span className="influencer-name" style={{ fontSize: '14px' }}>
-                            {r.full_name || 'Unknown'}
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <span style={{ color: '#1e293b', fontWeight: 500, fontSize: '14px' }}>
-                          {r.email || '-'}
+                        <span className="score-badge" style={{ 
+                          background: ri.referral_impact_pct > 20 ? 'linear-gradient(135deg, #10b981, #059669)' : 'linear-gradient(135deg, #314ca0, #1e3a8a)'
+                        }}>
+                          {ri.referral_impact_pct}%
                         </span>
                       </td>
-                      <td>
-                        <span style={{ color: '#64748b', fontWeight: 500, fontSize: '13px' }}>
-                          {(r.engagement_timestamp || '').slice(0, -3) || '-'}
-                        </span>
-                      </td>
-                      <td>
-                        {r.converted ? (
-                          <span className="score-badge" style={{ 
-                            background: 'linear-gradient(135deg, #10b981, #059669)',
-                            fontSize: '13px'
-                          }}>
-                            ✅ Yes
-                          </span>
-                        ) : (
-                          <span style={{ 
-                            color: '#94a3b8',
-                            fontWeight: 600,
-                            fontSize: '13px'
-                          }}>
-                            — No
-                          </span>
-                        )}
-                      </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
+      )}
+
+      {showDetails && (
+        <>
+          {/* Conversion Details Table Widget */}
+          <div className="modern-influencer-widget">
+            <div className="widget-header">
+              <h3 className="widget-title">
+                <span className="title-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </span>
+                Conversion Details
+              </h3>
+              <button 
+                onClick={() => exportToExcel()} 
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'linear-gradient(135deg, #10b981, #059669)',
+            color: '#fff',
+                  padding: '12px 24px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(16, 185, 129, 0.4)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Export to Excel
+          </button>
             </div>
 
-            {/* Pagination */}
-      {totalPages > 1 && (
-              <div style={{ 
-                marginTop: '24px', 
-                display: 'flex', 
-                justifyContent: 'center', 
+            {loading ? (
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                gap: '16px' 
+                justifyContent: 'center',
+                padding: '64px 32px',
+                gap: '16px'
               }}>
-                <button 
-                  disabled={currentPage === 1} 
-                  onClick={() => setCurrentPage(current => Math.max(current - 1, 1))}
-                  style={{
-                    padding: '10px 20px',
-                    background: currentPage === 1 ? '#e2e8f0' : 'linear-gradient(135deg, #314ca0, #1e3a8a)',
-                    color: currentPage === 1 ? '#94a3b8' : 'white',
-                    border: 'none',
-                    borderRadius: '8px',
-                    fontWeight: 600,
-                    cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                    transition: 'all 0.2s ease',
-                    fontSize: '14px'
-                  }}
-                >
-                  ◀ Previous
-                </button>
-
-                <span style={{ 
-                  minWidth: '120px', 
-                  textAlign: 'center',
-                  color: '#1e293b',
-                  fontWeight: 600,
-                  fontSize: '14px'
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  border: '4px solid rgba(49, 76, 160, 0.1)',
+                  borderTop: '4px solid #314ca0',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite'
+                }} />
+                <p style={{
+                  color: '#64748b',
+                  fontSize: '16px',
+                  fontWeight: 500,
+                  margin: 0
                 }}>
-            Page {currentPage} of {totalPages}
-          </span>
+                  Loading conversion data...
+                </p>
+                <style>
+                  {`
+                    @keyframes spin {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                  `}
+                </style>
+              </div>
+            ) : errorMsg ? (
+              <div className="empty-state">
+                <div className="empty-icon">⚠️</div>
+                <p style={{ color: '#E53E3E' }}>{errorMsg}</p>
+              </div>
+            ) : filteredData.length === 0 ? (
+              <div className="empty-state">
+                <div className="empty-icon">🔍</div>
+                <p>No conversion records found with current filters.</p>
+              </div>
+            ) : (
+              <>
+                <div className="modern-table-container">
+                  <table className='modern-influencer-table'>
+            <thead>
+              <tr>
+                        <th>
+                          <span className="th-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                              <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                          </span>
+                          Name
+                        </th>
+                        <th>
+                          <span className="th-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                              <rect x="2" y="4" width="20" height="16" rx="2"/>
+                              <path d="M6 8l6 4 6-4"/>
+                            </svg>
+                          </span>
+                          Email
+                        </th>
+                        <th>
+                          <span className="th-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                              <circle cx="12" cy="12" r="10"/>
+                              <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                          </span>
+                          Engaged At
+                        </th>
+                        <th>
+                          <span className="th-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                              <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                          </span>
+                          Converted?
+                        </th>
+              </tr>
+            </thead>
+            <tbody>
+              {paginatedData.map((r, i) => (
+                        <tr key={`${r.engagement_id}-${i}`} className={i % 2 === 0 ? 'row-even' : 'row-odd'}>
+                          <td>
+                            <div className="name-cell">
+                              <div className="influencer-avatar">
+                                {(r.full_name || 'U').charAt(0).toUpperCase()}
+                              </div>
+                              <span className="influencer-name" style={{ fontSize: '14px' }}>
+                                {r.full_name || 'Unknown'}
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <span style={{ color: '#1e293b', fontWeight: 500, fontSize: '14px' }}>
+                              {r.email || '-'}
+                            </span>
+                          </td>
+                          <td>
+                            <span style={{ color: '#64748b', fontWeight: 500, fontSize: '13px' }}>
+                              {(r.engagement_timestamp || '').slice(0, -3) || '-'}
+                            </span>
+                          </td>
+                          <td>
+                            {r.converted ? (
+                              <span className="score-badge" style={{ 
+                                background: 'linear-gradient(135deg, #10b981, #059669)',
+                                fontSize: '13px'
+                              }}>
+                                ✅ Yes
+                              </span>
+                            ) : (
+                              <span style={{ 
+                                color: '#94a3b8',
+                                fontWeight: 600,
+                                fontSize: '13px'
+                              }}>
+                                — No
+                              </span>
+                            )}
+                          </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+                </div>
 
-                <button 
-                  disabled={currentPage === totalPages} 
-                  onClick={() => setCurrentPage(current => Math.min(current + 1, totalPages))}
-                  style={{
-                    padding: '10px 20px',
-                    background: currentPage === totalPages ? '#e2e8f0' : 'linear-gradient(135deg, #314ca0, #1e3a8a)',
-                    color: currentPage === totalPages ? '#94a3b8' : 'white',
-                    border: 'none',
-                    borderRadius: '8px',
-                    fontWeight: 600,
-                    cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                    transition: 'all 0.2s ease',
-                    fontSize: '14px'
-                  }}
-                >
-                  Next ▶
-                </button>
-        </div>
+                {/* Pagination */}
+          {totalPages > 1 && (
+                  <div style={{ 
+                    marginTop: '24px', 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    gap: '16px' 
+                  }}>
+                    <button 
+                      disabled={currentPage === 1} 
+                      onClick={() => setCurrentPage(current => Math.max(current - 1, 1))}
+                      style={{
+                        padding: '10px 20px',
+                        background: currentPage === 1 ? '#e2e8f0' : 'linear-gradient(135deg, #314ca0, #1e3a8a)',
+                        color: currentPage === 1 ? '#94a3b8' : 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        fontWeight: 600,
+                        cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                        transition: 'all 0.2s ease',
+                        fontSize: '14px'
+                      }}
+                    >
+                      ◀ Previous
+                    </button>
+
+                    <span style={{ 
+                      minWidth: '120px', 
+                      textAlign: 'center',
+                      color: '#1e293b',
+                      fontWeight: 600,
+                      fontSize: '14px'
+                    }}>
+                Page {currentPage} of {totalPages}
+              </span>
+
+                    <button 
+                      disabled={currentPage === totalPages} 
+                      onClick={() => setCurrentPage(current => Math.min(current + 1, totalPages))}
+                      style={{
+                        padding: '10px 20px',
+                        background: currentPage === totalPages ? '#e2e8f0' : 'linear-gradient(135deg, #314ca0, #1e3a8a)',
+                        color: currentPage === totalPages ? '#94a3b8' : 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        fontWeight: 600,
+                        cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                        transition: 'all 0.2s ease',
+                        fontSize: '14px'
+                      }}
+                    >
+                      Next ▶
+                    </button>
+            </div>
+          )}
+              </>
+            )}
+          </div>
+        </>
       )}
-          </>
-        )}
-      </div>
     </div>
   );
 }

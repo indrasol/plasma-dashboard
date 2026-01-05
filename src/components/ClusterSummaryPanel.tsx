@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ClusterSummaryPanel.css';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 
 interface ClusterData {
   cluster: number;
@@ -14,22 +15,34 @@ interface ClusterSummaryPanelProps {
 }
 
 const ClusterSummaryPanel = ({ selectedCluster }: ClusterSummaryPanelProps) => {
+  console.log("🎨 ClusterSummaryPanel rendering for cluster:", selectedCluster);
   const [clusters, setClusters] = useState<ClusterData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('/data/donor_clusters_labeled.json')
-      .then((res) => res.json())
+    fetch(API_ENDPOINTS.clusterSummaries)
+      .then((res) => {
+        if (!res.ok) throw new Error("API failed");
+        return res.json();
+      })
       .then((data: ClusterData[]) => {
         if (Array.isArray(data)) setClusters(data);
         else throw new Error("Invalid format");
         setLoading(false);
       })
       .catch((err) => {
-        console.error("❌ Failed to load clusters:", err);
-        setError(true);
-        setLoading(false);
+        console.warn("⚠️ API summaries failed, falling back to static asset:", err);
+        fetch('/data/donor_clusters_labeled.json')
+          .then((res) => res.json())
+          .then((data: ClusterData[]) => {
+            if (Array.isArray(data)) setClusters(data);
+            setLoading(false);
+          })
+          .catch(() => {
+            setError(true);
+            setLoading(false);
+          });
       });
   }, []);
 
@@ -204,10 +217,22 @@ const ClusterSummaryPanel = ({ selectedCluster }: ClusterSummaryPanelProps) => {
             </div>
           )}
         </div>
+      ) : selectedCluster === null ? (
+        <div style={{
+          padding: '24px',
+          background: 'rgba(49, 76, 160, 0.05)',
+          borderRadius: '16px',
+          border: '2px dashed rgba(49, 76, 160, 0.2)',
+          textAlign: 'center',
+          color: '#64748b'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>📊</div>
+          <p style={{ fontWeight: 500 }}>Select a donor or cluster to view AI-powered insights.</p>
+        </div>
       ) : (
         <div className="empty-state">
           <div className="empty-icon">🔍</div>
-          <p>No summary available for selected cluster.</p>
+          <p>No summary available for cluster #{selectedCluster}.</p>
         </div>
       )}
     </div>

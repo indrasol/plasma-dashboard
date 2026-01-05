@@ -1,0 +1,584 @@
+donor_id,influencer_id,relationship_type,relationship_weight,interest_category,created_at
+d08250b4-b3d9-4846-9aef-459af3cb1135,f052624c-43e0-4088-b84d-a3b7ec01dc54,Reported to,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+e61a672e-5a6e-4971-a8a7-a0b7e4c10a38,a1324167-56ea-41a4-9a19-053bdb057d12,Fellow Alumni,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+bf4a42d5-8e88-4728-a99e-aeefc91ea28a,a1324167-56ea-41a4-9a19-053bdb057d12,Family - extended,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+f0ecbee4-58b9-416c-bad3-7d699e4f9b65,a1324167-56ea-41a4-9a19-053bdb057d12,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+a4377ce2-d3f7-4f95-85a0-ba47640ce0e6,a1324167-56ea-41a4-9a19-053bdb057d12,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+9f36f66d-dad0-4f0c-bc47-646917720a2d,a1324167-56ea-41a4-9a19-053bdb057d12,Collaborated with,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+2d9a78c4-6526-4d43-b065-62614cdd999f,3fd5da33-92af-46c6-a4e8-4d9b76079863,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+19b5c6a3-a4b3-4719-9e86-ce8247452e4e,3fd5da33-92af-46c6-a4e8-4d9b76079863,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e1d3536e-2db5-42e1-922f-c6b4ad8484d6,3fd5da33-92af-46c6-a4e8-4d9b76079863,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+50003772-4cf8-4853-b962-518ac259506f,3fd5da33-92af-46c6-a4e8-4d9b76079863,Fellow Committee Member,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+0fbca3ed-44d3-44eb-92ea-afee99477576,80fa98e4-cc39-45dc-b441-530db0b5b105,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+14aa0462-7a4a-44ce-8aa8-929039c42b50,3292cb01-0f37-45fa-87c5-c4077a323754,Advisor/Advisee,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+687e95e6-db48-4bab-b82f-db95f54f9500,3292cb01-0f37-45fa-87c5-c4077a323754,Friends with,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+a5007a50-6ff0-492c-8811-bfb2979e6944,3292cb01-0f37-45fa-87c5-c4077a323754,Fellow Speaker,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+f4fae78e-c1da-45eb-9dbb-b82747ab2ed2,3292cb01-0f37-45fa-87c5-c4077a323754,Fellow Committee Member,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+4a881899-37f1-430c-93fb-b40ad86c5965,23b0d32b-f83d-474b-8315-2f9935e246df,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+a45aa294-65f2-4a46-95fe-7383c8eb35a0,23b0d32b-f83d-474b-8315-2f9935e246df,Student/teacher,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+c88b5fdd-4fa9-4821-a021-a9a305ae1056,23b0d32b-f83d-474b-8315-2f9935e246df,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+14aa0462-7a4a-44ce-8aa8-929039c42b50,72f246cf-48f3-4013-aeb2-e3636ccebf6a,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+ba3c1351-1299-4e46-b9cc-1c94b08ec5cd,5ab17456-cc3d-456c-85a4-012e9d2ed334,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+1200df2c-d983-4f3c-869c-b1968f83bf72,5ab17456-cc3d-456c-85a4-012e9d2ed334,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+e1665060-8238-415b-8637-6f0a8ee0fdf4,5ab17456-cc3d-456c-85a4-012e9d2ed334,Advisor/Advisee,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+19e8ff80-c4dc-4bbc-a310-a044cc15730c,5ab17456-cc3d-456c-85a4-012e9d2ed334,Business Partner,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+70415692-1554-4dfe-9446-aa68827a8b6e,5ab17456-cc3d-456c-85a4-012e9d2ed334,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+e716d28f-b1d9-4e54-9107-6618a13ab5ca,f4686e78-cc16-4208-b09d-a41524ece694,Fellow Alumni,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+e068b776-b700-4080-986d-1f25efed62c8,f4686e78-cc16-4208-b09d-a41524ece694,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+24897e18-6ec4-475d-8193-38d46577b2a5,f4686e78-cc16-4208-b09d-a41524ece694,Co-worker/Colleague,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+72640ec6-a58a-4646-b46c-e2e72a162e7a,b06e9c18-2542-496f-a9ff-3cd3131a766f,Family - first level,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+05772823-69a7-45c9-bd3a-beca07d3a481,b06e9c18-2542-496f-a9ff-3cd3131a766f,Fellow Committee Member,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+8b82192d-a8ac-47b0-8255-94461330dc44,b06e9c18-2542-496f-a9ff-3cd3131a766f,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+211c5f89-4b95-4b07-8f1b-1abfffbe992d,b06e9c18-2542-496f-a9ff-3cd3131a766f,Collaborated with,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+a91c7a41-981c-4ee3-ac0f-45a5e6740ed1,b06e9c18-2542-496f-a9ff-3cd3131a766f,Family - first level,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+656db031-4b53-4d6c-ab60-a008ad0e1b33,78e7527f-d85a-4433-87e1-59448d3f1c44,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+661affd1-8a31-40e0-af92-24e9ea75dbd3,78e7527f-d85a-4433-87e1-59448d3f1c44,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+68ece8ca-4d44-462c-ad1e-489b9b983d08,78e7527f-d85a-4433-87e1-59448d3f1c44,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+a92ecca8-4b68-486a-8c7a-00003753544f,29f0b517-7c10-4698-87ad-1881dc20ea1a,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+7c1ebb0e-d020-4d85-af43-df1016ef525a,733893d4-6668-4b7b-8b53-915f3d577ead,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+6b20b125-d886-4680-876b-34ade4a2786b,e197d2ce-b409-4f7d-a30b-ac64189c5e5e,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+51536b25-5a6d-4c09-8cba-3f6b43c4c9aa,e068b776-b700-4080-986d-1f25efed62c8,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+5a6af3e9-c8bf-4b65-b599-3b3f4e2791e8,e068b776-b700-4080-986d-1f25efed62c8,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+ded02442-a6b2-4184-9e7d-e1629abca6e1,805c1ee8-d582-4aff-af64-35e837af444d,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+0b309f63-fa38-40af-a7df-3c4200a4aaa7,805c1ee8-d582-4aff-af64-35e837af444d,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+85b7760a-80b1-413d-a55b-54425c9a47e1,805c1ee8-d582-4aff-af64-35e837af444d,Co-author,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+d7b397d3-c204-401d-bd28-fd4aa9d0a445,805c1ee8-d582-4aff-af64-35e837af444d,Co-worker/Colleague,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+de451338-83d6-4ac6-ba42-c64c69efe4c9,2b4d1634-1bb7-4d56-981b-16b714732f0c,Fellow Alumni,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+4d887c2a-ad0c-4840-8cb4-51e7fb1c0dbc,2b4d1634-1bb7-4d56-981b-16b714732f0c,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+69828d9a-23e8-42d7-9a07-91a38504aa02,2b4d1634-1bb7-4d56-981b-16b714732f0c,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+337f8e89-9e2f-4e33-913e-c7dfd29a83af,e57c544a-160a-4db0-9ef7-8c409f45d525,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+38c71011-204f-4da3-999e-956ea8791977,e57c544a-160a-4db0-9ef7-8c409f45d525,Business Partner,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+6c1b7af1-d7c8-480e-9e0d-7a7c4e37c62e,f4857e78-ad41-427f-ac62-e03e90988960,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+d0a73205-fd69-4997-8000-3e901219b4f2,f4857e78-ad41-427f-ac62-e03e90988960,Co-author,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+05620726-05e5-446e-b6f7-2ab3ba04c8af,f4857e78-ad41-427f-ac62-e03e90988960,Co-worker/Colleague,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9c902b10-3893-42ae-89b4-da4bc5d96a6e,20cca08e-6c35-4eb8-a7e5-913a7219df31,Business Partner,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+30f6c0e7-913b-4e0f-9330-408e30e46a0f,20cca08e-6c35-4eb8-a7e5-913a7219df31,Family - first level,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+82da3585-1817-4a13-a54d-fe4f471f2a49,20cca08e-6c35-4eb8-a7e5-913a7219df31,Fellow Speaker,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+a579a105-a7af-4d8f-8df0-e41e2e49a8b1,20cca08e-6c35-4eb8-a7e5-913a7219df31,Co-author,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+3af8f95e-ad1c-48a3-ae06-29c7e56ed572,fea77886-b50b-438e-b24a-8be62172d203,Family - extended,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+d89e5cae-9e68-4e8b-b7f9-a41f5c4b9531,fea77886-b50b-438e-b24a-8be62172d203,Mentor/Mentee,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+17fcb4d5-de08-45fa-89ce-306ea8a52b47,fea77886-b50b-438e-b24a-8be62172d203,Co-founder,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+ba7dc998-391b-42ef-87e8-e7baa4aaa22a,fea77886-b50b-438e-b24a-8be62172d203,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+2e9aba02-cb84-46f1-96fe-13d75bbc9f25,fea77886-b50b-438e-b24a-8be62172d203,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+f167f4bb-71bc-49bf-9a92-5c6becf67f52,5842e994-9a95-4b66-94e1-02fac0214bfa,Co-founder,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+d9141ff3-1ba0-400e-b91a-0db20e82620e,5842e994-9a95-4b66-94e1-02fac0214bfa,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+99c43c15-49d9-43d9-ac73-06b949567b10,5842e994-9a95-4b66-94e1-02fac0214bfa,Student/teacher,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+4445dd3e-ced6-4cd1-847c-0e0e75ac3258,6e0a2da3-f49c-4be0-ab34-5320a3cc74b1,Friends with,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+5c189619-0b00-4ad8-babf-febae683b101,0fbca3ed-44d3-44eb-92ea-afee99477576,Co-author,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+d298b3f8-7634-4682-a538-6c70013e1248,8e477cf9-508b-4b37-ad9f-dbd5a590edb8,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e58267b4-95c5-4914-9b71-fb3749f8ad75,8e477cf9-508b-4b37-ad9f-dbd5a590edb8,Friends with,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+d64fdfe8-4c8a-47eb-9c94-c78593abe450,55127d3c-0e51-4a93-aabc-6efe62d285d8,Co-author,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+6c1b7af1-d7c8-480e-9e0d-7a7c4e37c62e,55127d3c-0e51-4a93-aabc-6efe62d285d8,Co-worker/Colleague,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+17efca01-b251-4116-af78-e8b0f105c5d6,55127d3c-0e51-4a93-aabc-6efe62d285d8,Reported to,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+3d499e2f-dbdb-4a38-baf2-5d911d0adb2a,57b62f77-e1e4-47d5-b41e-bf776ff8b59c,Student/teacher,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f709a7dc-bcba-4745-9d4f-e22245837843,57b62f77-e1e4-47d5-b41e-bf776ff8b59c,Co-founder,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+1ddf3108-4cbb-47d6-bd6c-eba7931a856d,57b62f77-e1e4-47d5-b41e-bf776ff8b59c,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+19b5c6a3-a4b3-4719-9e86-ce8247452e4e,57b62f77-e1e4-47d5-b41e-bf776ff8b59c,Co-founder,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+7628f5d1-ef0b-4b75-a7bd-dec5ae88850d,91ea5d72-1d40-45c6-a4cb-892ed1484ebe,Mentor/Mentee,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+72f246cf-48f3-4013-aeb2-e3636ccebf6a,91ea5d72-1d40-45c6-a4cb-892ed1484ebe,Mentor/Mentee,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+82c32a70-0be2-4d07-93a8-c61199a8d0c8,91ea5d72-1d40-45c6-a4cb-892ed1484ebe,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+769f1f98-185a-4d47-b69e-4b033e4d2b3b,91ea5d72-1d40-45c6-a4cb-892ed1484ebe,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+e197d2ce-b409-4f7d-a30b-ac64189c5e5e,91ea5d72-1d40-45c6-a4cb-892ed1484ebe,Family - extended,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+c2621d77-c50a-489e-8458-e08bd895e046,8e5db93d-c20d-4a44-b7fb-f88f99349202,Business Partner,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+fb898339-208e-486c-aa32-5974b47b3f6e,8e5db93d-c20d-4a44-b7fb-f88f99349202,Co-worker/Colleague,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+d5b4b31e-1a99-4af4-abd5-7303d9917246,8e5db93d-c20d-4a44-b7fb-f88f99349202,Fellow Committee Member,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+fd103237-eee6-47e2-af79-0220cfbf6c4b,8e5db93d-c20d-4a44-b7fb-f88f99349202,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+6402defd-144b-45fb-a5cc-8ff168b4db9a,8e5db93d-c20d-4a44-b7fb-f88f99349202,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+f0ecbee4-58b9-416c-bad3-7d699e4f9b65,7f91ada6-c58d-47bf-9f45-940282f6a292,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+e8da460a-e6b9-48c2-b231-c1e0463c76fe,7f91ada6-c58d-47bf-9f45-940282f6a292,Fellow Committee Member,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+38c71011-204f-4da3-999e-956ea8791977,7f91ada6-c58d-47bf-9f45-940282f6a292,Collaborated with,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+1207e494-171a-43c8-ab47-25e2a7c147b8,7f91ada6-c58d-47bf-9f45-940282f6a292,Family - first level,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+a71a159d-6876-4bce-a8f8-33bc7d3cbff6,72d98ef2-1157-4ac4-b160-3c251f8af2a9,Family - extended,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+38084d37-2d0d-4acd-9da9-d371f32c6b1b,72d98ef2-1157-4ac4-b160-3c251f8af2a9,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+8de4d78c-0be0-4f3d-992b-cb843c0791a3,72d98ef2-1157-4ac4-b160-3c251f8af2a9,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+346f3c8d-4239-412f-9af9-841e0e8d0163,72d98ef2-1157-4ac4-b160-3c251f8af2a9,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+f71e5cb6-333a-40d6-8fac-696000d93a44,72d98ef2-1157-4ac4-b160-3c251f8af2a9,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+abbbe018-e0c7-4ec0-8596-7e9a0ae0b293,a520edfa-365f-4585-b36f-833d96fdc345,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+ee9b6c05-9376-4f00-8ab2-ac02b89a65fe,6402defd-144b-45fb-a5cc-8ff168b4db9a,Fellow Alumni,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+99d27ff8-de63-4e35-9bc9-6b84074e871f,6402defd-144b-45fb-a5cc-8ff168b4db9a,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+cc69a3b5-489a-49de-9a36-1d9d8eeb3a71,6402defd-144b-45fb-a5cc-8ff168b4db9a,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+2f9b8cac-07a4-418a-97be-02e2693884e3,6402defd-144b-45fb-a5cc-8ff168b4db9a,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+8b8d9716-7635-48b3-ad79-25f8dfee94eb,6402defd-144b-45fb-a5cc-8ff168b4db9a,Mentor/Mentee,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+afdaa779-7acf-4ab2-9f70-9acaab767b1a,bab4920a-9bdc-41c8-90fe-924015961032,Co-author,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+eeaf82e5-7d1f-4cee-b919-dd39f529c42a,bab4920a-9bdc-41c8-90fe-924015961032,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+e215ac32-7add-4115-a8c9-b9f6d5a3abf3,919194b4-960f-49e0-8e93-95b5683d9c0b,Collaborated with,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+6522c11f-1206-4ee3-827e-1e0484aa132c,a0bb9600-8861-41ed-a92b-c5e83d88e1ab,Co-worker/Colleague,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+3adf7f85-695e-4ad1-ad9f-d4189829e16f,a0bb9600-8861-41ed-a92b-c5e83d88e1ab,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+28b1a9f3-fa88-4856-83e5-08e32984df79,a0bb9600-8861-41ed-a92b-c5e83d88e1ab,Advisor/Advisee,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+9c1eef1a-cb8e-45b0-b418-c57f0240b7e5,784976b4-a654-4f49-8337-4c8d4115eb10,Co-worker/Colleague,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a6003879-edaa-4a4e-a79a-d8e478a6aec0,784976b4-a654-4f49-8337-4c8d4115eb10,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+cbf5fb99-7c6d-49b3-bcc7-08b025dfa0d1,784976b4-a654-4f49-8337-4c8d4115eb10,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+211d1bb7-9ca0-4b9d-bf17-4e2223fc2cb5,67a6f86b-f086-4eb4-a2f1-924bb39c8401,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+0178e78b-ca2b-4c1d-8478-c54d654da361,67a6f86b-f086-4eb4-a2f1-924bb39c8401,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+c70a5850-749e-4aec-81b3-b3ecbfb9e920,67a6f86b-f086-4eb4-a2f1-924bb39c8401,Fellow Speaker,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+b1051b45-ff02-408f-bb8c-92b6611f659d,a77c6909-50e7-4309-bfd6-103f5b5e7fd0,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a17ef7bc-5a00-4c01-be28-613b90a5e81d,a77c6909-50e7-4309-bfd6-103f5b5e7fd0,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+6f787969-9846-4090-85e3-9951c3ae4e34,a77c6909-50e7-4309-bfd6-103f5b5e7fd0,Co-author,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+e6026991-342a-4a96-8aa2-18f1088190d1,ab21b441-6a1f-4c12-b96c-1601d6774fc2,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+82fac26d-2be3-4624-842f-73b74c7f6d98,ab21b441-6a1f-4c12-b96c-1601d6774fc2,Student/teacher,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+8704d5c9-45c8-4c26-bb80-d27b816690de,bd0fa4bd-f1fb-47a4-ba95-a5c46309e613,Fellow Committee Member,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+404da108-b23e-49d4-b688-ef6cd27efdb1,bd0fa4bd-f1fb-47a4-ba95-a5c46309e613,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+045eb9b0-29b3-4ba5-988a-6b04237c9875,bd0fa4bd-f1fb-47a4-ba95-a5c46309e613,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9f2df0b4-dce0-46e8-b77b-96403206cac6,5087d838-7069-4676-80de-9914fee3eb7f,Co-worker/Colleague,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+0f2f6fd3-e4c0-4fab-baf3-2ea6f019c464,5087d838-7069-4676-80de-9914fee3eb7f,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+d527f42c-6f5a-48fd-b4a5-61a4d5da2471,5087d838-7069-4676-80de-9914fee3eb7f,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+02ab02f6-2bac-4a0d-bdc2-f84b166e3154,d8ae0379-4d80-45dd-ab48-24821b0a24ec,Mentor/Mentee,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+d20c27bd-bd15-47d8-9cdb-669d2d5b8cbd,d8ae0379-4d80-45dd-ab48-24821b0a24ec,Co-worker/Colleague,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+79ce593e-4858-4ec1-b3c9-05661e25d4eb,d8ae0379-4d80-45dd-ab48-24821b0a24ec,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+048326c0-b939-471c-9a6f-f80369497a2b,d8ae0379-4d80-45dd-ab48-24821b0a24ec,Family - first level,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+1e6b210c-03f1-4d7d-9689-4ad4ae658f41,ab8efba9-e14f-47af-aee3-9c033bd5f70e,Fellow Alumni,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+dc6a8330-abbc-4924-ab6c-1d417e9038fd,ab8efba9-e14f-47af-aee3-9c033bd5f70e,Co-founder,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+c58bfeed-2f46-419f-865e-7fbf8d44525a,ab8efba9-e14f-47af-aee3-9c033bd5f70e,Student/teacher,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+2fa75d45-d967-443b-8671-15d8d6d1b658,ab8efba9-e14f-47af-aee3-9c033bd5f70e,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+700024fc-f148-4200-8b14-d80fef2701f6,6de69601-efe5-48d8-bb80-ed5bd67d90d0,Student/teacher,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+461b829a-5f6d-4b51-bbd4-2f2cd68ff9a7,6de69601-efe5-48d8-bb80-ed5bd67d90d0,Family - extended,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+7628f5d1-ef0b-4b75-a7bd-dec5ae88850d,6de69601-efe5-48d8-bb80-ed5bd67d90d0,Co-founder,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+a499369c-600f-4c95-8c4f-15b27de0781d,6de69601-efe5-48d8-bb80-ed5bd67d90d0,Fellow Speaker,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+17efca01-b251-4116-af78-e8b0f105c5d6,943c953a-9774-4e9d-9f1f-2a4ad560c7ab,Student/teacher,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+dad66b35-abae-4363-b38b-b84e0bf7e086,943c953a-9774-4e9d-9f1f-2a4ad560c7ab,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+927a2ea3-ad46-4c7e-bc05-5e13c9c6d353,bf987358-1a34-4ef5-a0f7-b6d73e27fd09,Co-author,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+9fb589c8-d65f-488e-b33e-428e969b6cd6,bf987358-1a34-4ef5-a0f7-b6d73e27fd09,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+51bc23c5-e2f2-45ee-8541-33023c9c6b93,bf987358-1a34-4ef5-a0f7-b6d73e27fd09,Fellow Committee Member,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+24009d6b-1f2a-40f7-95ea-616fa6a70a4e,60ad3b01-6542-4e4e-b715-36d7cc9539ae,Business Partner,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+aaaa5064-6b5a-48c5-92d6-420bb08ed13b,60ad3b01-6542-4e4e-b715-36d7cc9539ae,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+eb87508b-f4b7-471c-a18d-013d8779f1a9,60ad3b01-6542-4e4e-b715-36d7cc9539ae,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+3fd5da33-92af-46c6-a4e8-4d9b76079863,60ad3b01-6542-4e4e-b715-36d7cc9539ae,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+39c0f010-b8fb-491a-85db-78182780d6dc,60ad3b01-6542-4e4e-b715-36d7cc9539ae,Fellow Board Member,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+05d13956-e1a5-4ff8-9204-2af2f626d2e7,450e5816-4a0c-49b2-a8d5-ffeabe1ac073,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+db55f288-8523-45a2-be49-654f7abf1358,dafbe5a4-f72d-4e5e-a39d-c594d0204109,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+79d0c8a5-cccb-4e2b-9b7f-5c1754b5a664,4406f8c8-b5a1-475d-a01d-eff07eefcede,Collaborated with,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+af047bc6-7be7-41d0-a147-e2c9d453229c,4406f8c8-b5a1-475d-a01d-eff07eefcede,Family - first level,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+660f161d-b84c-4b32-a0ba-357aac82ed3a,4406f8c8-b5a1-475d-a01d-eff07eefcede,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+4a881899-37f1-430c-93fb-b40ad86c5965,beb5338f-997d-4081-936c-a3148fd07e5c,Business Partner,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+2dd1b902-b67e-4c39-8890-535aa0f412d6,f3a39504-8527-4542-a22c-fef10550dcb4,Co-founder,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+1c294395-ac18-4ca0-a216-b07355b3c514,f3a39504-8527-4542-a22c-fef10550dcb4,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+c20542b0-a3d2-45ca-a121-f6296ef5ae6a,ecd9df79-22a9-416c-a3b7-5a207ccb2e4f,Family - extended,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+2728c27d-cbf1-44ca-bf92-b64c1d18f4fa,ecd9df79-22a9-416c-a3b7-5a207ccb2e4f,Student/teacher,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+91ea5d72-1d40-45c6-a4cb-892ed1484ebe,c6a440d4-ce48-476e-9ab2-41a32aa8ddcc,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+3ce5f49a-1a6e-4439-a0b8-badf2c3d3524,dd601c90-61fb-419a-b070-bd0c79ee5895,Family - first level,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+c6a00161-86b7-44f6-b088-57742be3b16a,dd601c90-61fb-419a-b070-bd0c79ee5895,Business Partner,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+26df100c-4551-4ba1-8bc3-6011a43d5880,dd601c90-61fb-419a-b070-bd0c79ee5895,Fellow Alumni,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+57d12c08-e268-4923-a4d0-34d5939a18e0,8858b229-f760-4d8a-9eb4-7ebe943d5a48,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+55127d3c-0e51-4a93-aabc-6efe62d285d8,8858b229-f760-4d8a-9eb4-7ebe943d5a48,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+73320fcd-d6ec-4938-b84c-6546e5e1353e,8858b229-f760-4d8a-9eb4-7ebe943d5a48,Family - first level,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+b69cb89c-384e-41e2-8caa-30a597f1c06e,8858b229-f760-4d8a-9eb4-7ebe943d5a48,Family - first level,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+90c9c816-8ab2-4dce-82bd-ba5f6f06bede,8858b229-f760-4d8a-9eb4-7ebe943d5a48,Mentor/Mentee,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+0748175f-9a12-4919-8233-33c7b187f869,98c0224f-b76a-4518-ae4a-fdaf2a641dad,Reported to,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+067c7536-bbb2-4aa7-9b5f-7d50dc620a50,98c0224f-b76a-4518-ae4a-fdaf2a641dad,Co-worker/Colleague,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+abcbb48f-b8a3-426f-8c5f-76efbc3829c0,98c0224f-b76a-4518-ae4a-fdaf2a641dad,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e27c5da5-556b-4c6b-a52c-5996a66dcdd0,98c0224f-b76a-4518-ae4a-fdaf2a641dad,Mentor/Mentee,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+0e174672-fa48-4e6e-b265-96087895f4d1,98c0224f-b76a-4518-ae4a-fdaf2a641dad,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+ef4a5283-c71a-4937-9056-65c6cca2d956,5f8a6ea4-f0a2-4b98-bbbc-3503bb1d120f,Student/teacher,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+cc80dd2c-7239-4612-84c8-40f9e131a70c,5f8a6ea4-f0a2-4b98-bbbc-3503bb1d120f,Reported to,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+32de2a7c-66c9-499b-a9ff-67f6b22fde69,5f8a6ea4-f0a2-4b98-bbbc-3503bb1d120f,Fellow Committee Member,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+c6fd010e-42bf-4835-9651-d52379fc9ffe,8fa7df59-5f98-4cb4-8552-5f7ec3c70f13,Family - first level,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+764c8faf-fd21-438e-91e4-a991a5f166a7,81853109-44b3-46e7-915b-933e9b7f39ea,Co-worker/Colleague,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+61bf640d-ef78-49cc-bb4f-c9d045902a58,4ce63fb4-0066-4789-882c-cca3a4c6cfbc,Fellow Board Member,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+34301b6e-a517-4484-9730-0a61551f4f4c,4ce63fb4-0066-4789-882c-cca3a4c6cfbc,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+2b177450-699d-44b1-b572-0da4331c05eb,4ce63fb4-0066-4789-882c-cca3a4c6cfbc,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+be80724d-0551-46b7-9c5e-faa1124fbb6d,95ac62dc-dd42-4669-bd4e-fd05366dbdcb,Co-author,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f06a84ef-14a5-498b-8981-64c372698332,95ac62dc-dd42-4669-bd4e-fd05366dbdcb,Student/teacher,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+0093fcb3-b524-416f-b6fe-b8cae32d411a,95ac62dc-dd42-4669-bd4e-fd05366dbdcb,Co-worker/Colleague,6,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+be0d7c38-de79-41da-9608-1da42edb5943,95ac62dc-dd42-4669-bd4e-fd05366dbdcb,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+71a195b8-952b-4668-aec2-b25046f88a55,8a3b698c-2952-4b72-ad0f-49e7b72a3d95,Fellow Board Member,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+11cfd38d-41bb-4c28-ab9a-01de42032155,8a3b698c-2952-4b72-ad0f-49e7b72a3d95,Fellow Alumni,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+beba6d77-2746-44cb-9115-442af30be195,8a3b698c-2952-4b72-ad0f-49e7b72a3d95,Student/teacher,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+c9e04776-af47-4fe6-8dc9-65d596100bb8,4a062f89-386c-4e4a-ae63-c3b47c060db5,Mentor/Mentee,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+df230bf4-dc6c-46e4-a62d-e895e3a1da6d,4a062f89-386c-4e4a-ae63-c3b47c060db5,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+29f0b517-7c10-4698-87ad-1881dc20ea1a,4a062f89-386c-4e4a-ae63-c3b47c060db5,Family - extended,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+38084d37-2d0d-4acd-9da9-d371f32c6b1b,7c5a5884-27ac-496f-bd5a-cb7de74cc7ea,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+437e3d35-699c-42a4-a087-8b5c327ff197,7c5a5884-27ac-496f-bd5a-cb7de74cc7ea,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+36275826-41cf-44cb-a0a5-ad501e31e781,de8b37f5-5829-444d-9f3f-53a893f1481f,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+524f2e0b-2bf3-4f93-9d7b-c8084b317610,de8b37f5-5829-444d-9f3f-53a893f1481f,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+36a86dfc-a4b1-4203-a96d-f2e6ba9db90a,de8b37f5-5829-444d-9f3f-53a893f1481f,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+23eb6caa-c8cd-46f3-ae56-170ed4514a4b,de8b37f5-5829-444d-9f3f-53a893f1481f,Co-worker/Colleague,6,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+8d40631b-f87c-43bf-8d31-514d708c7bcd,de8b37f5-5829-444d-9f3f-53a893f1481f,Fellow Speaker,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+0178e78b-ca2b-4c1d-8478-c54d654da361,044b5b1b-62da-4416-aafe-25ea04e084d8,Business Partner,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+cbc604d8-d1cd-414f-b43c-a207b27ba22c,044b5b1b-62da-4416-aafe-25ea04e084d8,Family - first level,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+0fa00d8a-b92e-4dfd-bc82-bb3fad502ea6,044b5b1b-62da-4416-aafe-25ea04e084d8,Family - first level,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+2cbbea22-341d-4739-aad8-449aff8f7470,044b5b1b-62da-4416-aafe-25ea04e084d8,Co-founder,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e9646556-1728-4b6b-aeb9-4174c9fea8c2,fc2976d6-4ed8-4f3c-973f-ca00b2794b52,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+f5356944-e5fe-4c30-8c7b-5fafae4ebd50,fc2976d6-4ed8-4f3c-973f-ca00b2794b52,Student/teacher,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+a21eb0d3-a335-424b-921d-923691545039,fc2976d6-4ed8-4f3c-973f-ca00b2794b52,Family - extended,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+8acb0c3b-3f1d-4cf0-a8c7-317439539b2d,b6e5979f-6ed6-4e33-a50f-981a7637b212,Co-worker/Colleague,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+c5c1f02c-e225-4743-9687-5711d1000211,b6e5979f-6ed6-4e33-a50f-981a7637b212,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+bcea157f-f45e-442b-ae81-b447e258bf2f,b6e5979f-6ed6-4e33-a50f-981a7637b212,Co-worker/Colleague,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+1611f746-9a5a-4544-998b-8eb48bf135df,b6e5979f-6ed6-4e33-a50f-981a7637b212,Business Partner,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a0f55c8a-8e41-48aa-96e2-33ff64a5c9b3,b6e5979f-6ed6-4e33-a50f-981a7637b212,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+af98c611-ae2c-48b1-9bd9-b1106d8a4844,a111d6f0-7c90-4bc0-9755-8175281868de,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+8a54bd0b-54e1-41ff-8e15-d7b7b38b8a97,a111d6f0-7c90-4bc0-9755-8175281868de,Fellow Committee Member,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+dad66b35-abae-4363-b38b-b84e0bf7e086,a111d6f0-7c90-4bc0-9755-8175281868de,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+d1f61c0c-edf2-49bc-9b49-6fd0681e5316,a111d6f0-7c90-4bc0-9755-8175281868de,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+f709a7dc-bcba-4745-9d4f-e22245837843,1e312448-db61-4f83-8dd8-88ba89650197,Co-worker/Colleague,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+72f246cf-48f3-4013-aeb2-e3636ccebf6a,1e312448-db61-4f83-8dd8-88ba89650197,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+a6b11b13-a4aa-4d35-8da3-0966a4d0c45b,1e312448-db61-4f83-8dd8-88ba89650197,Co-worker/Colleague,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+211d1bb7-9ca0-4b9d-bf17-4e2223fc2cb5,dbaf66e2-52a0-4166-b67d-cf534ec30c1d,Fellow Speaker,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+98847d12-abc5-4ba9-b9b1-4d153d214150,534b4a51-0592-4546-8887-1fc5c26f0bcc,Co-author,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+6a0680e3-a6e3-4b17-a2ef-201959e1d4ef,ccc54d79-fa45-4eca-af0a-b54933ad9e9f,Business Partner,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+510a83d0-c7ae-437f-a9bb-4f4ced75ab2b,ccc54d79-fa45-4eca-af0a-b54933ad9e9f,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+0fc55c9f-d71c-4922-8adc-3fd2854bc142,ccc54d79-fa45-4eca-af0a-b54933ad9e9f,Mentor/Mentee,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+1df81b8d-32ee-4c9c-9120-2c842688ff43,ccc54d79-fa45-4eca-af0a-b54933ad9e9f,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+0e4c7eae-8e91-4187-be4a-69f19582623d,ccc54d79-fa45-4eca-af0a-b54933ad9e9f,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9521d878-2d9f-48c7-ab65-6884567b59c5,c7c73f51-10f9-4b5b-a045-d8e47a0912d8,Collaborated with,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+1c3f17f6-ac30-469f-9367-c99c428bf6d7,c7c73f51-10f9-4b5b-a045-d8e47a0912d8,Business Partner,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+7a34d9e3-cd63-4987-951e-a903a25a25c3,a5576e2e-c773-4037-acc7-f1331577a7a5,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+3a5943b0-df83-430f-a8eb-0bf14a45091d,a5576e2e-c773-4037-acc7-f1331577a7a5,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+0c1def4f-0e4a-4e55-9f28-1d92864f3588,a5576e2e-c773-4037-acc7-f1331577a7a5,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+c11de772-c0c8-46b1-a39e-e8e0f8b7317a,daaa7116-a311-4aed-93b3-500e1302e814,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+9eb9950a-0bfd-4ea6-a60a-4cb469c044bd,daaa7116-a311-4aed-93b3-500e1302e814,Business Partner,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+07c08a95-b20e-4c0c-a920-c478180d67f3,daaa7116-a311-4aed-93b3-500e1302e814,Co-founder,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+f4b983ed-f7ef-4a0a-8806-85c22427952f,daaa7116-a311-4aed-93b3-500e1302e814,Student/teacher,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+8e8a87d1-c3b8-44e7-8867-e2692e02f190,daaa7116-a311-4aed-93b3-500e1302e814,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+cec3e791-da31-4a9e-9247-9ce26f557c38,7e02fa63-f7b6-4dda-806f-31c36408b74f,Fellow Speaker,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+7e10f7e5-da7f-48f5-8126-aec6b0490c72,7e02fa63-f7b6-4dda-806f-31c36408b74f,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+f4fae78e-c1da-45eb-9dbb-b82747ab2ed2,3da61d27-cea9-4a4c-9c46-ba96abaa926e,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+0cd47a3a-4503-45bb-802c-b111b43cb890,3da61d27-cea9-4a4c-9c46-ba96abaa926e,Mentor/Mentee,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+b11dff27-27cc-4b5f-b628-39ac0ae923b5,3da61d27-cea9-4a4c-9c46-ba96abaa926e,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+5561a945-e8d3-43fa-bd75-85a1590eb089,3da61d27-cea9-4a4c-9c46-ba96abaa926e,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+d934b447-bad2-4be7-beea-784568a2ab04,3da61d27-cea9-4a4c-9c46-ba96abaa926e,Mentor/Mentee,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+1457ac4a-c875-4110-8f6d-fc0f14d78473,49032342-3eaf-4285-bf1e-69a4aeb4322a,Friends with,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+11ccec74-5a84-48ae-b300-67bbf4d1cb8e,49032342-3eaf-4285-bf1e-69a4aeb4322a,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+5a54bd5e-bc08-4852-befc-cff0f7c2d3f9,49032342-3eaf-4285-bf1e-69a4aeb4322a,Family - extended,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+f6665e77-194c-49aa-8f75-35ba4a94b23b,49032342-3eaf-4285-bf1e-69a4aeb4322a,Co-worker/Colleague,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+08ec7f35-6afd-44aa-8380-b5155d710f89,49032342-3eaf-4285-bf1e-69a4aeb4322a,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+3b92171d-dae9-4b13-8567-c8439b929e43,d934b447-bad2-4be7-beea-784568a2ab04,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+f425f27f-eff7-40d8-94cb-f93c422344c2,d934b447-bad2-4be7-beea-784568a2ab04,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+abc347d8-5bcf-470b-b2d9-300f78ad6bbb,d934b447-bad2-4be7-beea-784568a2ab04,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+0f3d3a3c-32e4-418f-a401-f27ca3a29698,8f5ec432-5429-4c19-94de-b2319982c7d4,Mentor/Mentee,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+ad830383-f01e-4a70-aec9-f15b6569ff09,960f3e70-f522-4d2f-bc1f-522024b2a84f,Business Partner,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+17efca01-b251-4116-af78-e8b0f105c5d6,960f3e70-f522-4d2f-bc1f-522024b2a84f,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+152a6f74-5620-4800-a46e-01aa845065b5,37ada321-4743-473d-9885-ea8ee205fa0d,Reported to,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+83001ffc-8384-426a-bbd0-0a70d63e2bba,37ada321-4743-473d-9885-ea8ee205fa0d,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+bfc7f96a-0536-4a55-a800-ef0234e2bf4c,37ada321-4743-473d-9885-ea8ee205fa0d,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f7cc4e1d-4b37-468d-aebe-e96507630ecb,9d1a3c93-dfae-4123-b989-8c3ac0e3ecc3,Reported to,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+01e97589-44e7-44d2-83ec-f215c6058414,9d1a3c93-dfae-4123-b989-8c3ac0e3ecc3,Family - extended,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+2cfaa98c-7ba8-4a70-8523-a5513af1b5a3,b762f48e-5f81-477e-9743-d452548ea94b,Friends with,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+f268cfe0-5c55-4c0b-b63e-5bd4c014f2c2,cae7106e-d5d3-4d7e-9254-91fd198b8933,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+eb2666a9-6419-45a4-9797-2ff4b1cf3ccf,cae7106e-d5d3-4d7e-9254-91fd198b8933,Fellow Committee Member,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+3c6d6df4-fd43-41f7-a2c1-ce517a65cb3b,cae7106e-d5d3-4d7e-9254-91fd198b8933,Mentor/Mentee,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+ec0b662c-4bbb-4eb0-af18-73222ea2992d,d0a73205-fd69-4997-8000-3e901219b4f2,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+1457ac4a-c875-4110-8f6d-fc0f14d78473,d0a73205-fd69-4997-8000-3e901219b4f2,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+406e2628-55da-41c9-bdd8-e64c31ff7614,d0a73205-fd69-4997-8000-3e901219b4f2,Friends with,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+92a42e42-8ed9-4e46-9ef4-09f9d7059faa,d0a73205-fd69-4997-8000-3e901219b4f2,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+98fda998-a572-4252-9338-e6cc5108d6c6,d0a73205-fd69-4997-8000-3e901219b4f2,Family - extended,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+49ea7e79-f1e1-42dc-a8de-75ac8fe5528c,29c2749a-66d4-4d16-9961-cdb8bb8fcb6e,Student/teacher,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+df230bf4-dc6c-46e4-a62d-e895e3a1da6d,29c2749a-66d4-4d16-9961-cdb8bb8fcb6e,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+7610d3ae-7730-456e-bb12-37af3a444062,29c2749a-66d4-4d16-9961-cdb8bb8fcb6e,Fellow Committee Member,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+b1e1956f-70cf-469e-a4e5-a80c078f34a1,1b034431-e502-4c31-ba6a-1df051e09b3c,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+d697e430-024b-4afa-97b4-322772aa2537,1b034431-e502-4c31-ba6a-1df051e09b3c,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+fb898339-208e-486c-aa32-5974b47b3f6e,1b034431-e502-4c31-ba6a-1df051e09b3c,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+3772c865-81fb-4f38-a57e-c8c001cb7303,1b034431-e502-4c31-ba6a-1df051e09b3c,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+93ace85f-3e3a-4534-a611-970a3f707ced,1a9c2063-77e6-4681-b33b-dc32fed47752,Fellow Board Member,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+49805db7-1eb3-428c-8892-a7e70d6bc9c4,1a9c2063-77e6-4681-b33b-dc32fed47752,Fellow Alumni,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+771dc2ea-86d9-4c6a-852f-f6757880da11,1a9c2063-77e6-4681-b33b-dc32fed47752,Fellow Board Member,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+e8693f7e-c9f3-47eb-918b-cb7bdb711aec,e19658e5-b81b-441f-a613-dc3ec6507184,Family - first level,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+23b0d32b-f83d-474b-8315-2f9935e246df,ef55715e-9346-4ae0-a5be-96849a0ec020,Friends with,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+2852573c-f4bc-4907-8202-b5be8a0ccedc,3a9f0539-da30-4630-8247-b158b442c57f,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+34220f8f-3c17-45d1-8c72-88ae381a6de8,ca743936-b8a9-4592-a351-b1b7c6578ac6,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+f41f4c35-8d4b-4ad8-8687-880fca1933e6,ca743936-b8a9-4592-a351-b1b7c6578ac6,Reported to,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+93a0a9ef-70d6-43b8-bd43-15d1e06ab8ae,ca743936-b8a9-4592-a351-b1b7c6578ac6,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+aca37f3b-c4c8-46ca-b827-c0c282e44451,405975b3-353c-48f0-aa5e-78c05664b514,Co-worker/Colleague,6,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+1d9bf402-6cff-43ad-86a5-e9df913d4f74,405975b3-353c-48f0-aa5e-78c05664b514,Student/teacher,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9fc6b3f9-0089-4d57-9f50-90407f10ec84,4dd1701c-060e-446c-815d-bb496dbac2cf,Fellow Alumni,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+50c99fc5-89e6-40af-af3b-9696ea164ec2,4dd1701c-060e-446c-815d-bb496dbac2cf,Reported to,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+d5b4b31e-1a99-4af4-abd5-7303d9917246,4dd1701c-060e-446c-815d-bb496dbac2cf,Fellow Alumni,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+270fc4ae-8d3e-4225-b912-4a16486a8dcc,4dd1701c-060e-446c-815d-bb496dbac2cf,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+38fe4ce3-ed76-4a64-9653-af4c4923316f,4dd1701c-060e-446c-815d-bb496dbac2cf,Family - extended,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+d7eeceb9-64ef-482e-8bc9-2b14bd4081f7,42b9a85e-17a1-480a-9821-6ab8f0d9ee99,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+ae5a2c4e-4a02-4338-8702-f53cb2cbcaf1,42b9a85e-17a1-480a-9821-6ab8f0d9ee99,Fellow Board Member,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+ebfb385e-e09c-4872-9d31-7da72e3ca9f2,31ef152b-e2b7-4c0d-b244-34f0d2ab2c7c,Co-founder,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+abd9026d-b0a5-4584-b406-63058e451c08,31ef152b-e2b7-4c0d-b244-34f0d2ab2c7c,Fellow Alumni,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+f709a7dc-bcba-4745-9d4f-e22245837843,d3c6532f-c6a0-4e10-b8e6-f6f5979ae7de,Student/teacher,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+5fb9a25a-eb75-4b6c-a18e-c24256c3cb98,d3c6532f-c6a0-4e10-b8e6-f6f5979ae7de,Fellow Alumni,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+70e4afbe-e0fb-4e0d-9739-8f87aa81d4d8,d3c6532f-c6a0-4e10-b8e6-f6f5979ae7de,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+1df81b8d-32ee-4c9c-9120-2c842688ff43,4f3bfcce-c376-4bcb-a8d2-be5c1f7742d7,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+a6b11b13-a4aa-4d35-8da3-0966a4d0c45b,4f3bfcce-c376-4bcb-a8d2-be5c1f7742d7,Fellow Speaker,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+30e1ca0b-5f92-4c48-9b6f-9e50a8347461,4f3bfcce-c376-4bcb-a8d2-be5c1f7742d7,Reported to,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+6d8ddc47-9cb4-4e5b-9050-8080dcf910de,4f3bfcce-c376-4bcb-a8d2-be5c1f7742d7,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+d29a96f2-364d-4b9e-8ada-4fb12f6cb77b,a58bd549-cf1b-44b5-afc1-81d961be3177,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+3b4b90a9-6c32-4336-a943-131527569ef5,a58bd549-cf1b-44b5-afc1-81d961be3177,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+210c134c-b1d6-4987-89a1-8bc60511a383,a58bd549-cf1b-44b5-afc1-81d961be3177,Fellow Committee Member,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+0859aa9f-b527-4dda-ab22-2b9f935444e5,a58bd549-cf1b-44b5-afc1-81d961be3177,Mentor/Mentee,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+54dc4f21-5f3c-4192-a4fb-933719df5a54,72dcbaa9-2f99-4ecd-bdb6-c1729a27f9ef,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+a74d9e92-ae80-47db-84a3-7d67b990da75,72dcbaa9-2f99-4ecd-bdb6-c1729a27f9ef,Fellow Speaker,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+5bf1d4e8-8915-43ad-b403-43b982f7a0de,70e4a70d-9c73-4cd1-8bb9-88217c4b214e,Fellow Board Member,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+9ec5700f-941d-450f-90a0-f38a5ec11d19,70e4a70d-9c73-4cd1-8bb9-88217c4b214e,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+d0e6fa56-051e-4576-8cf5-a19aa928773d,70e4a70d-9c73-4cd1-8bb9-88217c4b214e,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+22aa7ff0-91cd-42aa-8a8f-66d4ed7544c6,70e4a70d-9c73-4cd1-8bb9-88217c4b214e,Co-worker/Colleague,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+95224d92-d76d-4031-a2dd-e931114cec2e,ef3f7d85-b2db-4966-9582-4acc95f72719,Collaborated with,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+55d8a61e-b644-4f40-87a5-d227b95c8e8b,f7b53c95-8860-41c7-9311-f82c3ca9a3db,Fellow Board Member,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+cc99978a-329c-4a17-bb42-7ec97b74a9cb,f7b53c95-8860-41c7-9311-f82c3ca9a3db,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+c7801749-d138-40e7-8599-d921fb78655e,4ac05beb-094a-4bce-b53a-9fee9d87022e,Family - extended,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+9e313f83-24e9-4d1d-b375-c1c96dea1b8a,4ac05beb-094a-4bce-b53a-9fee9d87022e,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+5db8cd02-0d7b-4130-8f5a-1956ee454186,4ac05beb-094a-4bce-b53a-9fee9d87022e,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+190e60fa-50fd-4237-b948-cfb1bef2bf26,4ac05beb-094a-4bce-b53a-9fee9d87022e,Advisor/Advisee,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+ed00ad05-a679-4a2e-8e56-44a1a01b9363,d4762591-c36b-44cf-a8f6-de5f90a682b9,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+2340712b-6ff2-419f-8a99-01f4057ee136,d4762591-c36b-44cf-a8f6-de5f90a682b9,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+af14b345-3671-4898-801a-937e4abc77b8,d4762591-c36b-44cf-a8f6-de5f90a682b9,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+facb40a6-0715-4ad5-9c0d-28391a979abe,dbb2a09c-7d1c-4117-b0d7-d8451f0d4c2f,Fellow Alumni,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+48cabd7f-0340-4676-a9f2-2a096a9cdf9a,dbb2a09c-7d1c-4117-b0d7-d8451f0d4c2f,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f9393eab-3e53-4fdb-b583-37524b0c6004,dbb2a09c-7d1c-4117-b0d7-d8451f0d4c2f,Fellow Committee Member,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+c672efb2-4938-40f7-8a3d-4e3c57da2858,8f04dc00-46df-4c2a-a801-d3060f7a275b,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+4d25ae34-3926-4ef4-92ea-ff3ff06b26f5,8f04dc00-46df-4c2a-a801-d3060f7a275b,Fellow Committee Member,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+cf4cdc7b-768c-4ae2-ac85-35c6c28148ec,8f04dc00-46df-4c2a-a801-d3060f7a275b,Fellow Alumni,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+81e7ea78-d24a-4a28-9a03-4d3aaa986b53,8f04dc00-46df-4c2a-a801-d3060f7a275b,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+777776ff-ba1d-48a6-b706-9bbc05c22efd,8f04dc00-46df-4c2a-a801-d3060f7a275b,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+887d628b-af3a-4f0b-9509-ea82444bcab8,e50c537a-a003-451b-ab4d-ca47db4efc55,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+5bf1d4e8-8915-43ad-b403-43b982f7a0de,e50c537a-a003-451b-ab4d-ca47db4efc55,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+f6ccd5df-76a0-4786-8d8f-426e0297d713,e50c537a-a003-451b-ab4d-ca47db4efc55,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+349a2673-773e-4f72-9bf0-5d12812b83c3,e50c537a-a003-451b-ab4d-ca47db4efc55,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+7327de32-1fb3-477b-867b-85df579bdb79,8de4d78c-0be0-4f3d-992b-cb843c0791a3,Family - extended,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+0be5c044-3228-4950-aeeb-275ac2ccba31,1207e494-171a-43c8-ab47-25e2a7c147b8,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+04346619-f18e-42eb-9374-d60fc94bf18d,c38240bf-f5f0-4643-ba26-3ba9f62f78cc,Reported to,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+a7699a09-8d6f-42b0-bc81-28bb359b5357,c38240bf-f5f0-4643-ba26-3ba9f62f78cc,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+19b5b86e-e459-4ee5-9be3-1e07fd2ff7b6,3b024fb9-9c8b-47fb-b2bf-b0b21071c8b2,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+d208a03f-b78c-495c-a604-35cc3068cc53,3b024fb9-9c8b-47fb-b2bf-b0b21071c8b2,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+836e51e5-2668-4cda-974f-1d89d2dc782b,09bd34ec-e321-441d-b6c6-8b630adab478,Fellow Board Member,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+fad2e532-2541-452e-b5f1-83c43ccad175,69cc3dfc-35ac-41bd-9cde-c9eb3f27d8a6,Fellow Committee Member,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+694986ab-fd3e-45bb-b093-7218d7c08813,69cc3dfc-35ac-41bd-9cde-c9eb3f27d8a6,Business Partner,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,69cc3dfc-35ac-41bd-9cde-c9eb3f27d8a6,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+2fe5c101-7d45-4d43-9760-33b83dbcd20a,69cc3dfc-35ac-41bd-9cde-c9eb3f27d8a6,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+d898f586-4baf-408f-9d0f-ad860993e6af,96238e52-c177-4aab-9c6e-d1ca3c9afd54,Reported to,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+59a9c9c0-9076-46c5-ab43-ccd5c3c03cf9,96238e52-c177-4aab-9c6e-d1ca3c9afd54,Family - first level,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+b3ce178d-432b-467f-88a2-c5da90e3133b,96238e52-c177-4aab-9c6e-d1ca3c9afd54,Family - extended,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+9bba45f3-78cd-45bb-b413-66e6cbbb716f,96238e52-c177-4aab-9c6e-d1ca3c9afd54,Collaborated with,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+1d9bf402-6cff-43ad-86a5-e9df913d4f74,96238e52-c177-4aab-9c6e-d1ca3c9afd54,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+d11e0602-7e6f-4cf5-975d-1c6a4fba3bb7,2862a95b-ef8b-4645-b623-103fd42b7e80,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+2340712b-6ff2-419f-8a99-01f4057ee136,2862a95b-ef8b-4645-b623-103fd42b7e80,Co-founder,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+9d54b98c-14e9-4117-8fc9-869d845a4fce,2862a95b-ef8b-4645-b623-103fd42b7e80,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+89588a8a-0afe-43b2-ae7b-861a7e99fff1,2862a95b-ef8b-4645-b623-103fd42b7e80,Co-founder,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+18366e0a-d82e-485e-8dde-059e6463051d,0a81c4d2-4bbb-4f9d-a53a-caf49d5821ce,Advisor/Advisee,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+8a3c4bf8-c292-4711-9331-b35221ad3629,05d13956-e1a5-4ff8-9204-2af2f626d2e7,Collaborated with,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+7bfe650c-c833-4b83-8f58-e7cc56f62046,032be5bb-852d-4ace-a3b4-ec7e72c75126,Co-author,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+51bc23c5-e2f2-45ee-8541-33023c9c6b93,032be5bb-852d-4ace-a3b4-ec7e72c75126,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+139e3c4b-7159-4d2f-9249-cc6462fdef03,032be5bb-852d-4ace-a3b4-ec7e72c75126,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+b3ce178d-432b-467f-88a2-c5da90e3133b,032be5bb-852d-4ace-a3b4-ec7e72c75126,Family - extended,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+dc65e0ca-6293-4ce4-b0b7-61d22044d376,4a6f5289-8477-491c-beec-92c5c1b5c79d,Family - extended,5,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+e215ac32-7add-4115-a8c9-b9f6d5a3abf3,4a6f5289-8477-491c-beec-92c5c1b5c79d,Fellow Speaker,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+ca0b39d8-bd83-41a0-bf9c-c83600f25c04,16c300e7-5b18-4759-b3a6-e9cd6fc6c7ed,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+93792167-a15f-4674-ad0d-383ec3e2e196,ec7c6f18-5e97-4fb1-baa9-fec7bbfb696f,Friends with,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+82093f81-342e-41aa-a6ec-578a2864a82e,ec7c6f18-5e97-4fb1-baa9-fec7bbfb696f,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+8c2a39ba-c546-4520-8415-2d58ced519e5,9c902b10-3893-42ae-89b4-da4bc5d96a6e,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+ccf55cda-2fbf-4629-a215-31f0bbac2c9b,9c902b10-3893-42ae-89b4-da4bc5d96a6e,Co-founder,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+db30a29e-1c37-4b84-9c30-d868bb4d81da,8e8a87d1-c3b8-44e7-8867-e2692e02f190,Fellow Alumni,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+4b0be842-63b2-415b-8762-9407c5bc44ce,8e8a87d1-c3b8-44e7-8867-e2692e02f190,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+0a7a7de1-80d3-43b8-9168-c7e595aae3f7,8e8a87d1-c3b8-44e7-8867-e2692e02f190,Fellow Board Member,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+18da29d0-0334-4a61-b49f-8e2c644063ae,8e8a87d1-c3b8-44e7-8867-e2692e02f190,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+d11e0602-7e6f-4cf5-975d-1c6a4fba3bb7,e7736a73-d986-4894-a75d-d7610b8c8e93,Mentor/Mentee,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+63b1ff75-692f-4101-af16-96c02d92a449,8a54bd0b-54e1-41ff-8e15-d7b7b38b8a97,Fellow Alumni,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+83c1369f-4cc0-4d6b-9ec5-85520c4b2229,8a54bd0b-54e1-41ff-8e15-d7b7b38b8a97,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+110d3cfb-a2b4-4bc5-8b2d-0abf4c670fb7,8a54bd0b-54e1-41ff-8e15-d7b7b38b8a97,Co-founder,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+d0d5eb3f-9819-43e4-93ac-13dafa5571ed,7b1611a8-fac3-47e1-8a59-d329d58504f1,Fellow Alumni,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+4f438c77-8520-494f-92e1-e425e68a534f,7b1611a8-fac3-47e1-8a59-d329d58504f1,Advisor/Advisee,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+d15ec2a6-f8e0-4eb0-983e-57f3f54bd6ba,7b1611a8-fac3-47e1-8a59-d329d58504f1,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+c2621d77-c50a-489e-8458-e08bd895e046,7b1611a8-fac3-47e1-8a59-d329d58504f1,Mentor/Mentee,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+51bc23c5-e2f2-45ee-8541-33023c9c6b93,565628d3-5892-4f3e-bcd3-61600d3181e9,Co-author,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+f598296f-5282-4087-bc59-9858ea4452f8,565628d3-5892-4f3e-bcd3-61600d3181e9,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+d8bd8f04-f8ee-4301-9b73-89f5bca7dd64,565628d3-5892-4f3e-bcd3-61600d3181e9,Fellow Speaker,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+42695f54-7e3f-4b93-955a-e3a43ebf9573,fd9f18be-ebde-4b56-8e47-e692f93c65c3,Collaborated with,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+cb474fef-8992-4bca-9874-c4ddbf18e5ba,fd9f18be-ebde-4b56-8e47-e692f93c65c3,Student/teacher,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+239fb45d-d42a-4bf3-8e86-79d3e552684f,fd9f18be-ebde-4b56-8e47-e692f93c65c3,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+ab328f1e-368e-4106-a169-fc18d8930ed2,fd9f18be-ebde-4b56-8e47-e692f93c65c3,Mentor/Mentee,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+5831b241-ec64-421b-aa80-4b802bfed582,fd9f18be-ebde-4b56-8e47-e692f93c65c3,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+dad66b35-abae-4363-b38b-b84e0bf7e086,80247eda-f93e-44d1-8627-37839835db21,Fellow Speaker,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+be483ed6-a35a-4be3-8770-b2e5c6e9fa28,80247eda-f93e-44d1-8627-37839835db21,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+8057511f-90a8-435a-bd6f-71ca429a1396,30f6c0e7-913b-4e0f-9330-408e30e46a0f,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+f8289c1d-18c1-415e-b488-d3a7b33bc80d,30f6c0e7-913b-4e0f-9330-408e30e46a0f,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+78f11e9e-afc1-4a1c-9266-f3ee5e2d2933,2af29d54-cb95-484d-a9ed-328441274a6c,Fellow Alumni,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+4eaf318a-2cc3-4035-97ef-5fc2dd10d5d3,2af29d54-cb95-484d-a9ed-328441274a6c,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+eaadf81e-7b37-4231-92df-1878e8658235,f06a84ef-14a5-498b-8981-64c372698332,Co-founder,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+befa5b7f-8fa5-462b-afc3-3dba0e8000c9,f06a84ef-14a5-498b-8981-64c372698332,Fellow Committee Member,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+1ccabb0d-8398-49e3-a404-2cf0bdd071af,f06a84ef-14a5-498b-8981-64c372698332,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+d22e37f4-f7e6-4fdb-94a4-43662f53b188,f06a84ef-14a5-498b-8981-64c372698332,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+608ac43e-ed0b-4f70-bbc4-3246df894656,410fa169-fc21-4c6a-b56a-29c5d579e97d,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+8f5ec432-5429-4c19-94de-b2319982c7d4,410fa169-fc21-4c6a-b56a-29c5d579e97d,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+3698b8c9-78f7-43b1-b807-6df2b63c3802,410fa169-fc21-4c6a-b56a-29c5d579e97d,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+1268b2c3-f530-4844-b209-135d64acc9a9,410fa169-fc21-4c6a-b56a-29c5d579e97d,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+404da108-b23e-49d4-b688-ef6cd27efdb1,e1834296-55ee-4ca1-b52a-821fe749239c,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+61bf640d-ef78-49cc-bb4f-c9d045902a58,e1834296-55ee-4ca1-b52a-821fe749239c,Family - extended,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+cc69a3b5-489a-49de-9a36-1d9d8eeb3a71,e1834296-55ee-4ca1-b52a-821fe749239c,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e6047c44-ae02-4005-b197-3bc46e03d15c,e1834296-55ee-4ca1-b52a-821fe749239c,Mentor/Mentee,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+6c1e7e66-3574-42e8-8297-ac0b4fa243a0,e4cd9cf3-b717-4fcb-9390-172fbffc2ab1,Co-author,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+3c6d6df4-fd43-41f7-a2c1-ce517a65cb3b,e4cd9cf3-b717-4fcb-9390-172fbffc2ab1,Friends with,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+510a83d0-c7ae-437f-a9bb-4f4ced75ab2b,e4cd9cf3-b717-4fcb-9390-172fbffc2ab1,Fellow Alumni,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+aee8cfca-87db-46d2-b391-e43201444ce6,e4cd9cf3-b717-4fcb-9390-172fbffc2ab1,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+c2fb786b-7820-47e5-b2f6-0f8138c74ce6,27ca132e-76a8-4dc5-ace2-31ed889c0dfb,Student/teacher,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+a310ee6a-1f7a-4d8a-b2bc-e266c9e14e7e,27ca132e-76a8-4dc5-ace2-31ed889c0dfb,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+294d3756-5571-4a92-8bdf-94f3678d862c,27ca132e-76a8-4dc5-ace2-31ed889c0dfb,Mentor/Mentee,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f73b0132-b812-4a0a-b779-baaeee1fd2ef,27ca132e-76a8-4dc5-ace2-31ed889c0dfb,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+7e10f7e5-da7f-48f5-8126-aec6b0490c72,27ca132e-76a8-4dc5-ace2-31ed889c0dfb,Co-author,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+79ce593e-4858-4ec1-b3c9-05661e25d4eb,d0e6fa56-051e-4576-8cf5-a19aa928773d,Co-author,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+c7801749-d138-40e7-8599-d921fb78655e,d0e6fa56-051e-4576-8cf5-a19aa928773d,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+a310ee6a-1f7a-4d8a-b2bc-e266c9e14e7e,d0e6fa56-051e-4576-8cf5-a19aa928773d,Collaborated with,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+9c725bba-b698-4cd0-82b0-e7380d9e7759,65d3d040-2a09-4e55-907d-f4e05106e7ac,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+0213e574-1095-49cc-9c3d-388db5cce7f9,c2929836-84e2-4733-8c65-1035d01c588a,Advisor/Advisee,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e946e521-be03-47f0-b78d-63196f2d3d1c,c2929836-84e2-4733-8c65-1035d01c588a,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+61965c1a-c8c8-4f22-a1a5-7f09019c8779,c2929836-84e2-4733-8c65-1035d01c588a,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+1debd7bd-d621-4005-a721-8895d7dafd87,c2929836-84e2-4733-8c65-1035d01c588a,Family - extended,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+ffa95ec2-5546-4bef-b196-cb9cd63820c7,c2929836-84e2-4733-8c65-1035d01c588a,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+34f80897-2080-46d9-a7a3-2bcdcaa37d89,b2111976-8e3c-4d39-809c-b5937acdd146,Advisor/Advisee,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+4b1ece72-bae2-4eb6-bf97-44a82181ea1b,b2111976-8e3c-4d39-809c-b5937acdd146,Co-author,7,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+cc482931-609d-48ae-9eff-a73c58fa2e37,b2111976-8e3c-4d39-809c-b5937acdd146,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+65dc13fb-44da-4b9d-b210-da6be27c0965,b2111976-8e3c-4d39-809c-b5937acdd146,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+fcec3883-61a4-49b8-918d-4e82c9365d0f,b2111976-8e3c-4d39-809c-b5937acdd146,Family - extended,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+39586b4a-2423-411b-baf6-d5b2bd200926,26105b7f-5bec-480c-b842-12253e528c3f,Reported to,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+0f672771-5dcc-4a70-830c-1e9def14bb1a,3bc42d1e-d7a7-467b-9657-4ba80a9435c8,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+1c3f17f6-ac30-469f-9367-c99c428bf6d7,3bc42d1e-d7a7-467b-9657-4ba80a9435c8,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+ea682350-387b-4ae0-8b43-2a130bd135c3,3bc42d1e-d7a7-467b-9657-4ba80a9435c8,Advisor/Advisee,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+2df1ebef-9b9d-4b82-bfd9-aa7ee83e84e0,498e29e4-8ff9-455e-9d07-cafab0c11403,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+69bb3e09-4f84-44a3-94f0-4c64ebd8e70f,498e29e4-8ff9-455e-9d07-cafab0c11403,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+4037c715-6506-4bde-91c8-d85fd5dd6093,498e29e4-8ff9-455e-9d07-cafab0c11403,Fellow Committee Member,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+f7cc4e1d-4b37-468d-aebe-e96507630ecb,9f3d65b1-49e0-46b2-8a99-57137de7775d,Mentor/Mentee,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+ad5f2272-be9b-467b-966f-abbf917fb623,2dda8be8-0ac6-4ff2-ad09-fcbc3fbf92f2,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+ef4a5283-c71a-4937-9056-65c6cca2d956,2dda8be8-0ac6-4ff2-ad09-fcbc3fbf92f2,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+ef3f7d85-b2db-4966-9582-4acc95f72719,2dda8be8-0ac6-4ff2-ad09-fcbc3fbf92f2,Fellow Committee Member,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+dbb2a09c-7d1c-4117-b0d7-d8451f0d4c2f,2dda8be8-0ac6-4ff2-ad09-fcbc3fbf92f2,Fellow Board Member,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+94d05938-44cd-4d19-8e5f-a913422e3cca,c5496821-6d6a-4413-9943-a7b5cd2d9d28,Fellow Speaker,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a27f0096-a6ec-4db7-a0b6-231e95621a95,c5496821-6d6a-4413-9943-a7b5cd2d9d28,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+90bf88f2-60fe-4741-96f2-8cd728291276,c5496821-6d6a-4413-9943-a7b5cd2d9d28,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+0b309f63-fa38-40af-a7df-3c4200a4aaa7,6f1c9da4-81d9-4cca-9a8d-8720938c9b80,Fellow Alumni,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+672893de-206f-4505-b474-4362911ef257,6f1c9da4-81d9-4cca-9a8d-8720938c9b80,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+1c815e5f-1ef9-4a96-ae87-1ddfdb57650f,6f1c9da4-81d9-4cca-9a8d-8720938c9b80,Fellow Committee Member,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+fccf92cb-e227-485e-a399-d01d3dcc14e8,6f1c9da4-81d9-4cca-9a8d-8720938c9b80,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+177d7144-f619-4b7f-a4ee-0ba709093065,11e3a800-8996-45a3-856f-a73d49ddaa84,Fellow Alumni,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+4b5f52f1-9647-4b96-89ac-08676aab1999,d7f939be-8652-4c15-9838-cc4a9f665f94,Co-worker/Colleague,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+69828d9a-23e8-42d7-9a07-91a38504aa02,0496be7b-16fc-4c98-b744-4158eab6da46,Business Partner,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+f70b88bf-14ab-4d03-968a-4461fa37fd0e,0496be7b-16fc-4c98-b744-4158eab6da46,Student/teacher,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e58910f5-4b38-475b-b689-ae7b3bab459f,0496be7b-16fc-4c98-b744-4158eab6da46,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+6df91c5d-d64b-44aa-9cd4-3cea7a81c626,0496be7b-16fc-4c98-b744-4158eab6da46,Family - extended,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+8a25dcc9-325b-4a95-951a-8ea653808be2,0496be7b-16fc-4c98-b744-4158eab6da46,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+09f6f90b-e8c9-4f8c-81e8-bec7f1f010e7,84d8063b-ebde-43ad-a92e-9d1bde15ab93,Fellow Committee Member,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+5bffdb65-9ad8-4439-b35c-f9ededfcac60,dc6a8330-abbc-4924-ab6c-1d417e9038fd,Business Partner,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+8b904a9e-b01c-4d0a-baec-3d6e626c3622,dc6a8330-abbc-4924-ab6c-1d417e9038fd,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+0bbffdb0-b3e5-452a-891d-43bc7501f262,6994e448-67f5-4eae-8eaf-ad58dc3400d5,Reported to,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+7bcdf655-f4cc-459e-9296-f4873b6b6c95,6994e448-67f5-4eae-8eaf-ad58dc3400d5,Co-founder,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+10858d49-8760-4f06-92d3-0238fcb4db53,6994e448-67f5-4eae-8eaf-ad58dc3400d5,Family - first level,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+5e360f2c-7b62-4891-b23a-7ca2a1cfceff,6994e448-67f5-4eae-8eaf-ad58dc3400d5,Mentor/Mentee,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+4feb4ba5-a1ab-44fa-ac85-c034e091192a,6994e448-67f5-4eae-8eaf-ad58dc3400d5,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+376052f6-ff79-4123-b74e-209234a0b213,6600e210-ea7b-4568-b135-4ccb8403d3ac,Family - extended,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+189d3a9d-4aef-43b3-b840-7e6f23e3cdd2,6600e210-ea7b-4568-b135-4ccb8403d3ac,Family - first level,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a912d7dd-4259-4601-a565-959acbff0953,6600e210-ea7b-4568-b135-4ccb8403d3ac,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+0b2d4489-0c42-4a0c-8861-a46c9a6a0555,735c8f0a-f4c8-47b0-9554-5c4ea7ffe79f,Fellow Alumni,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+a04748ac-7581-436f-9f83-74e49b93ee6b,acaa7e5e-d908-4641-8239-af6edfa02d9d,Fellow Board Member,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+e7b814c8-7ff9-42d4-bcc2-e212144d67cd,045eb9b0-29b3-4ba5-988a-6b04237c9875,Reported to,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+ccf11c74-e93a-4600-b665-68e5f7f9da25,045eb9b0-29b3-4ba5-988a-6b04237c9875,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+0eee9534-51d0-4ca3-af3c-50a8c90586ca,d4984361-7bae-4c1c-aa08-e32a4a3003d6,Reported to,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+98c0224f-b76a-4518-ae4a-fdaf2a641dad,d4984361-7bae-4c1c-aa08-e32a4a3003d6,Co-worker/Colleague,6,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+32aaa29b-5a3f-4a84-89af-566a59aa3956,d4984361-7bae-4c1c-aa08-e32a4a3003d6,Friends with,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9d1a3c93-dfae-4123-b989-8c3ac0e3ecc3,d4984361-7bae-4c1c-aa08-e32a4a3003d6,Fellow Alumni,3,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+8e4da1bc-5b6d-4e27-b867-6405bafa1a6a,dd4dd762-8340-4723-aa99-89fbd89d0bcf,Fellow Board Member,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+e3ca4e21-7acc-4620-9158-a6a8699bdb72,dd4dd762-8340-4723-aa99-89fbd89d0bcf,Reported to,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+71774d31-5012-49e0-a968-230c56573c5b,dd4dd762-8340-4723-aa99-89fbd89d0bcf,Co-author,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+83001ffc-8384-426a-bbd0-0a70d63e2bba,dd4dd762-8340-4723-aa99-89fbd89d0bcf,Friends with,6,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+660bdff8-438a-4dbb-9767-1d99f1d165d5,16e43025-10f1-42e6-9793-e0e2f333d79c,Advisor/Advisee,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+52902dfb-c5a6-4a76-8260-4fe657d2fbda,16e43025-10f1-42e6-9793-e0e2f333d79c,Fellow Speaker,3,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+22a95572-8268-405c-ab4b-a9019a947a66,16e43025-10f1-42e6-9793-e0e2f333d79c,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+bd0fa4bd-f1fb-47a4-ba95-a5c46309e613,34220f8f-3c17-45d1-8c72-88ae381a6de8,Student/teacher,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+7d6eb8e1-f8cb-43e2-b6ee-c5f2fb5a27c9,34220f8f-3c17-45d1-8c72-88ae381a6de8,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+cb27667e-2ebf-454d-927b-01295d0b52f9,34220f8f-3c17-45d1-8c72-88ae381a6de8,Friends with,6,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+d6b929f4-2852-4d6b-b816-2cf7812b7d4f,34220f8f-3c17-45d1-8c72-88ae381a6de8,Co-author,7,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+304ef720-bd8d-4b8a-885d-a2b4fe8b1fed,34220f8f-3c17-45d1-8c72-88ae381a6de8,Reported to,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+060bd9f8-b730-4977-806d-03e1dfe5cd42,c36f0ef4-9639-4852-a94b-849c94e30893,Fellow Alumni,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+ded02442-a6b2-4184-9e7d-e1629abca6e1,c36f0ef4-9639-4852-a94b-849c94e30893,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+d5a1fc01-bce8-45a1-8854-506d52f03035,c36f0ef4-9639-4852-a94b-849c94e30893,Fellow Committee Member,5,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+934aa4c3-dcb3-4fae-a0a2-9e0546f840ee,c36f0ef4-9639-4852-a94b-849c94e30893,Business Partner,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+59a5a27f-6eb2-4dd1-a884-81b16b3474f6,c36f0ef4-9639-4852-a94b-849c94e30893,Co-founder,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+81853109-44b3-46e7-915b-933e9b7f39ea,11c7509f-1571-4298-af6f-c1bc99c68ee9,Family - first level,9,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+376052f6-ff79-4123-b74e-209234a0b213,11c7509f-1571-4298-af6f-c1bc99c68ee9,Mentor/Mentee,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+231b939d-8da4-4f88-931f-1414d89293ae,11c7509f-1571-4298-af6f-c1bc99c68ee9,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+ec9997a0-8df0-47c9-80c8-ae43b12baac4,11c7509f-1571-4298-af6f-c1bc99c68ee9,Fellow Alumni,3,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+8343fb23-b137-4f10-8431-f112916914b2,e45038f7-784f-4e04-a167-9755f22dd960,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+1ddf3108-4cbb-47d6-bd6c-eba7931a856d,e45038f7-784f-4e04-a167-9755f22dd960,Student/teacher,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+528f83b2-0449-4474-bfb9-8e193c4383f0,e45038f7-784f-4e04-a167-9755f22dd960,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+942aa537-2320-4860-973d-5173d79278dd,e45038f7-784f-4e04-a167-9755f22dd960,Fellow Board Member,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+94d05938-44cd-4d19-8e5f-a913422e3cca,7fbfc2db-7784-43b3-9d25-127cf8974382,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+5151e715-226a-45f6-99cf-6ef6fe3b2dbc,99a410c4-7939-45da-b36e-ddc84977d52e,Business Partner,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+1457ac4a-c875-4110-8f6d-fc0f14d78473,99a410c4-7939-45da-b36e-ddc84977d52e,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+68ece8ca-4d44-462c-ad1e-489b9b983d08,2ed86b15-7378-465e-ba18-ed252848712c,Fellow Committee Member,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+b9a9b600-777c-49e9-9a37-c2371bb8c4e7,2ed86b15-7378-465e-ba18-ed252848712c,Reported to,9,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+a27f0096-a6ec-4db7-a0b6-231e95621a95,e59b3347-c2d5-4419-a24a-ebd2344e68df,Student/teacher,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+6483b977-3196-4078-b5e0-d231fd771360,e59b3347-c2d5-4419-a24a-ebd2344e68df,Fellow Committee Member,5,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+42b9a85e-17a1-480a-9821-6ab8f0d9ee99,e59b3347-c2d5-4419-a24a-ebd2344e68df,Co-worker/Colleague,6,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+6df91c5d-d64b-44aa-9cd4-3cea7a81c626,e59b3347-c2d5-4419-a24a-ebd2344e68df,Family - extended,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+126d7c06-4a0d-49bf-9919-0809c49d5d93,e59b3347-c2d5-4419-a24a-ebd2344e68df,Collaborated with,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+b1a1a1ed-10ca-4907-93a8-9f43a5d89ed0,826b176c-4bff-4cea-a78a-eeceb8347257,Fellow Board Member,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+c88b5fdd-4fa9-4821-a021-a9a305ae1056,826b176c-4bff-4cea-a78a-eeceb8347257,Family - first level,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+17efca01-b251-4116-af78-e8b0f105c5d6,826b176c-4bff-4cea-a78a-eeceb8347257,Co-worker/Colleague,6,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+4b1ece72-bae2-4eb6-bf97-44a82181ea1b,826b176c-4bff-4cea-a78a-eeceb8347257,Co-author,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+4bede622-30f7-4617-87e9-7aba51a7748d,d2764fe8-5967-406c-a912-b4cd6f940c3b,Mentor/Mentee,8,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+be63cf09-ced1-4ba3-8441-ad7f90b68307,8bb50e64-319d-4ba4-a083-1ab8ab321e1a,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+4c6fe2ef-1713-433e-adfd-82cb5d6e5db3,8bb50e64-319d-4ba4-a083-1ab8ab321e1a,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+4c17b6f5-d033-4b76-9cc2-77ac4c0f7b3c,8bb50e64-319d-4ba4-a083-1ab8ab321e1a,Business Partner,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+2b3b89a4-1f0d-4ffb-9728-993b36d01245,8bb50e64-319d-4ba4-a083-1ab8ab321e1a,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+b34f4a4c-0b31-4f00-bc67-19d20a92eede,8bb50e64-319d-4ba4-a083-1ab8ab321e1a,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+841aa32c-db5b-46ee-af0e-be32f31dbf66,c382a45a-acd9-497d-bfe5-1d12336590c8,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+58bae4d9-f397-4afd-98ce-42a47d4c586a,c382a45a-acd9-497d-bfe5-1d12336590c8,Mentor/Mentee,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+583ff1e7-c07b-44f2-acb5-d23266975d81,c382a45a-acd9-497d-bfe5-1d12336590c8,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+ffa95ec2-5546-4bef-b196-cb9cd63820c7,c382a45a-acd9-497d-bfe5-1d12336590c8,Co-author,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+2d07d31a-e76b-40c7-8aac-69d0f66b5312,c382a45a-acd9-497d-bfe5-1d12336590c8,Family - first level,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+2b8ee594-8f21-4d3f-9de4-881662f13a31,74a5b0af-0c1c-49b2-827c-33b0388858b1,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+65f81cdc-25e1-46cc-8b49-d6fce989a1e7,c710a691-e490-4ec0-acfd-6cd9d64147b7,Advisor/Advisee,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+67361d60-6e28-47b1-898f-8121f4a432dc,c710a691-e490-4ec0-acfd-6cd9d64147b7,Fellow Board Member,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+07c08a95-b20e-4c0c-a920-c478180d67f3,c710a691-e490-4ec0-acfd-6cd9d64147b7,Family - extended,5,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+1632dcbc-873d-4a5a-8d48-7040bca9d63f,c710a691-e490-4ec0-acfd-6cd9d64147b7,Fellow Committee Member,5,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+65885ed0-ea50-4ad4-95e6-3240fd6625e6,c710a691-e490-4ec0-acfd-6cd9d64147b7,Family - first level,9,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+df32676b-ef3d-44dd-8366-fc3671b3baaf,69db4a94-2f02-4689-999c-5300dacf8d61,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+c004d851-2dc4-485a-baa3-9a9e44751a2c,69db4a94-2f02-4689-999c-5300dacf8d61,Business Partner,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+f06a84ef-14a5-498b-8981-64c372698332,69db4a94-2f02-4689-999c-5300dacf8d61,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+a91c7a41-981c-4ee3-ac0f-45a5e6740ed1,69db4a94-2f02-4689-999c-5300dacf8d61,Co-author,7,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+de09a56a-c65a-4b4b-9982-6b100650e488,69db4a94-2f02-4689-999c-5300dacf8d61,Business Partner,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+696fb37e-34c1-499c-8113-aca8f90dd352,4037c715-6506-4bde-91c8-d85fd5dd6093,Co-author,7,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+31f96637-9136-4932-ab57-8bc686e7b327,4037c715-6506-4bde-91c8-d85fd5dd6093,Fellow Speaker,3,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+ce681af8-71cf-4abf-958b-95559c3889f1,8a26a9e4-7864-4f1a-afed-af0a20b08a19,Fellow Committee Member,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+87007af7-2a80-4969-9104-451cd543e2b1,fe6a80eb-7747-41f2-9494-461250dfa1f0,Friends with,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+ec7c6f18-5e97-4fb1-baa9-fec7bbfb696f,fe6a80eb-7747-41f2-9494-461250dfa1f0,Friends with,6,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+07ba2820-2d0b-411c-9bc8-b02a8f3cbbf5,f9393eab-3e53-4fdb-b583-37524b0c6004,Fellow Committee Member,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+cc61581c-5408-4783-852c-ceb792d94461,a5a7adec-5810-4b03-9154-79e281be1071,Friends with,6,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+a7e85683-6f69-42c3-95be-f323277c750e,a5a7adec-5810-4b03-9154-79e281be1071,Fellow Board Member,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+10e1ef02-03fe-4e56-b660-62229ce21722,613675aa-9e33-4d93-89a2-22f0d4207036,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+70e4afbe-e0fb-4e0d-9739-8f87aa81d4d8,613675aa-9e33-4d93-89a2-22f0d4207036,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+81853109-44b3-46e7-915b-933e9b7f39ea,613675aa-9e33-4d93-89a2-22f0d4207036,Business Partner,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+556ec505-4932-416e-b7d2-f79bce6db5f0,613675aa-9e33-4d93-89a2-22f0d4207036,Business Partner,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+c852fe63-d58f-439f-86e9-59008c5b099e,b267e252-bc36-4817-ac07-e1f07ce173d4,Advisor/Advisee,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+e0433c78-4d32-46af-9436-c2668a0ac104,b267e252-bc36-4817-ac07-e1f07ce173d4,Family - extended,5,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+f25f18f1-a5c7-427c-8702-32177dca8682,b267e252-bc36-4817-ac07-e1f07ce173d4,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+841aa32c-db5b-46ee-af0e-be32f31dbf66,b267e252-bc36-4817-ac07-e1f07ce173d4,Fellow Committee Member,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+39586b4a-2423-411b-baf6-d5b2bd200926,753dd4eb-cd0e-48eb-9ab1-9694f36d1fe1,Mentor/Mentee,8,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+865f3f40-e7ed-4ba6-8bb2-bb69377f58db,ea682350-387b-4ae0-8b43-2a130bd135c3,Business Partner,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+2643dea1-ccbe-4dd7-ac97-a5a3d7a27e12,ea682350-387b-4ae0-8b43-2a130bd135c3,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+0093fcb3-b524-416f-b6fe-b8cae32d411a,ea682350-387b-4ae0-8b43-2a130bd135c3,Fellow Speaker,3,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+9fe54c1c-2904-4f31-9ad6-f24c2e1bb1f5,42078308-3e2e-4291-8f20-f8816b41fbdb,Family - first level,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+13bcb143-f1e9-4495-aefe-6f998dd031e4,42078308-3e2e-4291-8f20-f8816b41fbdb,Family - first level,9,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+40be0fdb-1a81-4f84-bde9-532961e3f995,42078308-3e2e-4291-8f20-f8816b41fbdb,Fellow Alumni,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+cc61581c-5408-4783-852c-ceb792d94461,42078308-3e2e-4291-8f20-f8816b41fbdb,Family - first level,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+6faa814a-e5c5-4a3d-9e93-91b3fa954586,42078308-3e2e-4291-8f20-f8816b41fbdb,Friends with,6,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+82c0f34c-6750-4512-9b29-377cd817a500,2df1fde1-8e0b-40d7-911a-5f2703edbd07,Co-worker/Colleague,6,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+e6047c44-ae02-4005-b197-3bc46e03d15c,2df1fde1-8e0b-40d7-911a-5f2703edbd07,Fellow Speaker,3,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+529ecb1b-7a42-4cbe-a7a6-e4352355a439,2df1fde1-8e0b-40d7-911a-5f2703edbd07,Fellow Speaker,3,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+518a0c42-1771-42d5-81a2-df1c8691bd6b,2df1fde1-8e0b-40d7-911a-5f2703edbd07,Mentor/Mentee,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+3b5b26a3-da2f-4d97-8d86-0a05da881084,4ef45869-4153-4e60-85d9-f53563b14c2d,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+6606d037-6e8a-4f31-9aa3-15420358c0a6,177d7144-f619-4b7f-a4ee-0ba709093065,Advisor/Advisee,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+b31f113b-afdd-4355-b447-64da974445a1,177d7144-f619-4b7f-a4ee-0ba709093065,Advisor/Advisee,7,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+f071da9a-2d5b-4dff-a6a7-603b04805b62,177d7144-f619-4b7f-a4ee-0ba709093065,Co-author,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+8a26a9e4-7864-4f1a-afed-af0a20b08a19,8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,Reported to,9,"Outdoor Activities: Camping (tent camping, RV camping)",2025-08-30 16:04:19
+36c66176-2913-4faf-80df-7e4ca59c7ec5,8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,Reported to,9,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+b91f2ee2-a407-46b8-afd9-64b0df851c77,8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,Advisor/Advisee,7,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+955f0ade-074f-4393-b25a-b570d0313e9f,8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,Collaborated with,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+3c1bae20-c604-4fb5-a2a6-61dc48493676,8a2c1ea1-5ed2-4584-8949-409e4f6c61f5,Family - extended,5,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+b035eb8f-e5b2-4666-8920-26676d843f98,a04748ac-7581-436f-9f83-74e49b93ee6b,Fellow Board Member,8,Travel and Exploration: Visiting new countries and cultures,2025-08-30 16:04:19
+d5a1fc01-bce8-45a1-8854-506d52f03035,a04748ac-7581-436f-9f83-74e49b93ee6b,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+59f5c052-5630-48f4-9622-ccbf22bcb00d,a04748ac-7581-436f-9f83-74e49b93ee6b,Fellow Speaker,3,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+c8347acf-1aa9-4f56-b8bc-330fa57224ab,7ccb45c1-0263-4057-856d-605ee6cc6bc9,Family - extended,5,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+f6284d8d-14e4-4906-a6ec-5dfcdd62675c,7ccb45c1-0263-4057-856d-605ee6cc6bc9,Co-author,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+eecf58ab-27a5-4cda-a068-d13130ba3c2d,7ccb45c1-0263-4057-856d-605ee6cc6bc9,Co-author,7,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+4b0be842-63b2-415b-8762-9407c5bc44ce,f70b88bf-14ab-4d03-968a-4461fa37fd0e,Co-founder,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+9d804c3d-a4a4-4dea-940f-60c0d7b74419,f70b88bf-14ab-4d03-968a-4461fa37fd0e,Fellow Board Member,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+3e876e2b-9513-4b74-8615-66ea985d7cf2,12b56280-ef2d-4753-807c-a9f958c77a2a,Reported to,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+3c1107e2-8968-4862-a6c5-1426fb0691f7,12b56280-ef2d-4753-807c-a9f958c77a2a,Co-author,7,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+a5a5bfad-18db-400a-953c-696823222c96,12b56280-ef2d-4753-807c-a9f958c77a2a,Collaborated with,8,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19
+5c2c81d8-3691-4654-b9c8-9d25c1f73b7d,12b56280-ef2d-4753-807c-a9f958c77a2a,Collaborated with,8,Cooking and Baking: Culinary arts and gourmet cooking,2025-08-30 16:04:19
+304ef720-bd8d-4b8a-885d-a2b4fe8b1fed,982e344f-5a30-4708-86f3-90cdfc18858a,Student/teacher,8,"Reading and Literature: Poetry and poetic forms (haiku, sonnets, free verse)",2025-08-30 16:04:19
+97fb7aab-d3ee-4a52-b4d8-87cbd44d2da1,982e344f-5a30-4708-86f3-90cdfc18858a,Mentor/Mentee,8,Travel and Exploration: Backpacking and adventure travel,2025-08-30 16:04:19
+51badf6d-e3f4-4516-b1e1-650c1487e93a,78e30c1f-3001-4a92-afff-6d2f029829e0,Fellow Board Member,8,Health and Wellness: Yoga retreats and wellness tourism,2025-08-30 16:04:19
+02566141-6b8b-431a-be96-232fc318b69b,78e30c1f-3001-4a92-afff-6d2f029829e0,Co-founder,9,"Creative Arts: Painting (oil painting, watercolor, acrylics)",2025-08-30 16:04:19
+189d3a9d-4aef-43b3-b840-7e6f23e3cdd2,78e30c1f-3001-4a92-afff-6d2f029829e0,Reported to,9,"Technology and Gaming: Video gaming (console gaming, PC gaming)",2025-08-30 16:04:19

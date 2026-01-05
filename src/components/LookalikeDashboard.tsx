@@ -7,7 +7,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from 'recharts';
 import ModernDropdown from './ModernDropdown';
 import ClusterSummaryPanel from './ClusterSummaryPanel';
@@ -42,30 +43,23 @@ export default function LookalikeDashboard() {
   useEffect(() => {
     async function fetchDonors() {
       try {
-        const { data: donorsData, error } = await supabase
-          .from('donor_vectors')
-          .select(`
-            donor_id,
-            name,
-            first_name,
-            last_name,
-            total_donated,
-            avg_donation_size,
-            donation_count,
-            campaign_count,
-            health_screening_count
-          `);
-
-        if (error) throw error;
+        const res = await fetch(API_ENDPOINTS.donors + '?limit=1000');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const donorsData = await res.json();
 
         const typedDonors = donorsData as DonorVector[] | null;
-        console.log("✅ Donors loaded:", typedDonors?.length);
+        console.log("✅ Donors loaded via API:", typedDonors?.length);
         setDonors(typedDonors || []);
         if (!selectedDonorId && typedDonors && typedDonors.length > 0) {
           setSelectedDonorId(typedDonors[0].donor_id);
         }
       } catch (err) {
-        console.error("❌ Error loading donors:", err);
+        console.error("❌ Error loading donors via API:", err);
+        // Fallback to Supabase if API fails (optional, but good for migration)
+        const { data: donorsData } = await supabase
+          .from('donor_vectors')
+          .select('donor_id, name, first_name, last_name, total_donated, avg_donation_size, donation_count, campaign_count, health_screening_count');
+        if (donorsData) setDonors(donorsData as DonorVector[]);
       }
     }
 
@@ -74,20 +68,33 @@ export default function LookalikeDashboard() {
 
   // Load cluster plot data (PCA)
   useEffect(() => {
-    fetch('/assets/donor_clusters_reduced.json')
-      .then((res) => res.json())
+    fetch(API_ENDPOINTS.clusterPlot)
+      .then((res) => {
+        if (!res.ok) throw new Error("API plot endpoint failed");
+        return res.json();
+      })
       .then((data: ClusterData[]) => {
-        console.log("📈 Loaded PCA plot data", data.length);
+        console.log("📈 Loaded dynamic PCA plot data", data.length);
         setClusteredData(data);
 
         const uniqueClusters = [...new Set(data.map(d => d.cluster))].sort((a,b)=>a-b);
         console.log("📊 Available Clusters:", uniqueClusters);
 
         setAvailableClusters(uniqueClusters);
+        if (uniqueClusters.length > 0 && selectedCluster === null) {
+          setSelectedCluster(uniqueClusters[0]);
+        }
       })
-      .catch(err =>
-        console.error("❌ Failed loading /assets/donor_clusters_reduced.json", err)
-      );
+      .catch(err => {
+        console.warn("⚠️ Dynamic PCA failed, falling back to static asset", err);
+        fetch('/assets/donor_clusters_reduced.json')
+          .then((res) => res.json())
+          .then((data: ClusterData[]) => {
+            setClusteredData(data);
+            const uniqueClusters = [...new Set(data.map(d => d.cluster))].sort((a,b)=>a-b);
+            setAvailableClusters(uniqueClusters);
+          });
+      });
   }, []);
 
   // Fetch lookalikes when filters change
@@ -191,10 +198,6 @@ export default function LookalikeDashboard() {
 
   return (
     <div className="section" style={{ marginTop: '48px' }}>
-      <h1 className="dashboard-title">
-        👤 Lookalike Donor Analytics
-      </h1>
-
       {/* Modern Filter Widget */}
       <div className="modern-influencer-widget" style={{ marginBottom: '32px' }}>
         <div className="widget-header">
@@ -364,15 +367,17 @@ export default function LookalikeDashboard() {
               <label style={filterLabelStyle}>
                 Cluster Filter
               </label>
-              <label style={checkboxLabelStyle}>
-                <input 
-                  type="checkbox"
-                  checked={filterByClusterOnly}
-                  onChange={(e) => setFilterByClusterOnly(e.target.checked)}
-                  style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#314ca0' }}
-                />
-                Same cluster only
-              </label>
+              <div style={{ marginTop: '12px' }}>
+                <label style={checkboxLabelStyle}>
+                  <input 
+                    type="checkbox"
+                    checked={filterByClusterOnly}
+                    onChange={(e) => setFilterByClusterOnly(e.target.checked)}
+                    style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#314ca0' }}
+                  />
+                  Same Cluster Only
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -583,77 +588,61 @@ export default function LookalikeDashboard() {
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center',
-            padding: '20px'
+            padding: '20px',
+            width: '100%',
+            height: '500px'
           }}>
-            <ScatterChart width={700} height={450}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(49, 76, 160, 0.1)" />
-              <XAxis 
-                dataKey="x" 
-                type="number"
-                tick={{ fill: '#1e293b', fontWeight: 600 }}
-                axisLine={{ stroke: '#314ca0' }}
-                label={{ value: 'PC1', position: 'insideBottom', offset: -5, fill: '#314ca0', fontWeight: 700 }}
-              />
-              <YAxis 
-                dataKey="y" 
-                type="number"
-                tick={{ fill: '#1e293b', fontWeight: 600 }}
-                axisLine={{ stroke: '#314ca0' }}
-                label={{ value: 'PC2', angle: -90, position: 'insideLeft', fill: '#314ca0', fontWeight: 700 }}
-              />
-              <Tooltip
-                contentStyle={{
-                  background: 'white',
-                  border: '2px solid #314ca0',
-                  borderRadius: '12px',
-                  boxShadow: '0 4px 12px rgba(49, 76, 160, 0.2)'
-                }}
-              />
-              <Legend 
-                wrapperStyle={{
-                  paddingTop: '20px',
-                  fontWeight: 600,
-                  color: '#1e293b'
-                }}
-              />
-
-              {availableClusters.map(c => (
-                <Scatter 
-                  key={`scatter-${c}`}
-                  data={clusteredData.filter(d => d.cluster === c)}
-                  name={`Cluster ${c}`}
-                  fill={clusterColors[c % clusterColors.length]}
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(49, 76, 160, 0.1)" />
+                <XAxis 
+                  dataKey="x" 
+                  type="number"
+                  tick={{ fill: '#1e293b', fontWeight: 600 }}
+                  axisLine={{ stroke: '#314ca0' }}
+                  label={{ value: 'PC1', position: 'insideBottom', offset: -5, fill: '#314ca0', fontWeight: 700 }}
                 />
-              ))}
-            </ScatterChart>
+                <YAxis 
+                  dataKey="y" 
+                  type="number"
+                  tick={{ fill: '#1e293b', fontWeight: 600 }}
+                  axisLine={{ stroke: '#314ca0' }}
+                  label={{ value: 'PC2', angle: -90, position: 'insideLeft', fill: '#314ca0', fontWeight: 700 }}
+                />
+                <Tooltip
+                  contentStyle={{
+                    background: 'white',
+                    border: '2px solid #314ca0',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(49, 76, 160, 0.2)'
+                  }}
+                />
+                <Legend 
+                  wrapperStyle={{
+                    paddingTop: '20px',
+                    fontWeight: 600,
+                    color: '#1e293b'
+                  }}
+                />
+
+                {availableClusters.map(c => (
+                  <Scatter 
+                    key={`scatter-${c}`}
+                    data={clusteredData.filter(d => d.cluster === c)}
+                    name={`Cluster ${c}`}
+                    fill={clusterColors[c % clusterColors.length]}
+                  />
+                ))}
+              </ScatterChart>
+            </ResponsiveContainer>
           </div>
         </div>
       )}
 
       {/* Smart Summary Component */}
-      <ClusterSummaryPanel selectedCluster={parseInt(String(selectedCluster))} />
-
-      <div style={{ 
-        marginTop: '24px',
-        padding: '16px 20px',
-        background: 'linear-gradient(135deg, #E6E6FF 0%, #f0f0ff 100%)',
-        borderRadius: '12px',
-        border: '1px solid rgba(49, 76, 160, 0.2)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px'
-      }}>
-        <span style={{ fontSize: '20px' }}>ℹ️</span>
-        <p style={{ 
-          fontStyle: 'italic', 
-          color: '#314ca0',
-          margin: 0,
-          fontWeight: 500,
-          fontSize: '14px'
-        }}>
-          Note: Backend must populate cluster_label field in Supabase for full functionality.
-        </p>
-      </div>
+      {selectedCluster !== null && (
+        <ClusterSummaryPanel selectedCluster={selectedCluster} />
+      )}
 
     </div>
   );

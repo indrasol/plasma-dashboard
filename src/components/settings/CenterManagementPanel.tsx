@@ -67,7 +67,7 @@ export default function CenterManagementPanel() {
 
   return (
     <div className="dashboard-tile light-tile" style={{ marginTop: '2rem' }}>
-      <h3>🏥 Center Management</h3>
+      <h3>🏥 Manage Centers</h3>
 
       {/* Form to Add New Center */}
       <form onSubmit={handleAddCenter} style={{ marginBottom: '1rem' }}>
