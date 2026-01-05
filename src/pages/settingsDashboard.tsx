@@ -3,6 +3,7 @@ import { supabase } from '../supabaseClient';
 import ModalWrapper from '../components/ModalWrapper';
 import UserForm from '../components/UserForm';
 import CenterForm from '../components/CenterForm';
+import AIAdminControls from '../components/AIAdminControls';
 import type { User } from '../types/user.types';
 
 interface SettingsDashboardProps {
@@ -106,6 +107,9 @@ export default function SettingsDashboard({ user }: SettingsDashboardProps) {
       <h1 className="dashboard-title">
         {isSuperAdmin ? "Settings" : "Admin – User Management"}
       </h1>
+
+      {/* ⚙️ AI Engine Controls */}
+      {isSuperAdmin && <AIAdminControls />}
 
       {/* 👥 Manage Users */}
       <div className="modern-settings-widget">
@@ -224,7 +228,7 @@ export default function SettingsDashboard({ user }: SettingsDashboardProps) {
         </div>
       </div>
 
-      {/* 🏥 Center Management - Super Admin Only */}
+      {/* 🏥 Manage Centers - Super Admin Only */}
       {isSuperAdmin && (
         <div className="modern-settings-widget" style={{ marginTop: '2rem' }}>
           <div className="settings-widget-header">
@@ -238,7 +242,7 @@ export default function SettingsDashboard({ user }: SettingsDashboardProps) {
                   <path d="M9 21V11"/>
                 </svg>
               </span>
-              Center Management
+              Manage Centers
             </h3>
             <button className="modern-secondary-btn" onClick={handleAddCenter}>
               <span className="btn-icon">

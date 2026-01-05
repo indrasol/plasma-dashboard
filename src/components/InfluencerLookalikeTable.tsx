@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 import { utils, writeFileXLSX } from 'xlsx';
 
 interface LookalikeMatch {
-  id: string;
+  id?: string;
   seed_fname: string | null;
   seed_lname: string | null;
   match_fname: string | null;
@@ -19,19 +19,10 @@ export default function InfluencerLookalikeTable() {
 
   useEffect(() => {
     async function fetchMatches() {
-      const { data, error } = await supabase
-        .from('influencer_lookalike_matches')
-        .select(`
-          *,
-          donors!seed_influencer_id ( first_name as seed_fname, last_name as seed_lname ),
-          donors!matched_donor_id ( first_name as match_fname, last_name as match_lname )
-        `)
-        .order('similarity_score', { ascending: false });
-
-      if (error) {
-        console.error("❌ Fetch error:", error);
-      } else {
-        const typedData = (data as LookalikeMatch[]) || [];
+      try {
+        const response = await fetch(API_ENDPOINTS.influencerLookalike);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const typedData = (await response.json() as LookalikeMatch[]) || [];
         setRows(typedData);
 
         // Extract unique names for dropdown filter
@@ -39,6 +30,8 @@ export default function InfluencerLookalikeTable() {
           `${row.seed_fname ?? ''} ${row.seed_lname ?? ''}`.trim()
         ))];
         setUniqueSeedNames(names);
+      } catch (error) {
+        console.error("❌ Fetch error:", error);
       }
 
       setLoading(false);

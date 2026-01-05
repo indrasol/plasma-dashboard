@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import TopInfluencersTable from './TopInfluencersTable';
-import InteractiveGraphViewer from './InteractiveGraphViewer';
+import InfluenceNetworkGraph from './InfluenceNetworkGraph';
 import ModernDropdown from './ModernDropdown';
-import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 
 interface DonorInterest {
   interest_category: string | null;
@@ -10,6 +11,9 @@ interface DonorInterest {
 }
 
 export default function TopInfluencers() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedInterestName, setSelectedInterestName] = useState('');
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
@@ -20,28 +24,12 @@ export default function TopInfluencers() {
   useEffect(() => {
     async function loadInterests() {
       try {
-        const { data, error } = await supabase
-          .from('donor_interests')
-          .select('interest_category, interest_name');
+        const response = await fetch(API_ENDPOINTS.influencerInterests);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
 
-        if (error) throw error;
-
-        const typedData = data as DonorInterest[] | null;
-
-        // Unique + cleaned lists
-        const categories = [...new Set(
-          (typedData || []).map(row => row.interest_category?.trim()).filter((val): val is string => Boolean(val))
-        )].sort();
-
-        const names = [...new Set(
-          (typedData || []).map(row => row.interest_name?.trim()).filter((val): val is string => Boolean(val))
-        )].sort();
-
-        console.log("✅ Loaded interest categories:", categories);
-        console.log("✅ Loaded interest names:", names);
-
-        setAvailableCategories(categories);
-        setAvailableNames(names);
+        setAvailableCategories(data.categories || []);
+        setAvailableNames(data.names || []);
       } catch (err) {
         console.error("❌ Failed to load interests:", err);
       } finally {
@@ -52,11 +40,16 @@ export default function TopInfluencers() {
     loadInterests();
   }, []);
 
+  const showNetwork = currentPath === '/influencers/network' || currentPath === '/influencers';
+  const showList = currentPath === '/influencers/list' || currentPath === '/influencers';
+
   return (
     <div className="section">
       {/* Influencers Header */}
       <h1 className="dashboard-title">
-        Influencers Overview
+        {showNetwork && !showList ? "Influence Network Graph" :
+         showList && !showNetwork ? "Top Influencers List" :
+         "Influencers Overview"}
       </h1>
       
       {/* Modern Dropdown Filters */}
@@ -108,22 +101,22 @@ export default function TopInfluencers() {
         </div>
       )}
 
+      {/* Influence Network Graph - Always show with top influencers if no filter */}
+      {showNetwork && (
+        <InfluenceNetworkGraph 
+          interest={selectedInterestName}
+          category={selectedCategory}
+        />
+      )}
+
       {/* Paginated Influencer Table */}
-      <TopInfluencersTable 
-        selectedCategory={selectedCategory}
-        selectedInterestName={selectedInterestName}
-      />
-
-      {!!(selectedCategory || selectedInterestName) && (
-        <>
-          <hr />
-          <h4>🌐 Influence Network Visualization</h4>
-
-          <InteractiveGraphViewer 
-            filterByCategory={selectedCategory}
-            filterByInterestName={selectedInterestName}
+      {showList && (
+        <div id="influencers-list-section">
+          <TopInfluencersTable 
+            selectedCategory={selectedCategory}
+            selectedInterestName={selectedInterestName}
           />
-        </>
+        </div>
       )}
     </div>
   );

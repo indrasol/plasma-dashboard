@@ -43,12 +43,12 @@ export default function CenterManagement({ user }: CenterManagementProps) {
 
   return (
     <div className="section">
-      {/* Center Management Header */}
+      {/* Manage Centers Header */}
       <h1 className="dashboard-title">
-        Center Management
+        Manage Centers
       </h1>
 
-      {/* 🏥 Center Management Table */}
+      {/* 🏥 Manage Centers Table */}
       <div className="modern-settings-widget">
         <div className="settings-widget-header">
           <h3 className="widget-title">

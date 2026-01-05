@@ -1,7 +1,6 @@
 import { useEffect, useState, type ReactElement } from 'react';
-import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 import CampaignFunnelWidget from './CampaignFunnelWidget';
-import LiveSignalsPanel from './LiveSignalsPanel';
 
 interface SummaryStats {
   donorCount: number | string;
@@ -44,32 +43,15 @@ export default function DashboardTiles() {
   useEffect(() => {
     async function fetchAll() {
       try {
-        const { count: donorCount } = await supabase.from('donors').select('*', { count: 'exact', head: true });
-
-        const { count: influencerCount } = await supabase
-          .from('influencer_scores')
-          .select('*', { count: 'exact', head: true })
-          .gt('total_score', 0);
-
-        const currentYear = new Date().getFullYear();
-        const startOfYear = `${currentYear}-01-01`;
-
-        const { data: ytdDonations } = await supabase
-          .from('donation_history')
-          .select('quantity_ml, date_of_donation')
-          .gte('date_of_donation', startOfYear);
-
-        const typedDonations = ytdDonations as DonationHistory[] | null;
-        const volumesYTD = (typedDonations || []).map(d => d.quantity_ml).filter((v): v is number => v != null);
-        const totalYtdVolumeMl = volumesYTD.reduce((sum, v) => sum + v, 0);
-        const avgYtdDonationSize =
-          volumesYTD.length > 0 ? (totalYtdVolumeMl / volumesYTD.length).toFixed(1) : '-';
+        const response = await fetch(API_ENDPOINTS.donorStats);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
 
         setSummaryStats({
-          donorCount: donorCount || 0,
-          totalVolumeMl: totalYtdVolumeMl,
-          avgDonationSize: avgYtdDonationSize,
-          influencerCount: influencerCount || 0
+          donorCount: data.donorCount,
+          totalVolumeMl: data.totalVolumeMl,
+          avgDonationSize: data.avgDonationSize,
+          influencerCount: data.influencerCount
         });
       } catch (err) {
         console.error("❌ Error loading summary stats:", err);
@@ -140,10 +122,6 @@ export default function DashboardTiles() {
       </div>
 
       <CampaignFunnelWidget />
-
-      <div style={{ marginTop: '24px' }}>
-        <LiveSignalsPanel />
-      </div>
     </div>
   );
 }

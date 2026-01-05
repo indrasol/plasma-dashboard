@@ -1,0 +1,46 @@
+[
+  {
+    "cluster": 0,
+    "label": "Frequent Donors Prefer Sms",
+    "size": 594,
+    "conversion_rate": 0.998,
+    "channel_preferences": {
+      "sms": 0.0,
+      "email": 0.0,
+      "phone": 0.0
+    }
+  },
+  {
+    "cluster": 1,
+    "label": "Frequent Donors Prefer Sms",
+    "size": 676,
+    "conversion_rate": 1.0,
+    "channel_preferences": {
+      "sms": 0.0,
+      "email": 0.0,
+      "phone": 0.0
+    }
+  },
+  {
+    "cluster": 2,
+    "label": "Frequent Donors Prefer Sms",
+    "size": 640,
+    "conversion_rate": 1.0,
+    "channel_preferences": {
+      "sms": 0.0,
+      "email": 0.0,
+      "phone": 0.0
+    }
+  },
+  {
+    "cluster": 3,
+    "label": "Prefer Sms",
+    "size": 90,
+    "conversion_rate": 0.467,
+    "channel_preferences": {
+      "sms": 0.0,
+      "email": 0.0,
+      "phone": 0.0
+    }
+  }
+]

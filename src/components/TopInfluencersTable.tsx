@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 import { utils, writeFileXLSX } from 'xlsx';
 
 interface TopInfluencersTableProps {
@@ -41,66 +41,13 @@ export default function TopInfluencersTable({ selectedCategory, selectedInterest
       try {
         setLoading(true);
 
-        // Step 1: Pull influencer scores
-        const { data: scoresRaw } = await supabase
-          .from('influencer_scores')
-          .select('*')
-          .order('total_score', { ascending: false });
+        const url = new URL(API_ENDPOINTS.influencerTop, window.location.origin);
+        if (selectedCategory) url.searchParams.append('category', selectedCategory);
+        if (selectedInterestName) url.searchParams.append('interest', selectedInterestName);
 
-        // Step 2: Pull donor-influencer links w/ interest metadata
-        const { data: linksRaw } = await supabase
-          .from('donor_influencer_links')
-          .select('influencer_id, donor_id');
-
-        const typedScores = (scoresRaw as InfluencerScore[]) || [];
-        const typedLinks = (linksRaw as DonorInfluencerLink[]) || [];
-
-        if (!typedLinks.length || !typedScores.length) {
-          setAllRows([]);
-          return;
-        }
-
-        // Step 3: Apply interest filters via donor_interests → get matching donor_ids
-        let donorInterestQuery = supabase.from("donor_interests").select("donor_id");
-
-        if (selectedCategory) {
-          donorInterestQuery = donorInterestQuery.ilike("interest_category", `%${selectedCategory}%`);
-        }
-
-        if (selectedInterestName) {
-          donorInterestQuery = donorInterestQuery.ilike("interest_name", `%${selectedInterestName}%`);
-        }
-
-        const { data: filteredDonors } = await donorInterestQuery;
-        const typedDonorInterests = (filteredDonors as DonorInterest[]) || [];
-        const validDonorIdsSet = new Set(typedDonorInterests.map(d => d.donor_id));
-
-        // Step 4: Build influencer aggregation maps based on filtered donors
-        const countsMap: Record<string, number> = {};
-        const interestsMap: Record<string, Set<string>> = {};
-
-        for (const link of typedLinks) {
-          if (!validDonorIdsSet.has(link.donor_id)) continue;
-
-          countsMap[link.influencer_id] =
-            (countsMap[link.influencer_id] || 0) + 1;
-
-          if (!interestsMap[link.influencer_id]) interestsMap[link.influencer_id] = new Set();
-          
-          // Optional enrichment later...
-          interestsMap[link.influencer_id].add(selectedCategory || selectedInterestName);
-        }
-
-        // Step 5: Enrich influencer scores with linkedDonors + interests arrays
-        let enrichedRows: EnrichedInfluencer[] =
-          typedScores.map((row) => ({
-            ...row,
-            linkedDonors: countsMap[row.influencer_id] || 0,
-            interests: Array.from(interestsMap[row.influencer_id] || []),
-          }));
-
-        // Filter out influencers with zero linked donors after applying filters
-        enrichedRows = enrichedRows.filter(r => r.linkedDonors > 0);
+        const response = await fetch(url.toString());
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const enrichedRows = await response.json();
 
         setAllRows(enrichedRows);
       } catch (err) {

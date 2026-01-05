@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { supabase } from '../supabaseClient';
+import { API_ENDPOINTS } from '../config/apiEndpoints';
 
 interface FunnelData {
   campaigns: number;
@@ -30,10 +30,12 @@ export default function CampaignFunnelWidget() {
       setLoading(true);
       try {
         // Get campaign metrics
-        const { data, error } = await supabase.rpc('get_campaign_conversion_summary');
+        const response = await fetch(API_ENDPOINTS.campaignSummary);
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+        const data = await response.json();
         
-        if (error) throw error;
-
         const campaignData = Array.isArray(data) ? data : [];
         const recentCampaigns = campaignData.slice(0, 10);
         

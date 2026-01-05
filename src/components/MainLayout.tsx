@@ -24,6 +24,21 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    "Integrations": true,
+    "Overview": true,
+    "Donors": true,
+    "Influencers": true,
+    "Campaigns": true,
+    "Settings": true
+  });
+  
+  const toggleSection = (title: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
   
   const navigationSections: NavSection[] = [
     {
@@ -69,7 +84,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
       ]
     },
     {
-      title: "Analytics",
+      title: "Overview",
       roles: ["admin", "marketing", "super_admin"],
       items: [
         { 
@@ -82,10 +97,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
               <polyline points="9 22 9 12 15 12 15 22"/>
             </svg>
           )
-        },
+        }
+      ]
+    },
+    {
+      title: "Donors",
+      roles: ["admin", "super_admin"],
+      items: [
         { 
-          label: "Donors", 
-          link: "/donors", 
+          label: "Donor Segments", 
+          link: "/donors/segments", 
           roles: ["admin", "super_admin"],
           icon: (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -94,44 +115,91 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
           )
         },
         { 
-          label: "Influencers", 
-          link: "/influencers", 
+          label: "Lookalike Analytics", 
+          link: "/donors/lookalike", 
           roles: ["admin", "super_admin"],
           icon: (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
             </svg>
           )
         },
         { 
-          label: "Campaigns", 
-          link: "/campaigns", 
-          roles: ["admin","marketing","super_admin"],
+          label: "Donor Elasticity", 
+          link: "/donors/elasticity", 
+          roles: ["admin", "super_admin"],
           icon: (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              <path d="M12 2v20"/>
+              <path d="m17 5-5-3-5 3"/>
+              <path d="m17 19-5 3-5-3"/>
             </svg>
           )
         },
         { 
-          label: "Settings", 
-          link: "/settings", 
+          label: "Health Analysis", 
+          link: "/donors/health", 
           roles: ["admin", "super_admin"],
           icon: (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           )
         }
       ]
     },
     {
-      title: "Management",
-      roles: ["super_admin"],
+      title: "Influencers",
+      roles: ["admin", "super_admin"],
+      items: [
+        { 
+          label: "Network Graph", 
+          link: "/influencers/network", 
+          roles: ["admin", "super_admin"],
+          icon: (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          )
+        },
+        { 
+          label: "Top Influencers", 
+          link: "/influencers/list", 
+          roles: ["admin", "super_admin"],
+          icon: (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <polyline points="16 11 18 13 22 9"/>
+            </svg>
+          )
+        }
+      ]
+    },
+    {
+      title: "Campaigns",
+      roles: ["admin", "marketing", "super_admin"],
+      items: [
+        { 
+          label: "Conversion Analysis", 
+          link: "/campaigns/conversion", 
+          roles: ["admin", "marketing", "super_admin"],
+          icon: (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+          )
+        }
+      ]
+    },
+    {
+      title: "Settings",
+      roles: ["admin", "super_admin"],
       items: [
         { 
           label: "Manage Users", 
@@ -147,7 +215,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
           )
         },
         { 
-          label: "Center Management", 
+          label: "Manage Centers", 
           link: "/center-management", 
           roles: ["super_admin"],
           icon: (
@@ -186,11 +254,27 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
         <div className='sidebar-nav'>
           {navigationSections.map(section => 
             section.roles.some(role => role === user?.role) && (
-              <div key={section.title} className="nav-section">
+              <div key={section.title} className={`nav-section ${!expandedSections[section.title] ? 'section-collapsed' : ''}`}>
                 {!isCollapsed && (
-                  <div className="nav-section-title">{section.title}</div>
+                  <div 
+                    className="nav-section-title" 
+                    onClick={() => toggleSection(section.title)}
+                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                  >
+                    <span>{section.title}</span>
+                    <svg 
+                      width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"
+                      style={{ 
+                        transform: expandedSections[section.title] ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s ease',
+                        opacity: 0.5
+                      }}
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
                 )}
-                <div className="nav-section-items">
+                <div className={`nav-section-items ${!expandedSections[section.title] ? 'items-hidden' : ''}`}>
                   {section.items.map(item =>
                     item.roles.includes(user?.role) && (
                       <NavLink 
@@ -211,8 +295,31 @@ const MainLayout: React.FC<MainLayoutProps> = ({ user, setUser, children }) => {
           )}
         </div>
 
-        {/* AI Assistant Button - Glassmorphism */}
+        {/* AI Bottom Section */}
         <div className="sidebar-ai-section">
+          {/* Live Signals Card */}
+          <NavLink 
+            to="/live-signals"
+            className={({isActive}) => `ai-signals-btn ${isActive ? 'active' : ''}`}
+            title={isCollapsed ? "Live AI Signals" : ""}
+          >
+            <div className="ai-btn-glow"></div>
+            <div className="ai-btn-content">
+              <span className="ai-btn-icon signals-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                <span className="live-dot"></span>
+              </span>
+              {!isCollapsed && (
+                <span className="ai-btn-text">
+                  <span className="ai-btn-label">Live AI Signals</span>
+                  <span className="ai-btn-sublabel">Neural Monitoring</span>
+                </span>
+              )}
+            </div>
+          </NavLink>
+
           <NavLink 
             to="/ask-ai"
             className={({isActive}) => `ai-assistant-btn ${isActive ? 'active' : ''}`}

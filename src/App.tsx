@@ -15,10 +15,12 @@ import DashboardTiles from './components/DashboardTiles';
 import CampaignDashboard from './components/CampaignConversionDashboard';
 import TopInfluencers from './components/TopInfluencers'; 
 import DonorPanel from './components/DonorPanel';
+import DonorHealthDashboard from './components/DonorHealthDashboard';
 import SettingsDashboard from './pages/settingsDashboard';
 import ManageUsers from './pages/ManageUsers';
 import CenterManagement from './pages/CenterManagement';
 import AIAssistant from './components/AIAssistant';
+import LiveSignalsPage from './pages/LiveSignalsPage';
 import CSVIntegration from './pages/integrations/CSVIntegration';
 import DBIntegration from './pages/integrations/DBIntegration';
 import CRMIntegration from './pages/integrations/CRMIntegration';
@@ -138,15 +140,20 @@ function App() {
                 <Route path="/integrations/db" element={<DBIntegration />} />
                 <Route path="/integrations/crm" element={<CRMIntegration />} />
                 <Route path="/dashboard" element={<DashboardTiles />} />
-                <Route path="/campaigns" element={<CampaignDashboard />} />
+                <Route path="/campaigns/dashboard" element={<CampaignDashboard />} />
+                <Route path="/campaigns/conversion" element={<CampaignDashboard />} />
               </>
             )}
 
             {/* Admin Only Pages */}
             {["admin", "super_admin"].includes(user?.role) && (
               <>
-                <Route path="/donors" element={<DonorPanel />} />
-                <Route path="/influencers" element={<TopInfluencers />} />
+                <Route path="/donors/segments" element={<DonorPanel />} />
+                <Route path="/donors/lookalike" element={<DonorPanel />} />
+                <Route path="/donors/elasticity" element={<DonorPanel />} />
+                <Route path="/donors/health" element={<DonorHealthDashboard />} />
+                <Route path="/influencers/list" element={<TopInfluencers />} />
+                <Route path="/influencers/network" element={<TopInfluencers />} />
                 <Route 
                   path="/users"
                   element={
@@ -170,6 +177,11 @@ function App() {
             <Route 
               path="/ask-ai"
               element={<AIAssistant />}
+            />
+
+            <Route 
+              path="/live-signals"
+              element={<LiveSignalsPage />}
             />
 
             {/* Super Admin Only Pages */}

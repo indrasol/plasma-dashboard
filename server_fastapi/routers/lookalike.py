@@ -1,4 +1,6 @@
 import csv
+import pandas as pd
+import numpy as np
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 from fastapi import APIRouter, HTTPException, Depends, Query
@@ -6,8 +8,10 @@ from pydantic import BaseModel
 from server_fastapi.dependencies import get_supabase_client, run_supabase_async
 from supabase import Client
 from server_fastapi.app.utils.logger import log_info, log_error
+from server_fastapi.app.ai.lookalike_service import LookalikeService
 
 router = APIRouter()
+lookalike_service = LookalikeService()
 
 # Schema for response
 class LookalikeResult(BaseModel):
@@ -63,82 +67,123 @@ def load_matches_from_csv() -> List[Dict[str, Any]]:
 async def get_lookalikes(
     donor_id: str,
     top_n: int = Query(10, ge=1, le=100),
-    metric: str = "cosine",  # Kept for interface compatibility
+    metric: str = "cosine",
+    cluster_only: bool = Query(False),
     client: Client = Depends(get_supabase_client)
 ):
     """
-    Returns lookalike donors based on internal CSV matches and Supabase data.
+    Returns REAL-TIME dynamic lookalike donors based on feature similarity.
     """
-    log_info(f"GET /api/lookalike for donor_id={donor_id} top_n={top_n}")
+    log_info(f"GET /api/lookalike for donor_id={donor_id} top_n={top_n} metric={metric} cluster_only={cluster_only}")
 
-    # 1. Load matches from CSV
-    all_matches = load_matches_from_csv()
+    # Calculate real-time lookalikes
+    candidates = lookalike_service.get_lookalikes(
+        donor_id=donor_id, 
+        top_n=top_n, 
+        metric=metric, 
+        cluster_only=cluster_only
+    )
     
-    if not all_matches:
-        log_error("No matches loaded from CSV")
+    if not candidates:
         return []
 
-    # Note: Since the CSV structure provided doesn't have a source_donor_id column,
-    # we assume for this implementation that the CSV contains the candidate pool
-    # or the matches for the current demo context. 
-    # We simply return the top N entries from the file by similarity.
-    
-    # Sort by similarity descending
-    sorted_matches = sorted(all_matches, key=lambda x: x["similarity"], reverse=True)
-    
-    # Take top N
-    top_candidates = sorted_matches[:top_n]
-    
-    if not top_candidates:
-        return []
+    # Map details for response schema
+    results = []
+    for d_info in candidates:
+        # Clean up individual values for JSON compliance
+        def clean_val(v):
+            if pd.isnull(v) or (isinstance(v, float) and (np.isinf(v) or np.isnan(v))):
+                return None
+            return v
 
-    candidate_ids = [m["donor_id"] for m in top_candidates]
-
-    # 2. Fetch details from Supabase for these candidates
-    try:
-        def fetch_details():
-            return client.table("donor_vectors") \
-                .select("*") \
-                .in_("donor_id", candidate_ids) \
-                .execute()
-
-        response = await run_supabase_async(fetch_details)
-        
-        # Handle Supabase response structure
-        donors_data = getattr(response, "data", [])
-        if not donors_data and hasattr(response, "data"):
-             donors_data = response.data
-             
-        # Map details by donor_id
-        donor_map = {d["donor_id"]: d for d in donors_data}
-        
-        # 3. Build response
-        results = []
-        for candidate in top_candidates:
-            d_id = candidate["donor_id"]
-            d_info = donor_map.get(d_id)
-            
-            if d_info:
-                results.append(LookalikeResult(
-                    donor_id=d_id,
-                    name=d_info.get("name", "Unknown"),
-                    cluster_label=d_info.get("cluster_label"),
-                    site_id=d_info.get("site_id"),
-                    total_donated=d_info.get("total_donated"),
-                    avg_donation_size=d_info.get("avg_donation_size"),
-                    donation_count=d_info.get("donation_count"),
-                    campaign_count=d_info.get("campaign_count"),
-                    health_screening_count=d_info.get("health_screening_count"),
-                    similarity=candidate["similarity"]
-                ))
-            else:
-                # If Supabase doesn't have the donor, maybe include with minimal info?
-                # For now, skip if data is missing to avoid broken UI
-                pass
+        results.append(LookalikeResult(
+            donor_id=d_info.get("donor_id", "Unknown"),
+            name=clean_val(d_info.get("name", "Unknown")),
+            cluster_label=clean_val(d_info.get("cluster_label")),
+            site_id=clean_val(d_info.get("site_id")),
+            total_donated=clean_val(d_info.get("total_donated")),
+            avg_donation_size=clean_val(d_info.get("avg_donation_size")),
+            donation_count=clean_val(d_info.get("donation_count")),
+            campaign_count=clean_val(d_info.get("campaign_count")),
+            health_screening_count=clean_val(d_info.get("health_screening_count")),
+            similarity=clean_val(d_info.get("similarity", 0.0))
+        ))
                 
-        return results
+    return results
 
+@router.get("/lookalike/ideal", response_model=List[LookalikeResult])
+async def get_ideal_lookalikes(
+    top_n: int = Query(10, ge=1, le=100)
+):
+    """
+    Returns donors who most closely match the 'Perfect Cluster Centroid'.
+    """
+    candidates = lookalike_service.get_centroid_matches(top_n=top_n)
+    
+    results = []
+    for d_info in candidates:
+        def clean_val(v):
+            if pd.isnull(v) or (isinstance(v, float) and (np.isinf(v) or np.isnan(v))):
+                return None
+            return v
+
+        results.append(LookalikeResult(
+            donor_id=d_info.get("donor_id", "Unknown"),
+            name=clean_val(d_info.get("name", "Unknown")),
+            cluster_label=clean_val(d_info.get("cluster_label")),
+            site_id=clean_val(d_info.get("site_id")),
+            total_donated=clean_val(d_info.get("total_donated")),
+            avg_donation_size=clean_val(d_info.get("avg_donation_size")),
+            donation_count=clean_val(d_info.get("donation_count")),
+            campaign_count=clean_val(d_info.get("campaign_count")),
+            health_screening_count=clean_val(d_info.get("health_screening_count")),
+            similarity=clean_val(d_info.get("similarity", 0.0))
+        ))
+    return results
+
+@router.get("/lookalike/influencers")
+async def get_influencer_lookalikes():
+    """
+    Returns lookalike matches based on influencer seeds.
+    Matches logic from InfluencerLookalikeTable.tsx but fetches from CSV.
+    """
+    CSV_INF_PATH = Path(__file__).resolve().parent.parent / 'data' / 'influencer_lookalike_matches.csv'
+    DONORS_PATH = Path(__file__).resolve().parent.parent / 'data' / 'donors_rows.csv'
+    
+    if not CSV_INF_PATH.exists() or not DONORS_PATH.exists():
+        return []
+    
+    try:
+        matches_df = pd.read_csv(CSV_INF_PATH)
+        donors_df = pd.read_csv(DONORS_PATH)
+        
+        # Handle NaN/Inf in both DataFrames
+        matches_df = matches_df.replace([float('inf'), float('-inf')], None)
+        donors_df = donors_df.replace([float('inf'), float('-inf')], None)
+        
+        # Join seed donor info
+        merged = matches_df.merge(
+            donors_df[['donor_id', 'first_name', 'last_name']].rename(columns={'first_name': 'seed_fname', 'last_name': 'seed_lname'}),
+            left_on='seed_influencer_id',
+            right_on='donor_id',
+            how='left'
+        ).drop(columns=['donor_id'])
+        
+        # Join matched donor info
+        merged = merged.merge(
+            donors_df[['donor_id', 'first_name', 'last_name']].rename(columns={'first_name': 'match_fname', 'last_name': 'match_lname'}),
+            left_on='matched_donor_id',
+            right_on='donor_id',
+            how='left'
+        ).drop(columns=['donor_id'])
+        
+        merged = merged.sort_values('similarity_score', ascending=False)
+        # Handle NaN/Inf in the merged DataFrame
+        merged = merged.replace([np.inf, -np.inf], np.nan)
+        merged = merged.astype(object).where(pd.notnull(merged), None)
+        
+        return merged.to_dict(orient='records')
     except Exception as e:
-        log_error(f"Error fetching donor details: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
+        log_error(f"Error fetching influencer lookalikes: {e}")
+        return []
 
