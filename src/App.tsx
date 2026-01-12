@@ -23,7 +23,7 @@ import AIAssistant from './components/AIAssistant';
 import LiveSignalsPage from './pages/LiveSignalsPage';
 import CSVIntegration from './pages/integrations/CSVIntegration';
 import DBIntegration from './pages/integrations/DBIntegration';
-import CRMIntegration from './pages/integrations/CRMIntegration';
+// import CRMIntegration from './pages/integrations/CRMIntegration';
 
 import type { User } from './types/user.types';
 
@@ -138,7 +138,7 @@ function App() {
               <>
                 <Route path="/integrations/csv" element={<CSVIntegration />} />
                 <Route path="/integrations/db" element={<DBIntegration />} />
-                <Route path="/integrations/crm" element={<CRMIntegration />} />
+                {/* <Route path="/integrations/crm" element={<CRMIntegration />} /> */}
                 <Route path="/dashboard" element={<DashboardTiles />} />
                 <Route path="/campaigns/dashboard" element={<CampaignDashboard />} />
                 <Route path="/campaigns/conversion" element={<CampaignDashboard />} />

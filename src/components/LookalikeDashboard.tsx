@@ -179,23 +179,6 @@ export default function LookalikeDashboard() {
     '#8b5cf6'   // Cluster 4+ - Purple
   ];
 
-  // Filter selection styles
-  const filterLabelStyle: React.CSSProperties = {
-    display: 'block',
-    marginBottom: '8px',
-    fontWeight: 600,
-    fontSize: '14px'
-  };
-
-  const checkboxLabelStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontWeight: 600,
-    fontSize: '14px',
-    cursor: 'pointer'
-  };
-
   return (
     <div className="section" style={{ marginTop: '48px' }}>
       {/* Modern Filter Widget */}
@@ -287,96 +270,121 @@ export default function LookalikeDashboard() {
             />
           </div>
 
-          {/* Row 2: Additional Filters */}
+          {/* Row 2: Additional Filters - Modern Chip Style */}
           <div className="modern-filters-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
 
+            {/* Avg Donation Size - Modern Chip Buttons */}
             <div className="filter-group">
-              <label style={filterLabelStyle}>
-                Avg Donation Size
+              <label className="modern-filter-label">
+                <span className="filter-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </span>
+                Min Avg Donation
               </label>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
-                {[200,300,400].map(size => (
-                  <label key={`avg-${size}`} className="filter-radio-label" style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '6px',
-                    cursor: 'pointer',
-                    fontWeight: 600,
-                    fontSize: '14px'
-                  }}>
-                    <input 
-                      type="radio" 
-                      name="avgSize" 
-                      checked={avgDonationSize === size}
-                      onChange={() => setAvgDonationSize(size)}
-                      style={{ width: '16px', height: '16px', cursor: 'pointer' }}
-                    />
-                    ${size}
-                  </label>
+              <div className="modern-chip-group">
+                <button
+                  type="button"
+                  className={`modern-filter-chip ${avgDonationSize === '' ? 'active' : ''}`}
+                  onClick={() => setAvgDonationSize('')}
+                >
+                  <span className="chip-icon">✕</span>
+                  Any
+                </button>
+                {[200, 300, 400, 500].map(size => (
+                  <button
+                    key={`avg-${size}`}
+                    type="button"
+                    className={`modern-filter-chip ${avgDonationSize === size ? 'active' : ''}`}
+                    onClick={() => setAvgDonationSize(size)}
+                  >
+                    <span className="chip-icon">$</span>
+                    {size}+
+                  </button>
                 ))}
               </div>
             </div>
 
+            {/* Cluster Selection - Modern Chip Buttons */}
             <div className="filter-group">
-              <label style={filterLabelStyle}>
+              <label className="modern-filter-label">
+                <span className="filter-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <circle cx="19" cy="6" r="2"/>
+                    <circle cx="5" cy="18" r="2"/>
+                    <circle cx="19" cy="18" r="2"/>
+                    <line x1="12" y1="12" x2="19" y2="6" strokeDasharray="2 2"/>
+                    <line x1="12" y1="12" x2="5" y2="18" strokeDasharray="2 2"/>
+                    <line x1="12" y1="12" x2="19" y2="18" strokeDasharray="2 2"/>
+                  </svg>
+                </span>
                 Cluster Selection
               </label>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '12px', flexWrap: 'wrap' }}>
-                <label className="filter-radio-label" style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '6px',
-                  cursor: 'pointer',
-                  fontWeight: 600,
-                  fontSize: '14px'
-                }}>
-                  <input 
-                    type="radio" 
-                    name="clusterID"
-                    value="all"
-                    checked={selectedCluster === null}
-                    onChange={() => setSelectedCluster(null)}
-                    style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
-                  />
-                  All Clusters
-                </label>
+              <div className="modern-chip-group">
+                <button
+                  type="button"
+                  className={`modern-filter-chip ${selectedCluster === null ? 'active' : ''}`}
+                  onClick={() => setSelectedCluster(null)}
+                >
+                  <span className="chip-dot" style={{ background: 'linear-gradient(135deg, #314ca0, #E53E3E)' }}></span>
+                  All
+                </button>
                 {availableClusters.map(clusterID => (
-                  <label key={`c-${clusterID}`} className="filter-radio-label" style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '6px',
-                    cursor: 'pointer',
-                    fontWeight: 600,
-                    fontSize: '14px'
-                  }}>
-                    <input 
-                      type="radio" 
-                      name="clusterID"
-                      value={clusterID}
-                      checked={selectedCluster === clusterID}
-                      onChange={() => setSelectedCluster(clusterID)}
-                      style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#314ca0' }}
-                    />
+                  <button
+                    key={`c-${clusterID}`}
+                    type="button"
+                    className={`modern-filter-chip ${selectedCluster === clusterID ? 'active' : ''}`}
+                    onClick={() => setSelectedCluster(clusterID)}
+                  >
+                    <span 
+                      className="chip-dot" 
+                      style={{ background: clusterColors[clusterID % clusterColors.length] }}
+                    ></span>
                     #{clusterID}
-                  </label>
+                  </button>
                 ))}
               </div>
             </div>
 
+            {/* Cluster Filter - Modern Toggle Switch */}
             <div className="filter-group">
-              <label style={filterLabelStyle}>
+              <label className="modern-filter-label">
+                <span className="filter-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#314ca0" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </span>
                 Cluster Filter
               </label>
-              <div style={{ marginTop: '12px' }}>
-                <label style={checkboxLabelStyle}>
-                  <input 
-                    type="checkbox"
-                    checked={filterByClusterOnly}
-                    onChange={(e) => setFilterByClusterOnly(e.target.checked)}
-                    style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#314ca0' }}
-                  />
-                  Same Cluster Only
-                </label>
+              <div className="modern-toggle-container">
+                <button
+                  type="button"
+                  className={`modern-toggle-btn ${!filterByClusterOnly ? 'active' : ''}`}
+                  onClick={() => setFilterByClusterOnly(false)}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                  All Clusters
+                </button>
+                <button
+                  type="button"
+                  className={`modern-toggle-btn ${filterByClusterOnly ? 'active' : ''}`}
+                  onClick={() => setFilterByClusterOnly(true)}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  Same Cluster
+                </button>
               </div>
             </div>
           </div>
